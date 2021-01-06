@@ -6,6 +6,6 @@ export const getMovies = () => {
         dispatch({type: "LOADING_MOVIES"})
         fetch(URL)
         .then(resp => resp.json())
-        .then(movies => console.log(movies.results.title))
+        .then(movie => dispatch({type: 'MOVIES_LOADED', payload: movie.results}))
     }
 }
