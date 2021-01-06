@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react'
+import MovieContainer from './containers/MovieContainer'
 
 class App extends Component {
 
@@ -10,6 +11,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Movies</h1>
         </header>
+        <MovieContainer />
       </div>
     );
   }
