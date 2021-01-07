@@ -9,9 +9,12 @@ class MovieContainer extends Component {
     }
 
     render() {
+
+        const imageURL = 'http://image.tmdb.org/t/p/w185'
+
         console.log("props is", this.props)
         const movies = this.props.movies.map((movie, i) => {
-            return <li key={i}>{movie.title}</li>
+            return <li key={i}><img src={imageURL + movie.poster_path} alt=""></img>{movie.title}</li>
         })
         return (
             <div>
@@ -22,7 +25,7 @@ class MovieContainer extends Component {
 }
 
  const mapStateToProps = state => {
-    console.log(state)
+    console.log('state is', state)
     return {
         movies: state.movieReducer.movies,
         loading: state.movieReducer.loading
