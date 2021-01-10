@@ -14,7 +14,7 @@ class MovieContainer extends Component {
 
         console.log("props is", this.props)
         const movies = this.props.movies.map((movie, i) => {
-            return <li key={i}><img src={imageURL + movie.poster_path} alt=""></img>{movie.title}</li>
+            return <a href=""><img key={i} src={imageURL + movie.poster_path} alt=""></img></a>
         })
         return (
             <div>
