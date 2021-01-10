@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react'
 import MovieContainer from './containers/MovieContainer'
+import movieReducer from './reducers/movieReducer';
 
 class App extends Component {
 
