@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getMovies } from '../actions/movie'
+import Movie from '../components/Movie'
 
-class MovieContainer extends Component {
+class MoviesContainer extends Component {
 
     componentDidMount() {
         this.props.getMovies()
@@ -14,11 +15,15 @@ class MovieContainer extends Component {
 
         console.log("props is", this.props)
         const movies = this.props.movies.map((movie, i) => {
-            return <a href=""><img key={i} src={imageURL + movie.poster_path} alt=""></img></a>
+            return <a href=""><img key={i} src={imageURL + movie.poster_path} alt=""></img>{movie.title}</a>
         })
         return (
             <div>
-               {this.props.loading ? <h3>Loading...</h3> : movies} 
+                <header className='App-header'>
+                    <h1>Movies</h1>
+                </header>
+               {this.props.loading ? <h3>Loading...</h3> : movies}
+               {/* <Movie /> */}
             </div>
         )
     }
@@ -31,4 +36,4 @@ class MovieContainer extends Component {
         loading: state.movieReducer.loading
     }
 }
-export default connect(mapStateToProps, { getMovies })(MovieContainer)
+export default connect(mapStateToProps, { getMovies })(MoviesContainer)

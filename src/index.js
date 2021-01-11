@@ -8,12 +8,21 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers/index'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom' 
+import MoviesContainer from './containers/MoviesContainer'
+import Home from './components/Home'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <Switch>
+        <Route exact path='/' component={Home}/>
+        <Route exact path='/movies' component={MoviesContainer}/>
+      </Switch>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );

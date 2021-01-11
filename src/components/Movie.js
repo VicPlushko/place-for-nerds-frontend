@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Movie extends Component {
-    render() {
+const Movie = (props) => {
         return (
             <div>
-              <h3>{this.props.movie.title}</h3> 
+              <h3>{props.title}</h3> 
             </div>
         )
-    }
 }
 
 export default Movie
