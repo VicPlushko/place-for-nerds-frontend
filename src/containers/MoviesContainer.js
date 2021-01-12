@@ -5,25 +5,28 @@ import Movie from '../components/Movie'
 
 class MoviesContainer extends Component {
 
+    handleOnClick = (event) => {
+        event.preventDefault()
+        debugger
+    }
+
     componentDidMount() {
         this.props.getMovies()
     }
 
     render() {
 
-        const imageURL = 'http://image.tmdb.org/t/p/w185'
-
         console.log("props is", this.props)
         const movies = this.props.movies.map((movie, i) => {
-            return <a href=""><img key={i} src={imageURL + movie.poster_path} alt=""></img>{movie.title}</a>
-        })
+            return <Movie key={i}  id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.overview} poster={movie.poster_path} handleClick={this.handleOnClick}/>
+            })
+        
         return (
             <div>
                 <header className='App-header'>
                     <h1>Movies</h1>
                 </header>
                {this.props.loading ? <h3>Loading...</h3> : movies}
-               {/* <Movie /> */}
             </div>
         )
     }
