@@ -3,6 +3,7 @@ import './App.css';
 import React, { Component } from 'react'
 import MoviesContainer from './containers/MoviesContainer'
 import movieReducer from './reducers/movieReducer';
+import SingleMovieContainer from './containers/SingleMovieContainer'
 
 class App extends Component {
 

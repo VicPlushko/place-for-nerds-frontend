@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getMovies, getSingleMovie } from '../actions/movie'
+import { getMovies } from '../actions/movie'
 import Movie from '../components/Movie'
 
 class MoviesContainer extends Component {
@@ -38,4 +38,4 @@ class MoviesContainer extends Component {
         loading: state.movieReducer.loading
     }
 }
-export default connect(mapStateToProps, { getMovies, getSingleMovie })(MoviesContainer)
+export default connect(mapStateToProps, { getMovies })(MoviesContainer)
