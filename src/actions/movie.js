@@ -9,3 +9,15 @@ export const getMovies = () => {
         .then(movie => dispatch({type: 'MOVIES_LOADED', payload: movie.results}))
     }
 }
+
+export const getSingleMovie = () => {
+    const movieShowUrl = `http://localhost:3001/${id}`
+
+    return dispatch => {
+        dispatch({type: 'LOADING_SINGLE_MOVIE'})
+        fetch(movieShowUrl)
+        .then(resp => resp.json())
+        .then(movie => dispatch({type: 'SINGLE_MOVIE_LOADED', 
+                                 payload: movie.results}))
+    }
+}
