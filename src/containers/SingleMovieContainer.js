@@ -16,7 +16,7 @@ class SingleMovieContainer extends Component {
     }
 
     componentDidMount() {
-        const movieUrl = `http:localhost:3001/movies/${this.state.id}`
+        const movieUrl = `http://localhost:3001/movies/${this.state.id}`
         fetch(movieUrl)
         .then(resp => resp.json())
         .then(data => {
@@ -24,18 +24,17 @@ class SingleMovieContainer extends Component {
                 ...this.state,
                 title: data.title,
                 release_date: data.release_date,
-                synopsis: data.overview,
-                poster: data.poster_path
+                synopsis: data.synopsis,
+                poster: data.poster
             })
         })
-        debugger
     }
     
     render() {
          
         return (
             <div>
-               <SingleMovie title={this.state.title}/>
+               <SingleMovie title={this.state.title} release_date={this.state.release_date} synopsis={this.state.synopsis} poster={this.state.poster}/>
             </div>
         )
     }
