@@ -2,12 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getMovies } from '../actions/movie'
 import Movie from '../components/Movie'
+import Navigation from '../components/Navigation'
 
 class MoviesContainer extends Component {
-
-    handleOnClick = (event) => {
-    
-    }
 
     componentDidMount() {
         this.props.getMovies()
@@ -17,13 +14,16 @@ class MoviesContainer extends Component {
 
         console.log("props is", this.props)
         const movies = this.props.movies.map((movie, i) => {
-            return <Movie key={i}  id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.overview} poster={movie.poster_path} handleClick={this.handleOnClick}/>
+            return <Movie key={i} id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.synopsis} poster={movie.poster} />
             })
         
         return (
             <div>
                 <header className='App-header'>
-                    <h1>Movies</h1>
+                    <Navigation />
+                </header>
+                <header className='App-header'>
+                    <h1>Movies</h1>   
                 </header>
                {this.props.loading ? <h3>Loading...</h3> : movies}
             </div>

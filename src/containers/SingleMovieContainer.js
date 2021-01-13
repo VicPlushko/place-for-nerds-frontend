@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
-// import { connect } from 'react-redux'
 import SingleMovie from '../components/SingleMovie'
-// import movieReducer from '../reducers/movieReducer'
-// import { getSingleMovie } from '../actions/movie'
+import Navigation from '../components/Navigation'
 
 class SingleMovieContainer extends Component {
     
 
     state = {
-        id: 1,
         title: "",
         release_date: "",
         synopsis: "",
@@ -16,7 +13,8 @@ class SingleMovieContainer extends Component {
     }
 
     componentDidMount() {
-        const movieUrl = `http://localhost:3001/movies/${this.state.id}`
+        console.log('props is', this.props)
+        const movieUrl = `http://localhost:3001/movies/${this.props.match.params.id}`
         fetch(movieUrl)
         .then(resp => resp.json())
         .then(data => {
@@ -34,6 +32,9 @@ class SingleMovieContainer extends Component {
          
         return (
             <div>
+                <header className='App-header'>
+                    <Navigation />
+                </header>
                <SingleMovie title={this.state.title} release_date={this.state.release_date} synopsis={this.state.synopsis} poster={this.state.poster}/>
             </div>
         )
