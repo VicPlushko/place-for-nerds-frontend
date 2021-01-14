@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { getMovies } from '../actions/movie'
 import Movie from '../components/Movie'
 import Navigation from '../components/Navigation'
-import SearchContainer from './SearchContainer'
 
 class MoviesContainer extends Component {
 
@@ -26,7 +25,6 @@ class MoviesContainer extends Component {
                 <header className='App-header'>
                     <h1>Movies</h1>   
                 </header>
-                <SearchContainer />
                {this.props.loading ? <h3>Loading...</h3> : movies}
             </div>
         )
