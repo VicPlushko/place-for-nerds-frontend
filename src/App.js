@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react'
-import MoviesContainer from './containers/MoviesContainer'
-import movieReducer from './reducers/movieReducer';
-import SingleMovieContainer from './containers/SingleMovieContainer'
-import Navigation from './components/Navigation'
+// import SearchContainer from './containers/SearchContainer'
+// import MoviesContainer from './containers/MoviesContainer'
+// import movieReducer from './reducers/movieReducer';
+// import SingleMovieContainer from './containers/SingleMovieContainer'
+// import Navigation from './components/Navigation'
 
 class App extends Component {
 
