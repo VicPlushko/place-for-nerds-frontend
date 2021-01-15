@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getMovies } from '../actions/movie'
 import Movie from '../components/Movie'
 import Navigation from '../components/Navigation'
+import SearchContainer from '../containers/SearchContainer'
 
 class MoviesContainer extends Component {
 
@@ -12,7 +13,7 @@ class MoviesContainer extends Component {
 
     render() {
 
-        // console.log("props is", this.props)
+        console.log("movie container props is", this.props)
         const movies = this.props.movies.map((movie, i) => {
             return <Movie key={i} id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.synopsis} poster={movie.poster} />
             })
@@ -25,7 +26,9 @@ class MoviesContainer extends Component {
                 <header className='App-header'>
                     <h1>Movies</h1>   
                 </header>
+                <SearchContainer />
                {this.props.loading ? <h3>Loading...</h3> : movies}
+
             </div>
         )
     }

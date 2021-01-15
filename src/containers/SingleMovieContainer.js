@@ -13,7 +13,7 @@ class SingleMovieContainer extends Component {
     }
 
     componentDidMount() {
-        console.log('props is', this.props)
+        console.log('single movie container props is', this.props)
         const movieUrl = `http://localhost:3001/movies/${this.props.match.params.id}`
         fetch(movieUrl)
         .then(resp => resp.json())

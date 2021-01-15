@@ -2,6 +2,7 @@
 import './App.css';
 import React, { Component } from 'react'
 // import SearchContainer from './containers/SearchContainer'
+// import SearchContainer from './containers/SearchContainer'
 // import MoviesContainer from './containers/MoviesContainer'
 // import movieReducer from './reducers/movieReducer';
 // import SingleMovieContainer from './containers/SingleMovieContainer'
@@ -12,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-    
+        {/* <SearchContainer /> */}
       </div>
     );
   }

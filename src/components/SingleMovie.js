@@ -2,7 +2,7 @@ import React from 'react'
 
 const SingleMovie = (props) => {
 
-    console.log('props is', props)
+    console.log('single movie props is', props)
     const posterURL = 'http://image.tmdb.org/t/p/w500'
     return (
         <div>
