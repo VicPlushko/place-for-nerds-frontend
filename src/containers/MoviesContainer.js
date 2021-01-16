@@ -15,7 +15,7 @@ class MoviesContainer extends Component {
 
         console.log("movie container props is", this.props)
         const movies = this.props.movies.map((movie, i) => {
-            return <Movie key={i} id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.synopsis} poster={movie.poster} />
+            return <Movie key={i} id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.synopsis} poster={movie.poster} movie_id={movie.movie_id}/>
             })
         
         return (
@@ -35,7 +35,7 @@ class MoviesContainer extends Component {
 }
 
  const mapStateToProps = state => {
-    // console.log('state is', state)
+    console.log('state is', state)
     return {
         movies: state.movieReducer.movies,
         loading: state.movieReducer.loading

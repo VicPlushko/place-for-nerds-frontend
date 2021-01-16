@@ -7,7 +7,7 @@ const Movie = (props) => {
   const imageURL = 'http://image.tmdb.org/t/p/w185'
         return (
             <div>
-              <Link to={`/movies/${props.id}`}><img src={imageURL + props.poster} alt="" id={props.id}></img>{props.title}</Link>
+              <Link to={`/movies/${props.movie_id}`}><img src={imageURL + props.poster} alt="" id={props.id}></img>{props.title}</Link>
             </div>
         )
 }

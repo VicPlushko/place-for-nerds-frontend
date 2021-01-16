@@ -9,12 +9,19 @@ class SingleMovieContainer extends Component {
         title: "",
         release_date: "",
         synopsis: "",
-        poster: ""
+        poster: "",
+        movie_id: "",
+        budget: "",
+        revenue: "",
+        runtime: "",
+        genres: [],
+        productionCompanies: [],
+        cast: []
     }
 
     componentDidMount() {
         console.log('single movie container props is', this.props)
-        const movieUrl = `http://localhost:3001/movies/${this.props.match.params.id}`
+        const movieUrl = `https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=418fbea2f4a11b1a7fe771ed7997a691&language=en-US&append_to_response=credits`
         fetch(movieUrl)
         .then(resp => resp.json())
         .then(data => {
@@ -22,20 +29,30 @@ class SingleMovieContainer extends Component {
                 ...this.state,
                 title: data.title,
                 release_date: data.release_date,
-                synopsis: data.synopsis,
-                poster: data.poster
+                synopsis: data.overview,
+                poster: data.poster_path,
+                movie_id: data.id,
+                budget: data.budget,
+                revenue: data.revenue,
+                runtime: data.runtime,
+                genres: data.genres.map(genre => <li>{genre.name}</li>),
+                productionCompanies: data.production_companies.map(company => <li>{company.name}</li>),
+                cast: data.credits.cast.map(actor => <li>{actor.name} - {actor.character}</li>)
+                
             })
         })
+        
     }
     
     render() {
+
          
         return (
             <div>
                 <header className='App-header'>
                     <Navigation />
                 </header>
-               <SingleMovie title={this.state.title} release_date={this.state.release_date} synopsis={this.state.synopsis} poster={this.state.poster}/>
+               <SingleMovie title={this.state.title} release_date={this.state.release_date} synopsis={this.state.synopsis} poster={this.state.poster} movie_id={this.state.movie_id} budget={this.state.budget} revenue={this.state.revenue} runtime={this.state.runtime} genres={this.state.genres} productionCompanies={this.state.productionCompanies} cast={this.state.cast}/>
             </div>
         )
     }
