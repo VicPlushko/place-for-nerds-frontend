@@ -69,18 +69,21 @@
 }
 
 .movie-list-container {
-  margin: auto;
-  max-width: 900px;
   text-align: center; 
 }
 
-.search-bar {
-  align-content: center;
+.search-form {
+  text-align: center;
+  padding: 20px
 }
 
 .movies-container {
+  text-align: center;
+  margin: auto;
+  min-width: 600px;
+  max-width: 90%;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat( auto-fit, minmax(190px, 1fr) );
   padding: 10px;
 }
 

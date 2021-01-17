@@ -11,6 +11,11 @@ class MoviesContainer extends Component {
         this.props.getMovies()
     }
 
+    handleOnClick = (event) => {
+        event.preventDefault()
+        this.props.getMovies()
+    }
+
     render() {
 
         console.log("movie container props is", this.props)
@@ -27,8 +32,13 @@ class MoviesContainer extends Component {
                     <h1>Movies</h1>   
                 </div>
                 <SearchContainer />
+                <button className='reload-movies' onClick={this.handleOnClick}>Clear Search</button>
                 <div className='movies-container'>
-                {this.props.loading ? <h3>Loading...</h3> : movies}
+                {this.props.loading 
+                ? <h3>Loading...</h3> 
+                : (movies.length === 0) 
+                ? <p>No Movies Found</p>
+                :movies}
                 </div>
             </div>
             
