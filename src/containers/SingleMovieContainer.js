@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../App.css'
 import SingleMovie from '../components/SingleMovie'
 import Navigation from '../components/Navigation'
 
@@ -17,7 +18,7 @@ class SingleMovieContainer extends Component {
         genres: [],
         productionCompanies: [],
         cast: [],
-        actorPic: []
+        backdrop: ""
     }
 
     componentDidMount() {
@@ -29,6 +30,7 @@ class SingleMovieContainer extends Component {
         .then(data => {
             this.setState({
                 ...this.state,
+                backdrop: data.backdrop_path,
                 title: data.title,
                 release_date: data.release_date,
                 synopsis: data.overview,
@@ -37,9 +39,12 @@ class SingleMovieContainer extends Component {
                 budget: formatAsCurrency(data.budget),
                 revenue: formatAsCurrency(data.revenue),
                 runtime: data.runtime,
-                genres: data.genres.map(genre => <li>{genre.name}</li>),
+                genres: data.genres.map(genre => genre.name).join(', '),
                 productionCompanies: data.production_companies.map(company => <li>{company.name}</li>),
-                cast: data.credits.cast.map(actor => <li><img className='actor-pic' src={actor.profile_path + actorPicUrl} alt=""></img>{actor.name} - {actor.character}</li>),
+                cast: data.credits.cast.map(actor => <div className='castGrid'>
+                    <img className='actor-pic' src={actorPicUrl + actor.profile_path} alt=""></img>
+                    <div className='actor-name'>{actor.name} - {actor.character}</div>
+                    </div>),
                 
             })
         })
@@ -54,7 +59,7 @@ class SingleMovieContainer extends Component {
                 <header className='App-header'>
                     <Navigation />
                 </header>
-               <SingleMovie title={this.state.title} release_date={this.state.release_date} synopsis={this.state.synopsis} poster={this.state.poster} movie_id={this.state.movie_id} budget={this.state.budget} revenue={this.state.revenue} runtime={this.state.runtime} genres={this.state.genres} productionCompanies={this.state.productionCompanies} cast={this.state.cast} />
+               <SingleMovie title={this.state.title} release_date={this.state.release_date} synopsis={this.state.synopsis} poster={this.state.poster} movie_id={this.state.movie_id} budget={this.state.budget} revenue={this.state.revenue} runtime={this.state.runtime} genres={this.state.genres} productionCompanies={this.state.productionCompanies} cast={this.state.cast} backdrop={this.state.backdrop}/>
             </div>
         )
     }

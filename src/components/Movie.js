@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Movie = (props) => {
   console.log('movie component', props)
   // let id = props.match.params.id
-  const imageURL = 'http://image.tmdb.org/t/p/w185'
+  const imageURL = 'http://image.tmdb.org/t/p/w92'
         return (
             <div>
               <Link to={`/movies/${props.movie_id}`}><img src={imageURL + props.poster} alt="" id={props.id}></img>{props.title}</Link>
