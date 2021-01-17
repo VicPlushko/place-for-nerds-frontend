@@ -78,9 +78,16 @@
   align-content: center;
 }
 
-.movie-list {
+.movies-container {
   display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
 }
+
+.movie-title {
+  padding-bottom: 10px
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -19,6 +19,7 @@ class SearchContainer extends Component {
         fetch(`http://localhost:3001/movies/search/${this.state.searchTerm}`)
         .then(resp => resp.json())
         .then(data => this.props.dispatch({type: "MOVIES_LOADED", payload: data}))
+        .then(data => console.log(data))
     }
     render() {
         

@@ -27,7 +27,9 @@ class MoviesContainer extends Component {
                     <h1>Movies</h1>   
                 </div>
                 <SearchContainer />
+                <div className='movies-container'>
                 {this.props.loading ? <h3>Loading...</h3> : movies}
+                </div>
             </div>
             
         )
