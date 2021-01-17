@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getMovies } from '../actions/movie'
 import Movie from '../components/Movie'
-import Navigation from '../components/Navigation'
 import SearchContainer from '../containers/SearchContainer'
+import Navigation from '../components/Navigation'
 
 class MoviesContainer extends Component {
 
@@ -23,13 +23,13 @@ class MoviesContainer extends Component {
                 <header className='App-header'>
                     <Navigation />
                 </header>
-                <header className='App-header'>
+                <div className='App-header'>
                     <h1>Movies</h1>   
-                </header>
+                </div>
                 <SearchContainer />
-               {this.props.loading ? <h3>Loading...</h3> : movies}
-
+                {this.props.loading ? <h3>Loading...</h3> : movies}
             </div>
+            
         )
     }
 }

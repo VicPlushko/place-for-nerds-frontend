@@ -7,9 +7,9 @@ const Home = () => {
             <header className='App-header'>
                 <Navigation />
             </header>
-            <header className='App-header'>
+            <div className='App-header'>
                 <h1>Welcome to A Place For Nerds</h1>
-            </header>
+            </div>
         </div>
     )
 }

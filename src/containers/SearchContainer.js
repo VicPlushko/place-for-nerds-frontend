@@ -23,9 +23,8 @@ class SearchContainer extends Component {
     render() {
         
         return (
-            <div>
+            <div className='search'>
                 <SearchBar handleChange={this.handleOnChange} handleSubmit={this.handleOnSubmit}/>
-            
             </div>
         )
     }

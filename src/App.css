@@ -68,6 +68,19 @@
   font-size: medium;
 }
 
+.movie-list-container {
+  margin: auto;
+  max-width: 900px;
+  text-align: center; 
+}
+
+.search-bar {
+  align-content: center;
+}
+
+.movie-list {
+  display: grid;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
