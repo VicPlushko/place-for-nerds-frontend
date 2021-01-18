@@ -16,10 +16,11 @@ class SearchContainer extends Component {
 
     handleOnSubmit = (event) => {
         event.preventDefault()
+        this.state.searchTerm.length < 2 ? <p>Please enter a valid search</p> :
         fetch(`http://localhost:3001/movies/search/${this.state.searchTerm}`)
         .then(resp => resp.json())
         .then(data => this.props.dispatch({type: "MOVIES_LOADED", payload: data}))
-        .then(data => console.log(data))
+        event.target.reset()
     }
     render() {
         

@@ -11,7 +11,7 @@ class MoviesContainer extends Component {
         this.props.getMovies()
     }
 
-    handleOnClick = (event) => {
+    handleClick = (event) => {
         event.preventDefault()
         this.props.getMovies()
     }
@@ -31,8 +31,8 @@ class MoviesContainer extends Component {
                 <div className='App-header'>
                     <h1>Movies</h1>   
                 </div>
-                <SearchContainer />
-                <button className='reload-movies' onClick={this.handleOnClick}>Clear Search</button>
+                <SearchContainer onClick={this.handleOnClick}/>
+                <button className='reload-movies' onClick={this.handleClick}>Clear Search</button>
                 <div className='movies-container'>
                 {this.props.loading 
                 ? <h3>Loading...</h3> 
