@@ -16,7 +16,7 @@ class SearchContainer extends Component {
 
     handleOnSubmit = (event) => {
         event.preventDefault()
-        this.state.searchTerm.length < 2 ? <p>Please enter a valid search</p> :
+        this.state.searchTerm.length < 2 ? window.alert("Please enter a search with 2 or more characters") :
         fetch(`http://localhost:3001/movies/search/${this.state.searchTerm}`)
         .then(resp => resp.json())
         .then(data => this.props.dispatch({type: "MOVIES_LOADED", payload: data}))
