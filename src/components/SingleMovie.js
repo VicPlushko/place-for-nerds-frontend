@@ -13,8 +13,6 @@ const SingleMovie = (props) => {
                 <h1>{props.title}</h1>
             </div>
                 <div className="singleView">
-                    {/* <img className='backdrop' src={backdropUrl + props.backdrop} alt=''></img> */}
-                    {/* <img className='show-poster' src={posterURL + props.poster} alt=''></img> */}
                    <p className='show-info'><strong>Runtime:</strong> {props.runtime} Minutes</p>
                     <p className='show-info'><strong>Genre:</strong> {props.genres}</p>
                     <p className='show-info'><strong>Synopsis:</strong> {props.synopsis}</p>

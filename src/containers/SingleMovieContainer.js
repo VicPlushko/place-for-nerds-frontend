@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import '../App.css'
 import SingleMovie from '../components/SingleMovie'
 import Navigation from '../components/Navigation'
+import { Link } from 'react-router-dom'
+import Actor from '../components/Actor'
 
 class SingleMovieContainer extends Component {
     
@@ -22,9 +24,11 @@ class SingleMovieContainer extends Component {
     }
 
     componentDidMount() {
+
+        const MOVIES_KEY = process.env.REACT_APP_MOVIES_KEY
         const actorPicUrl = 'http://image.tmdb.org/t/p/w92'
         console.log('single movie container props is', this.props)
-        const movieUrl = `https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=418fbea2f4a11b1a7fe771ed7997a691&language=en-US&append_to_response=credits`
+        const movieUrl = `https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${MOVIES_KEY}&language=en-US&append_to_response=credits`
         fetch(movieUrl)
         .then(resp => resp.json())
         .then(data => {
@@ -41,11 +45,9 @@ class SingleMovieContainer extends Component {
                 runtime: data.runtime,
                 genres: data.genres.map(genre => genre.name).join(', '),
                 productionCompanies: data.production_companies.map(company => <li>{company.name}</li>),
-                cast: data.credits.cast.map(actor => <div className='castGrid'>
-                    <img className='actor-pic' src={actorPicUrl + actor.profile_path} alt=""></img>
-                    <div className='actor-name'>{actor.name} - {actor.character}</div>
-                    </div>),
-                
+                cast: data.credits.cast.map((actor, i) => {
+                    return <Actor key={i} id={actor.id} name={actor.name} character={actor.character} profile_path={actor.profile_path}/>
+                })
             })
         })
         

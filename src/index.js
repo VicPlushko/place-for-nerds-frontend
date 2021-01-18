@@ -12,6 +12,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import MoviesContainer from './containers/MoviesContainer'
 import Home from './components/Home'
 import SingleMovieContainer from './containers/SingleMovieContainer'
+import ActorContainer from './containers/ActorContainer'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
@@ -22,6 +23,7 @@ ReactDOM.render(
         <Route exact path='/' component={Home}/>
         <Route exact path='/movies' component={MoviesContainer}/>
         <Route exact path='/movies/:id' component={SingleMovieContainer}/>
+        <Route exact path='/actors/:id' component={ActorContainer} />
       </Switch>
       <App />
     </Router>

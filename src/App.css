@@ -30,7 +30,7 @@
 
 .castContainer {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat( auto-fit, minmax(190px, 1fr) );
   padding: 10px;
 }
 
@@ -43,7 +43,7 @@
 .singleView {
   background-color: rgba(255, 255, 255, 0.8);
   margin: auto;
-  max-width: 900px;
+  max-width: 90%;
   text-align: center;
   padding-top: 10px;
 }
@@ -56,15 +56,25 @@
   background-position: center top;
 }
 
-/* .show-info {
-  color: white
-} */
-
 .single-movie-fade {
   background-color: rgb(0, 0, 0, 0.4)
 }
 
 .actor-name {
+  font-size: medium;
+}
+
+.movie-name {
+  font-size: large;
+  font-weight: bold;
+
+}
+
+.character-name {
+  font-size: medium;
+}
+
+.release-date{
   font-size: medium;
 }
 
