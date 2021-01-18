@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SingleMovie = (props) => {
+const SingleActor = (props) => {
 
-    console.log('single movie props is', props)
+    console.log('single actor props is', props)
     const profileURL = 'http://image.tmdb.org/t/p/w185'
     
     return (
@@ -29,4 +29,4 @@ const SingleMovie = (props) => {
     )
 }
 
-export default SingleMovie
+export default SingleActor
