@@ -88,7 +88,18 @@
 }
 
 .movie-title {
-  padding-bottom: 10px
+  padding-bottom: 10px;
+}
+
+.title-link {
+  text-decoration: none;
+}
+
+.clear-btn {
+  position: absolute;
+  margin-left: 1165px;
+  top: 265px;
+  
 }
 
 @keyframes App-logo-spin {
