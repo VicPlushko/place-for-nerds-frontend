@@ -22,7 +22,7 @@ class ActorContainer extends Component {
     componentDidMount() {
         const MOVIES_KEY = process.env.REACT_APP_MOVIES_KEY
         const actorPic = 'http://image.tmdb.org/t/p/w185'
-        console.log('actor container props is', this.props)
+        // console.log('actor container props is', this.props)
         const actorUrl = `https://api.themoviedb.org/3/person/${this.props.match.params.id}?api_key=${MOVIES_KEY}&language=en-US&append_to_response=movie_credits,tv_credits`
         fetch(actorUrl)
         .then(resp => resp.json())

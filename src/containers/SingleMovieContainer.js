@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import '../App.css'
 import SingleMovie from '../components/SingleMovie'
 import Navigation from '../components/Navigation'
-import { Link } from 'react-router-dom'
 import Actor from '../components/Actor'
 
 class SingleMovieContainer extends Component {
@@ -26,8 +25,7 @@ class SingleMovieContainer extends Component {
     componentDidMount() {
 
         const MOVIES_KEY = process.env.REACT_APP_MOVIES_KEY
-        const actorPicUrl = 'http://image.tmdb.org/t/p/w92'
-        console.log('single movie container props is', this.props)
+        // console.log('single movie container props is', this.props)
         const movieUrl = `https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${MOVIES_KEY}&language=en-US&append_to_response=credits`
         fetch(movieUrl)
         .then(resp => resp.json())

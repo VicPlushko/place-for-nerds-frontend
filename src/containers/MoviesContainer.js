@@ -18,7 +18,7 @@ class MoviesContainer extends Component {
 
     render() {
 
-        console.log("movie container props is", this.props)
+        // console.log("movie container props is", this.props)
         const movies = this.props.movies.map((movie, i) => {
             return <Movie key={i} id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.synopsis} poster={movie.poster} movie_id={movie.movie_id}/>
             })

@@ -114,6 +114,15 @@
   
 }
 
+.greeting {
+  text-align: center;
+  font-size: x-large;
+}
+
+.greeting span {
+  font-weight: bold;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -4,7 +4,6 @@ const SingleMovie = (props) => {
 
     console.log('single movie props is', props)
     const backdropUrl = `http://image.tmdb.org/t/p/original${props.backdrop}`
-    const posterURL = 'http://image.tmdb.org/t/p/w500'
     
     return (
         <div className='single-movie' style={{backgroundImage: "url(" + backdropUrl + ")"}}>

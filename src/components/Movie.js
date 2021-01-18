@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Movie = (props) => {
-  console.log('movie component', props)
+  // console.log('movie component', props)
   // let id = props.match.params.id
   let imageURL = ""
   if (props.poster == null) {
