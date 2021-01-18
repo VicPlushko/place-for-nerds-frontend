@@ -103,6 +103,8 @@
 
 .title-link {
   text-decoration: none;
+  font-size: large;
+  font-weight: bold;
 }
 
 .clear-btn {
