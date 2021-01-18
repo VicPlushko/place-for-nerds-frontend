@@ -39,7 +39,7 @@ class ActorContainer extends Component {
                 movie_id: data.movie_credits.cast.map(movie => movie.id),
                 movieCredits: data.movie_credits.cast.map(movie => 
                     <div className='castGrid'>
-                        <Link className='poster-link' to={`/movies/${movie.movie_id}`}><img className='movie-poster' src={actorPic + movie.poster_path} alt=""></img></Link>
+                        <Link className='poster-link' to={`/movies/${movie.id}`}><img className='movie-poster' src={actorPic + movie.poster_path} alt=""></img></Link>
                     <div className='movie-name'>{movie.title} - {getYear(`${movie.release_date}`)}</div>
                     <div className='character-name'>{movie.character}</div>
                     </div>),
