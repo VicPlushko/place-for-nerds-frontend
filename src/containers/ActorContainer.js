@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Navigation from '../components/Navigation'
 import SingleActor from '../components/SingleActor'
+import MovieCredits from '../components/MovieCredits'
 
 
 class ActorContainer extends Component {
@@ -37,13 +38,15 @@ class ActorContainer extends Component {
                 picture: data.profile_path,
                 homepage: data.homepage,
                 movie_id: data.movie_credits.cast.map(movie => movie.id),
-                movieCredits: data.movie_credits.cast.map(movie => 
-                    <div className='castGrid'>
-                        <Link className='poster-link' to={`/movies/${movie.id}`}><img className='movie-poster' src={actorPic + movie.poster_path} alt=""></img></Link>
-                    <div className='movie-name'>{movie.title} - {getYear(`${movie.release_date}`)}</div>
-                    <div className='character-name'>{movie.character}</div>
-                    </div>),
-                    tvCredits: data.tv_credits.cast.map(show => 
+                movieCredits: data.movie_credits.cast.map((movie, i) => {
+                    return <MovieCredits key={i} movie_id={movie.id} poster={movie.poster_path} title={movie.title} release_date={movie.release_date} character={movie.character} />
+                }),
+                    // <div className='castGrid'>
+                    //     <Link className='poster-link' to={`/movies/${movie.id}`}><img className='movie-poster' src={actorPic + movie.poster_path} alt=""></img></Link>
+                    // <div className='movie-name'>{movie.title} - {getYear(`${movie.release_date}`)}</div>
+                    // <div className='character-name'>{movie.character}</div>
+                    // </div>),
+                tvCredits: data.tv_credits.cast.map(show => 
                     <div className='castGrid'><Link className='poster-link'><img className='show-poster' src={actorPic + show.poster_path} alt=""></img></Link>
                     <div className='movie-name'>{show.name} - {getYear(`${show.first_air_date}`)}</div>
                     <div className='character-name'>{show.character}</div>
@@ -66,7 +69,7 @@ class ActorContainer extends Component {
                placeOfBirth={this.state.placeOfBirth} 
                biography={this.state.biography} 
                picture={this.state.picture} 
-               homepage={this.state.homepage} 
+               homepage={this.state.homepage}
                movieCredits={this.state.movieCredits} 
                tvCredits={this.state.tvCredits} />
             </div>
