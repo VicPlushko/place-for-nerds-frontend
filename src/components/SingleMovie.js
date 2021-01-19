@@ -18,7 +18,7 @@ const SingleMovie = (props) => {
                     <p className='show-info'><strong>Release Date:</strong> {props.release_date}</p>
                     <p className='show-info'><strong>Budget:</strong>  ${props.budget}</p>
                     <p className='show-info'><strong>Revenue:</strong> ${props.revenue}</p>
-                    <p className='show-info'><strong>Production Companies:</strong> {props.     productionCompanies}</p>
+                    <p className='show-info'><strong>Production Companies:</strong>{props.productionCompanies}</p>
                     <strong><h1>Cast:</h1></strong>
                     <div className='castContainer'>
                         {props.cast}

@@ -15,7 +15,7 @@ const SingleActor = (props) => {
                     <p className='show-info'><strong>Birthday:</strong> {props.birthday}</p>
                     <p className='show-info'><strong>Place of Birth:</strong> {props.placeOfBirth}</p>
                     <p className='show-info'><strong>Biography:</strong> {props.biography}</p>
-                    <p className='show-info'><strong>Homepage:</strong> <a href={props.homepage} target='_blank'>{props.homepage}</a></p>
+                    <p className='show-info'><strong>Homepage:</strong> <a href={props.homepage} target='_blank' rel='noreferrer'>{props.homepage}</a></p>
                     <strong><h1>Movies:</h1></strong>
                     <div className='castContainer'>
                         {props.movieCredits}
