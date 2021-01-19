@@ -44,7 +44,7 @@ class SingleMovieContainer extends Component {
                 genres: data.genres.map(genre => genre.name).join(', '),
                 productionCompanies: data.production_companies.map(company => <li>{company.name}</li>),
                 cast: data.credits.cast.map((actor, i) => {
-                    return <Actor key={i} id={actor.id} name={actor.name} character={actor.character} profile_path={actor.profile_path}/>
+                    return <Actor key={i} id={actor.id} name={actor.name} character={actor.character} poster={actor.profile_path}/>
                 })
             })
         })
