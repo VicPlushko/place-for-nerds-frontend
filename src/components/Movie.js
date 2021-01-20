@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Movie = (props) => {
   // console.log('movie component', props)
-  let imageURL = ""
+  let imageURL;
   if (props.poster == null) {
     imageURL = `https://picsum.photos/185/278`
   } else {

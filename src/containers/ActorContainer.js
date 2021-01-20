@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import Navigation from '../components/Navigation'
 import SingleActor from '../components/SingleActor'
 import MovieCredits from '../components/MovieCredits'
@@ -61,7 +60,7 @@ class ActorContainer extends Component {
                birthday={this.state.birthday} 
                placeOfBirth={this.state.placeOfBirth} 
                biography={this.state.biography} 
-               picture={this.state.picture} 
+               poster={this.state.picture} 
                homepage={this.state.homepage}
                movieCredits={this.state.movieCredits} 
                tvCredits={this.state.tvCredits} />
