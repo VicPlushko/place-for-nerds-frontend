@@ -15,7 +15,7 @@ const TvCredits = (props) => {
             <div className='castGrid'>
                 <Link className='poster-link'><img className='movie-poster' src={imageURL} alt=""></img>
                 </Link>
-                <div className='movie-name'>{props.title} - {props.release_date}</div>
+                <div className='movie-name'>{props.title} - {props.release_date === undefined ?"TBD" : getYear(props.release_date)}</div>
                 <div className='character-name'>{props.character}</div>
                 </div>
         </div>
