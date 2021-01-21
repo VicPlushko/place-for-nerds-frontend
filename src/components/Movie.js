@@ -13,7 +13,7 @@ const Movie = (props) => {
             <div className="movie-list-container">
               <div className='poster-link'><Link to={`/movies/${props.movie_id}`}><img src={imageURL} alt="" id={props.id}></img></Link>
                 <div className='movie-title'>
-                  <Link className='title-link'to={`/movies/${props.movie_id}`}>{props.title}</Link>
+                  <div className='title-link'>{props.title}</div>
                 </div>
               </div>
             </div>

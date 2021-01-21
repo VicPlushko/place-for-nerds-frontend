@@ -13,6 +13,7 @@ import MoviesContainer from './containers/MoviesContainer'
 import Home from './components/Home'
 import SingleMovieContainer from './containers/SingleMovieContainer'
 import ActorContainer from './containers/ActorContainer'
+import TvShowContainer from './containers/TvShowContainer'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
@@ -24,6 +25,7 @@ ReactDOM.render(
         <Route exact path='/movies' component={MoviesContainer}/>
         <Route exact path='/movies/:id' component={SingleMovieContainer}/>
         <Route exact path='/actors/:id' component={ActorContainer} />
+        <Route exact path='/tv_shows' component={TvShowContainer} />
       </Switch>
       <App />
     </Router>
