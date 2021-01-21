@@ -123,6 +123,10 @@
   font-weight: bold;
 }
 
+#submit-btn {
+  margin-left: 5px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
