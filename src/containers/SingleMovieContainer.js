@@ -59,7 +59,19 @@ class SingleMovieContainer extends Component {
                 <header className='App-header'>
                     <Navigation/>
                 </header>
-               <SingleMovie title={this.state.title} release_date={this.state.release_date} synopsis={this.state.synopsis} poster={this.state.poster} movie_id={this.state.movie_id} budget={this.state.budget} revenue={this.state.revenue} runtime={this.state.runtime} genres={this.state.genres} productionCompanies={this.state.productionCompanies} cast={this.state.cast} backdrop={this.state.backdrop}/>
+               <SingleMovie 
+               title={this.state.title} 
+               release_date={this.state.release_date} 
+               synopsis={this.state.synopsis} 
+               poster={this.state.poster} 
+               movie_id={this.state.movie_id} 
+               budget={this.state.budget} 
+               revenue={this.state.revenue} 
+               runtime={this.state.runtime} 
+               genres={this.state.genres} 
+               productionCompanies={this.state.productionCompanies} 
+               cast={this.state.cast} 
+               backdrop={this.state.backdrop}/>
             </div>
         )
     }
