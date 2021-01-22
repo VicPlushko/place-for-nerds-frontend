@@ -49,11 +49,11 @@ class MoviesContainer extends Component {
     }
 }
 
- const mapStateToProps = state => {
+ const mapStateToProps = globalState => {
     console.log('state is', state)
     return {
-        movies: state.movieReducer.movies,
-        loading: state.movieReducer.loading
+        movies: globalState.movieReducer.movies,
+        loading: globalState.movieReducer.loading
     }
 }
 export default connect(mapStateToProps, { getMovies })(MoviesContainer)
