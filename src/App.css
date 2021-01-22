@@ -84,7 +84,7 @@
 
 .search-form {
   text-align: center;
-  padding: 20px
+  padding: 20px 5px 20px 20px
 }
 
 .movies-container {
@@ -109,11 +109,23 @@
 }
 
 .clear-btn {
-  position: inherit;
+  float: center;
 }
 
+.search {
+  float: center;
+}
+
+#search-input {
+  width: 20rem;
+  background: #F2F1F9; 
+  border: none; 
+  padding: 0.5rem;
+}
 .search-div {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .greeting {
