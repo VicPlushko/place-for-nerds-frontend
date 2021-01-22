@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import '../App.css'
-import SingleShow from '../components/SingleShow'
-import Navigation from '../components/Navigation'
-import Actor from '../components/Actor'
+import SingleShow from '../../components/tv_show/SingleShow'
+import Navigation from '../../components/Navigation'
+import Actor from '../../components/actor/Actor'
 
 class SingleShowContainer extends Component {
 

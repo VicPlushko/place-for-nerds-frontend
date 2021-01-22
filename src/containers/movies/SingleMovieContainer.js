@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import '../App.css'
-import SingleMovie from '../components/SingleMovie'
-import Navigation from '../components/Navigation'
-import Actor from '../components/Actor'
+import SingleMovie from '../../components/movie/SingleMovie'
+import Navigation from '../../components/Navigation'
+import Actor from '../../components/actor/Actor'
 
 class SingleMovieContainer extends Component {
     

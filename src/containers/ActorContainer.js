@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Navigation from '../components/Navigation'
-import SingleActor from '../components/SingleActor'
-import MovieCredits from '../components/MovieCredits'
-import TvCredits from '../components/TvCredits'
+import SingleActor from '../components/actor/SingleActor'
+import MovieCredits from '../components/actor/MovieCredits'
+import TvCredits from '../components/actor/TvCredits'
 
 
 class ActorContainer extends Component {

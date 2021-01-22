@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getShows } from '../actions/tvShows'
-import TvShow from '../components/TvShow'
+import { getShows } from '../../actions/tvShows'
+import TvShow from '../../components/tv_show/TvShow'
 // import SearchContainer from '../containers/SearchContainer'
-import Navigation from '../components/Navigation'
+import Navigation from '../../components/Navigation'
 
 
 class TvShowContainer extends Component {

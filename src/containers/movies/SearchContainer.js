@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SearchBar from '../components/SearchBar'
+import SearchBar from '../../components/movie/SearchBar'
 import { connect } from 'react-redux'
 
 class SearchContainer extends Component {
