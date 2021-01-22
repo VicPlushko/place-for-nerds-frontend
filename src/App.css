@@ -109,10 +109,11 @@
 }
 
 .clear-btn {
-  position: absolute;
-  margin-left: 1165px;
-  top: 265px;
-  
+  position: inherit;
+}
+
+.search-div {
+  text-align: center;
 }
 
 .greeting {

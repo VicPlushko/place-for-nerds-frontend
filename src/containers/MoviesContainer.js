@@ -31,9 +31,11 @@ class MoviesContainer extends Component {
                 <div className='App-header'>
                     <h1>Movies</h1>   
                 </div>
-                <SearchContainer/>
-                <div className="clear-btn">
+                <div className="search-div">
+                <SearchContainer/><div className="clear-btn">
                 <button className='reload-movies' onClick={this.handleClick}>Clear Search</button>
+                </div>
+
                 </div>
                 <div className='movies-container'>
                 {this.props.loading 
