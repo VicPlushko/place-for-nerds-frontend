@@ -1,5 +1,5 @@
 import React from 'react'
-import LastEpisode from './LastEpisode'
+
 
 const SingleShow = (props) => {
 
@@ -20,13 +20,14 @@ const SingleShow = (props) => {
                     <p className='show-info'><strong>Release Date:</strong> {props.release_date}</p>
                     <p className='show-info'><strong>Number of Seasons:</strong> {props.seasons}</p>
                     <p className='show-info'><strong>Number of Episodes:</strong> {props.episodes}</p>
-                    <LastEpisode />
                     <p className='show-info'><strong>Production Companies:</strong>{props.productionCompanies}</p>
                     <p className='show-info'><strong>Homepage:</strong> <a href={props.homepage} target='_blank' rel='noreferrer'>{props.homepage}</a></p>
+                    <p><strong>Watch On:</strong> {props.network}</p>
                     <strong><h1>Cast:</h1></strong>
                     <div className='castContainer'>
                         {props.cast}
                     </div>
+                    
                 </div>
             </div>
         </div>

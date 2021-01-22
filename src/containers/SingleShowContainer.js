@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import '../App.css'
 import SingleShow from '../components/SingleShow'
-import LastEpisode from '..components/LastEpisode'
 import Navigation from '../components/Navigation'
 import Actor from '../components/Actor'
 
@@ -18,7 +17,6 @@ class SingleShowContainer extends Component {
         show_id: "",
         number_of_seasons: "",
         number_of_episodes: "",
-        last_episode: "",
         genres: [],
         productionCompanies: [],
         networks: [],
@@ -45,8 +43,8 @@ class SingleShowContainer extends Component {
                 tagline: data.tagline,
                 number_of_seasons: data.number_of_seasons,
                 number_of_episodes: data.number_of_episodes,
-                last_episode: data.last_episode_to_air,
                 genres: data.genres.map(genre => genre.name).join(', '),
+                networks: data.networks.map(network => <li>{network.name}</li>),
                 created_by: data.created_by.map(show_creator => show_creator.name).join(', '),
                 productionCompanies: data.production_companies.map(company => <li>{company.name}</li>),
                 cast: data.credits.cast.map((actor, i) => {
@@ -74,19 +72,11 @@ class SingleShowContainer extends Component {
                     tagline={this.state.tagline} 
                     seasons={this.state.number_of_seasons} 
                     episodes={this.state.number_of_episodes} 
-                    last_episode={this.state.last_episode}
                     genres={this.state.genres} 
+                    network={this.state.networks}
                     productionCompanies={this.state.productionCompanies} 
                     cast= {this.state.cast} 
                     backdrop={this.state.backdrop}
-                    />
-
-                    <LastEpisode 
-                    key={data.last_episode_to_air.id} 
-                    name={data.last_episode_to_air.name} 
-                    air_date={data.last_episode_to_air.air_date} 
-                    season={data.last_episode_to_air.season_number} 
-                    episode={data.last_episode_to_air.episode_number}
                     />
                </div>
             </div>

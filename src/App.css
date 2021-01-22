@@ -99,6 +99,7 @@
 
 .movie-title {
   padding-bottom: 10px;
+  font-weight: bold;
 }
 
 .title-link {
@@ -125,6 +126,10 @@
 
 #submit-btn {
   margin-left: 5px;
+}
+
+.cast-character {
+  font-weight: normal;
 }
 
 @keyframes App-logo-spin {
