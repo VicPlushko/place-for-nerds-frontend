@@ -17,7 +17,6 @@ class MoviesContainer extends Component {
     }
 
     render() {
-
         // console.log("movie container props is", this.props)
         const movies = this.props.movies.map((movie, i) => {
             return <Movie key={i} id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.synopsis} poster={movie.poster} movie_id={movie.movie_id}/>
@@ -32,10 +31,10 @@ class MoviesContainer extends Component {
                     <h1>Movies</h1>   
                 </div>
                 <div className="search-div">
-                <SearchContainer/><div className="clear-btn">
+                <SearchContainer/>
+                <div className="clear-btn">
                 <button className='reload-movies' onClick={this.handleClick}>Clear Search</button>
                 </div>
-
                 </div>
                 <div className='movies-container'>
                 {this.props.loading 
