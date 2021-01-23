@@ -1,7 +1,6 @@
 import React from 'react'
 
 const SearchBar = (props) => {
-    const BarStyling = {}
     return (
         <div className='search-form'>
             <form className='search-bar' onSubmit={props.handleSubmit}>

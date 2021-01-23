@@ -50,7 +50,7 @@ class MoviesContainer extends Component {
 }
 
  const mapStateToProps = globalState => {
-    console.log('state is', state)
+    console.log('global state is', globalState)
     return {
         movies: globalState.movieReducer.movies,
         loading: globalState.movieReducer.loading
