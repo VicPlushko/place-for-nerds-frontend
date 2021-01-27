@@ -7,6 +7,10 @@ import Navigation from '../../components/Navigation'
 
 class MoviesContainer extends Component {
 
+    state = {
+        vote: 0,
+    }
+
     componentDidMount() {
         this.props.getMovies()
     }
@@ -15,11 +19,21 @@ class MoviesContainer extends Component {
         event.preventDefault()
         this.props.getMovies()
     }
+    
+    // handleLikeButton = (event) => {
+    //     let button = event.target.id
+    //     if (button === this.state.movie_id.movie_id) {
+    //         this.setState({
+    //             vote: this.state.vote + 1,
+    //         })
+    //     }
+    //     debugger
+    // }
 
     render() {
         // console.log("movie container props is", this.props)
         const movies = this.props.movies.map((movie, i) => {
-            return <Movie key={i} id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.synopsis} poster={movie.poster} movie_id={movie.movie_id}/>
+            return <Movie key={i} id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.synopsis} poster={movie.poster} movie_id={movie.movie_id} vote={this.state.vote} upvote={this.handleLikeButton}/>
             })
         
         return (
