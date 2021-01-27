@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Navigation from '../components/Navigation'
 import SingleActor from '../components/actor/SingleActor'
 import MovieCredits from '../components/actor/MovieCredits'
 import TvCredits from '../components/actor/TvCredits'
