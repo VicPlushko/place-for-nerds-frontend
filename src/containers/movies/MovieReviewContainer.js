@@ -10,7 +10,7 @@ class MovieReviewContainer extends Component {
 
     handleOnSubmit = (event) => {
         const reviewURL = 'http://localhost:3001/reviews'
-        alert('A Review was submitted' + this.state)
+        alert('A Review was submitted', this.state)
         event.preventDefault()
         fetch(reviewURL, {
         method: 'POST',
@@ -19,7 +19,7 @@ class MovieReviewContainer extends Component {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }
-         }).then(response => console.log(response.json()))
+         }).then(response => response.json())
     
     }
 
