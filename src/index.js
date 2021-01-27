@@ -21,14 +21,6 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route exact path='/movies' component={MoviesContainer}/>
-        <Route exact path='/movies/:id' component={SingleMovieContainer}/>
-        <Route exact path='/actors/:id' component={ActorContainer} />
-        <Route exact path='/tv_shows' component={TvShowContainer} />
-        <Route exact path='/tv_shows/:id' component={SingleShowContainer} />
-      </Switch>
       <App />
     </Router>
   </Provider>,

@@ -20,11 +20,8 @@ class TvShowContainer extends Component {
             })
         return (
             <div>
-                <header className='App-header'>
-                    <Navigation />
-                </header>
                 <div className='App-header'>
-                    <h1>Tv Shows</h1>   
+                    <h1>TV Shows</h1>   
                 </div>
                 <div className='movies-container'>
                 {this.props.loading ? <h3>Loading...</h3> : shows}

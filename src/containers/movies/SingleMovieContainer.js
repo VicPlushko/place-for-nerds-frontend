@@ -55,9 +55,6 @@ class SingleMovieContainer extends Component {
          
         return (
             <div>
-                <header className='App-header'>
-                    <Navigation/>
-                </header>
                <SingleMovie 
                title={this.state.title} 
                release_date={this.state.release_date} 

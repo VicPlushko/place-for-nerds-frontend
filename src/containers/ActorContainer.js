@@ -51,9 +51,6 @@ class ActorContainer extends Component {
     render() {
         return (
             <div>
-                <header className='App-header'>
-                    <Navigation/>
-                </header>
                <SingleActor 
                id={this.state.id} 
                name={this.state.name} 

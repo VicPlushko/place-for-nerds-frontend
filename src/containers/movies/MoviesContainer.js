@@ -6,7 +6,7 @@ import SearchContainer from '../movies/SearchContainer'
 import Navigation from '../../components/Navigation'
 
 class MoviesContainer extends Component {
-
+    
     componentDidMount() {
         this.props.getMovies()
     }
@@ -24,11 +24,8 @@ class MoviesContainer extends Component {
         
         return (
             <div>
-                <header className='App-header'>
-                    <Navigation />
-                </header>
                 <div className='App-header'>
-                    <h1>Movies</h1>   
+                    <h1>Movies</h1>
                 </div>
                 <div className="search-div">
                     <SearchContainer/>
