@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SingleMovie from '../../components/movie/SingleMovie'
 import Actor from '../../components/actor/Actor'
+import MovieReviewContainer from './MovieReviewContainer'
 
 class SingleMovieContainer extends Component {
     
@@ -67,6 +68,9 @@ class SingleMovieContainer extends Component {
                productionCompanies={this.state.productionCompanies} 
                cast={this.state.cast} 
                backdrop={this.state.backdrop}/>
+            <div className='singleView'>
+                <MovieReviewContainer movie_id={this.state.movie_id}/>
+            </div>
             </div>
         )
     }

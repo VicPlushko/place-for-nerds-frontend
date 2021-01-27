@@ -8,13 +8,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers/index'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom' 
-import MoviesContainer from './containers/movies/MoviesContainer'
-import Home from './components/Home'
-import SingleMovieContainer from './containers/movies/SingleMovieContainer'
-import ActorContainer from './containers/ActorContainer'
-import TvShowContainer from './containers/tv_shows/TvShowContainer'
-import SingleShowContainer from './containers/tv_shows/SingleShowContainer'
+import {BrowserRouter as Router} from 'react-router-dom'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
