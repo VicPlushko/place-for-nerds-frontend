@@ -22,12 +22,12 @@ class MovieReviewContainer extends Component {
         }
          }).then(response => response.json())
          .then(data => {
-             if (data.error === undefined) {
-                 alert("A review has been submitted", this.state)
-             }else {
-                 alert(data.error, this.state)
-             }
-             
+                 this.setState({
+                     reviews: {
+                        content: data.content,
+                        movie_id: data.movie_id
+                    }
+                 })
          })
         this.setState({
             content: ""
@@ -52,40 +52,24 @@ class MovieReviewContainer extends Component {
             if (data.reviews !== undefined) {
                this.setState({
                   ...this.state,
-                  reviews: data.reviews.map((review, i) => {
-                     return <Review key={i} content={review.content} movie_id={review.movie_id} />
-               })
+                  reviews: data.reviews.map(review => review.content)
             })
             }
         })
     }
 
-    componentDidUpdate(prevState) {
-        const URL = `http://localhost:3001/movies/${this.state.movie_id}`
-       if (this.state.reviews !== prevState.reviews) {
-        fetch(URL)
-        .then(resp => resp.json())
-        .then(data => {
-            if (data.reviews !== undefined) {
-               this.setState({
-                  ...this.state,
-                  reviews: data.reviews.map((review, i) => {
-                     return <Review key={i} content={review.content} movie_id={review.movie_id} />
-               })
-            })
-            }
-        })
-       }
-    }
+    
     render() {
          console.log("movie review container state is", this.state)
+         const reviews = this.state.reviews.map(review => review)
+         
         return (
             <div>
                 <MovieReview key={this.state.movie_id} content={this.state.content} movie_id={this.state.movie_id} handleChange={this.handleOnChange} handleSubmit={this.handleOnSubmit}/>
                 <div>
                     <h1>Reviews:</h1>
                     <ul>
-                       {this.state.reviews}
+                       {reviews}
                     </ul>
                 </div>
             </div>

@@ -9,8 +9,14 @@ import ActorContainer from './containers/ActorContainer'
 import TvShowContainer from './containers/tv_shows/TvShowContainer'
 import SingleShowContainer from './containers/tv_shows/SingleShowContainer'
 import Navigation from './components/Navigation'
+import { connect } from 'react-redux';
+import { getMovies } from './actions/movie'
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.getMovies()
+}
 
   render() {
     return (
@@ -33,4 +39,4 @@ class App extends Component {
   
 }
 
-export default App;
+export default connect(null, { getMovies })(App)

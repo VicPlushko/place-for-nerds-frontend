@@ -1,7 +1,7 @@
 import React from 'react'
 
 const MovieReview = (props) => {
-console.log('movie review props is', props)
+// console.log('movie review props is', props)
     return (
         <div>
             <form onSubmit={props.handleSubmit}>

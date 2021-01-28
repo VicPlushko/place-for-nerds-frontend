@@ -6,8 +6,8 @@ import SearchContainer from '../movies/SearchContainer'
 
 class MoviesContainer extends Component {
     
-    componentDidMount() {
-        this.props.getMovies()
+    state = {
+        sorted: false
     }
 
     handleClick = (event) => {
@@ -15,11 +15,41 @@ class MoviesContainer extends Component {
         this.props.getMovies()
     }
 
+    handleSortClick = () => {
+        if (!this.state.sorted) {
+            this.setState({
+              sorted: true
+        })
+    }else {
+        this.setState({
+            sorted: false
+        })
+    }
+        
+    }
+
     render() {
-        // console.log("movie container props is", this.props)
-        const movies = this.props.movies.map((movie, i) => {
+        let newMovies = this.props.movies
+        console.log("movie container props is", this.props)
+        if (this.state.sorted) {
+            newMovies = this.props.movies.map((movie) => movie).sort(function(a, b) {
+                var titleA = a.title.toUpperCase(); // ignore upper and lowercase
+                var titleB = b.title.toUpperCase(); // ignore upper and lowercase
+                if (titleA < titleB) {
+                  return -1;
+                }
+                if (titleA > titleB) {
+                  return 1;
+                }
+              
+                // names must be equal
+                return 0;
+              });
+         }
+
+        const movies = newMovies.map((movie, i) => {
             return <Movie key={i} id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.synopsis} poster={movie.poster} movie_id={movie.movie_id}/>
-            })
+        })
         
         return (
             <div>
@@ -31,6 +61,7 @@ class MoviesContainer extends Component {
                   <div className="clear-btn">
                     <button className='reload-movies' onClick={this.handleClick}>Clear Search</button>
                   </div>
+                  <button onClick={this.handleSortClick}>Sort</button>
                 </div>
                 <div className='movies-container'>
                 {this.props.loading 
