@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import MovieReview from '../../components/MovieReview'
+import Review from '../../components/movie/Review'
 
 class MovieReviewContainer extends Component {
 
-    state ={
+    state = {
         content: "",
-        movie_id: this.props.movie_id
+        movie_id: this.props.movie_id,
+        reviews: []
     }
 
     handleOnSubmit = (event) => {
@@ -20,7 +22,13 @@ class MovieReviewContainer extends Component {
             'Content-Type': 'application/json'
         }
          }).then(response => response.json())
-    
+         .then(data => {
+             if (data.error === undefined) {
+                 alert("A review has been submitted", this.state)
+             }else {
+                 alert(data.error, this.state)
+             }
+         })
     }
 
     handleOnChange = (event) => {
@@ -31,9 +39,14 @@ class MovieReviewContainer extends Component {
         })
     }
     render() {
+
+        const reviews = this.state.reviews.map((review, i) => {
+               return <Review key={i} reviews={this.state.reviews} movie_id={review.movie_id} content={review.content} review_id={review.id}/>
+        })
         return (
             <div>
-                <MovieReview content={this.state.content} movie_id={this.state.movie_id} handleChange={this.handleOnChange} handleSubmit={this.handleOnSubmit}/>
+                <MovieReview key={this.state.movie_id} reviews={this.state.reviews} content={this.state.content} movie_id={this.state.movie_id} handleChange={this.handleOnChange} handleSubmit={this.handleOnSubmit}/>
+                {reviews}
             </div>
         )
     }
