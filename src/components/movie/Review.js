@@ -5,7 +5,7 @@ const Review = (props) => {
         <div>
            <h1>Reviews</h1>
             <ul>
-                <p>{props.reviews}</p>
+                <li>{props.content}</li>
             </ul> 
         </div>
     )

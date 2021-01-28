@@ -12,7 +12,6 @@ class MovieReviewContainer extends Component {
 
     handleOnSubmit = (event) => {
         const reviewURL = 'http://localhost:3001/reviews'
-        alert('A Review was submitted', this.state)
         event.preventDefault()
         fetch(reviewURL, {
         method: 'POST',
@@ -38,17 +37,31 @@ class MovieReviewContainer extends Component {
             content: event.target.value,
         })
     }
-    render() {
 
-        const reviews = this.state.reviews.map((review, i) => {
-               return <Review key={i} reviews={this.state.reviews} movie_id={review.movie_id} content={review.content} review_id={review.id}/>
-        })
+    
+    render() {
+         console.log("movie review container state is", this.state)
         return (
             <div>
                 <MovieReview key={this.state.movie_id} reviews={this.state.reviews} content={this.state.content} movie_id={this.state.movie_id} handleChange={this.handleOnChange} handleSubmit={this.handleOnSubmit}/>
-                {reviews}
+                <Review />
             </div>
         )
+    }
+
+    componentDidMount() {
+        const URL = `http://localhost:3001/movies/${this.state.movie_id}`
+
+        fetch(URL)
+        .then(response => response.json())
+        .then(data => {
+            this.setState({
+                ...this.state,
+                reviews: data.reviews.map((review, i) => {
+                    return <Review key={i} content={review.content} movie_id={review.movie_id} />
+                })
+            })
+        })
     }
 }
 
