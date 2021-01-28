@@ -38,30 +38,35 @@ class MovieReviewContainer extends Component {
         })
     }
 
-    
-    render() {
-         console.log("movie review container state is", this.state)
-        return (
-            <div>
-                <MovieReview key={this.state.movie_id} reviews={this.state.reviews} content={this.state.content} movie_id={this.state.movie_id} handleChange={this.handleOnChange} handleSubmit={this.handleOnSubmit}/>
-                <Review />
-            </div>
-        )
-    }
-
     componentDidMount() {
         const URL = `http://localhost:3001/movies/${this.state.movie_id}`
 
         fetch(URL)
-        .then(response => response.json())
+        .then(resp => resp.json())
         .then(data => {
-            this.setState({
-                ...this.state,
-                reviews: data.reviews.map((review, i) => {
-                    return <Review key={i} content={review.content} movie_id={review.movie_id} />
-                })
+            if (data.reviews != undefined) {
+               this.setState({
+                  ...this.state,
+                  reviews: data.reviews.map((review, i) => {
+                     return <Review key={i} content={review.content} movie_id={review.movie_id} />
+               })
             })
+            }
         })
+    }
+    render() {
+         console.log("movie review container state is", this.state)
+        return (
+            <div>
+                <MovieReview key={this.state.movie_id} content={this.state.content} movie_id={this.state.movie_id} handleChange={this.handleOnChange} handleSubmit={this.handleOnSubmit}/>
+                <div>
+                    <h1>Reviews:</h1>
+                    <ul>
+                       {this.state.reviews}
+                    </ul>
+                </div>
+            </div>
+        )
     }
 }
 
