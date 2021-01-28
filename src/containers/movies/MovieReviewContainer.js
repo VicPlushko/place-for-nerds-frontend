@@ -27,15 +27,20 @@ class MovieReviewContainer extends Component {
              }else {
                  alert(data.error, this.state)
              }
+             
          })
+        this.setState({
+            content: ""
+        })
     }
 
     handleOnChange = (event) => {
         console.log(event.target.value)
         this.setState({
             ...this.state,
-            content: event.target.value,
+            content: event.target.value, 
         })
+        
     }
 
     componentDidMount() {
@@ -44,7 +49,7 @@ class MovieReviewContainer extends Component {
         fetch(URL)
         .then(resp => resp.json())
         .then(data => {
-            if (data.reviews != undefined) {
+            if (data.reviews !== undefined) {
                this.setState({
                   ...this.state,
                   reviews: data.reviews.map((review, i) => {
@@ -53,6 +58,24 @@ class MovieReviewContainer extends Component {
             })
             }
         })
+    }
+
+    componentDidUpdate(prevState) {
+        const URL = `http://localhost:3001/movies/${this.state.movie_id}`
+       if (this.state.reviews !== prevState.reviews) {
+        fetch(URL)
+        .then(resp => resp.json())
+        .then(data => {
+            if (data.reviews !== undefined) {
+               this.setState({
+                  ...this.state,
+                  reviews: data.reviews.map((review, i) => {
+                     return <Review key={i} content={review.content} movie_id={review.movie_id} />
+               })
+            })
+            }
+        })
+       }
     }
     render() {
          console.log("movie review container state is", this.state)
