@@ -14,10 +14,10 @@ const Movie = (props) => {
 
         return (
             <div className="movie-list-container">
-              <div className='poster-link'><Link to={`/movies/${props.movie_id}`}><img src={imageURL} alt="" id={props.id}></img></Link>
+              <div className='poster-link'><Link to={`/movies/${props.id}`}><img src={imageURL} alt="" id={props.id}></img></Link>
                 <div className='movie-title'>
                   <div className='title-link'>{props.title}</div>
-                  <button onClick={() => addLike(like + 1)} id={props.movie_id}>Likes {like}</button>
+                  <button onClick={() => addLike(like + 1)} id={props.id}>Likes {like}</button>
                 </div>
               </div>
             </div>

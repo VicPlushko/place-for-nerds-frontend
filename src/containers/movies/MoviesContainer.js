@@ -48,7 +48,7 @@ class MoviesContainer extends Component {
          }
 
         const movies = newMovies.map((movie, i) => {
-            return <Movie key={i} id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.synopsis} poster={movie.poster} movie_id={movie.movie_id}/>
+            return <Movie key={i} id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.overview} poster={movie.poster_path}/>
         })
         
         return (
