@@ -28,7 +28,10 @@ class MoviesContainer extends Component {
         
     }
 
+    
+
     render() {
+        
         let newMovies = this.props.movies
         console.log("movie container props is", this.props)
         if (this.state.sorted) {
@@ -47,7 +50,7 @@ class MoviesContainer extends Component {
               });
          }
 
-        const movies = newMovies.map((movie, i) => {
+       const movies = newMovies.map((movie, i) => {
             return <Movie key={i} id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.overview} poster={movie.poster_path}/>
         })
         
@@ -68,7 +71,7 @@ class MoviesContainer extends Component {
                 ? <h3>Loading...</h3> 
                 : (movies.length === 0) 
                 ? <p>No Movies Found</p>
-                :movies}
+                : movies}
                 </div>
             </div>
             

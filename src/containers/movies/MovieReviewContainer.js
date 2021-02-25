@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import MovieReview from '../../components/MovieReview'
-import Review from '../../components/movie/Review'
+// import Review from '../../components/movie/Review'
 
 class MovieReviewContainer extends Component {
 
