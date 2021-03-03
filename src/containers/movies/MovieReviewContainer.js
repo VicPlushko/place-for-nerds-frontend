@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import MovieReview from '../../components/MovieReview'
-// import Review from '../../components/movie/Review'
+import Review from '../../components/movie/Review'
 
 class MovieReviewContainer extends Component {
 
@@ -61,7 +61,9 @@ class MovieReviewContainer extends Component {
     
     render() {
          console.log("movie review container state is", this.state)
-         const reviews = this.state.reviews.map(review => review)
+            this.state.reviews.map((review, i) => <Review key={i} content={console.log(review)}/>)
+         
+        
          
         return (
             <div>
@@ -69,7 +71,7 @@ class MovieReviewContainer extends Component {
                 <div>
                     <h1>Reviews:</h1>
                     <ul>
-                       {reviews}
+                       <Review />
                     </ul>
                 </div>
             </div>

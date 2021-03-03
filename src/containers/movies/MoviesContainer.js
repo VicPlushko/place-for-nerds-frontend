@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getMovies } from '../../actions/movie'
+// import { getMovies } from '../../actions/movie'
 import Movie from '../../components/movie/Movie'
 import SearchContainer from '../movies/SearchContainer'
 
@@ -19,16 +19,14 @@ class MoviesContainer extends Component {
         if (!this.state.sorted) {
             this.setState({
               sorted: true
-        })
-    }else {
-        this.setState({
-            sorted: false
-        })
-    }
+            })
+        }else {
+           this.setState({
+              sorted: false
+           })
+        }
         
     }
-
-    
 
     render() {
         
@@ -86,4 +84,4 @@ class MoviesContainer extends Component {
         loading: globalState.movieReducer.loading
     }
 }
-export default connect(mapStateToProps, { getMovies })(MoviesContainer)
+export default connect(mapStateToProps)(MoviesContainer)
