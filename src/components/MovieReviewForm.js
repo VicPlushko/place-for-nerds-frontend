@@ -1,7 +1,7 @@
 import React from 'react'
 
-const MovieReview = (props) => {
-// console.log('movie review props is', props)
+const MovieReviewForm = (props) => {
+// console.log('movie review form props is', props)
     return (
         <div>
             <form onSubmit={props.handleSubmit}>
@@ -13,4 +13,4 @@ const MovieReview = (props) => {
     )
 }
 
-export default MovieReview
+export default MovieReviewForm

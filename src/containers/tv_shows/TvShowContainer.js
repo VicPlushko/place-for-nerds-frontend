@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getShows } from '../../actions/tvShows'
 import TvShow from '../../components/tv_show/TvShow'
 
 class TvShowContainer extends Component {
-
-    componentDidMount() {
-        this.props.getShows()
-    }
 
     render() {
 
@@ -36,4 +31,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getShows })(TvShowContainer)
+export default connect(mapStateToProps)(TvShowContainer)

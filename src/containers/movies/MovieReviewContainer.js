@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import MovieReview from '../../components/MovieReview'
-import Review from '../../components/movie/Review'
+import MovieReviewForm from '../../components/MovieReviewForm'
+// import Review from '../../components/movie/Review'
 
 class MovieReviewContainer extends Component {
 
@@ -43,35 +43,36 @@ class MovieReviewContainer extends Component {
         
     }
 
-    componentDidMount() {
-        const URL = `http://localhost:3001/movies/${this.state.movie_id}`
+    // componentDidMount() {
+    //     const MOVIES_KEY = process.env.REACT_APP_MOVIES_KEY
+    //     const URL = `https://api.themoviedb.org/3/movie/${this.state.movie_id}?api_key=${MOVIES_KEY}&language=en-US`
 
-        fetch(URL)
-        .then(resp => resp.json())
-        .then(data => {
-            if (data.reviews !== undefined) {
-               this.setState({
-                  ...this.state,
-                  reviews: data.reviews.map(review => review.content)
-            })
-            }
-        })
-    }
+    //     fetch(URL)
+    //     .then(resp => console.log(resp.json()))
+    //     .then(data => {
+    //         if (data.reviews !== undefined) {
+    //            this.setState({
+    //               ...this.state,
+    //               reviews: data.reviews.map(review => review.content)
+    //         })
+    //         }
+    //     })
+    // }
 
     
     render() {
          console.log("movie review container state is", this.state)
-            this.state.reviews.map((review, i) => <Review key={i} content={console.log(review)}/>)
+          const reviews = this.state.reviews.map((review) => review.content )
          
         
          
         return (
             <div>
-                <MovieReview key={this.state.movie_id} content={this.state.content} movie_id={this.state.movie_id} handleChange={this.handleOnChange} handleSubmit={this.handleOnSubmit}/>
+                <MovieReviewForm key={this.state.movie_id} content={this.state.content} movie_id={this.state.movie_id} handleChange={this.handleOnChange} handleSubmit={this.handleOnSubmit}/>
                 <div>
                     <h1>Reviews:</h1>
                     <ul>
-                       <Review />
+                       {reviews}
                     </ul>
                 </div>
             </div>

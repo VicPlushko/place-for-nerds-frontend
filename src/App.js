@@ -11,20 +11,22 @@ import SingleShowContainer from './containers/tv_shows/SingleShowContainer'
 import Navigation from './components/Navigation'
 import { connect } from 'react-redux';
 import { getMovies } from './actions/movie'
+import { getShows } from './actions/tvShows'
 
 class App extends Component {
 
   componentDidMount() {
     this.props.getMovies()
+    this.props.getShows()
 }
 
   render() {
     return (
-      
-      <div className="App">
-        <header className='App-header'>
-          <Navigation />
-        </header>
+      <Router>
+        <div className="App">
+          <header className='App-header'>
+            <Navigation />
+          </header>
         <Switch>
           <Route exact path='/' component={Home}/>
           <Route exact path='/movies' component={MoviesContainer}/>
@@ -32,11 +34,12 @@ class App extends Component {
           <Route exact path='/actors/:id' component={ActorContainer} />
           <Route exact path='/tv_shows' component={TvShowContainer} />
           <Route exact path='/tv_shows/:id' component={SingleShowContainer} />
-      </Switch>
-      </div>
+        </Switch>
+        </div>
+      </Router>
     );
   }
   
 }
 
-export default connect(null, { getMovies })(App)
+export default connect(null, { getMovies, getShows })(App)
