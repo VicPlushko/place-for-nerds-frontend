@@ -1,22 +1,23 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import MovieReviewForm from '../../components/MovieReviewForm'
-// import Review from '../../components/movie/Review'
+import Review from '../../components/movie/Review'
 
 class MovieReviewContainer extends Component {
 
-    state = {
-        title: "",
-        content: "",
-        movie_id: this.props.movie_id,
-        reviews: []
-    }
+    // state = {
+    //     title: "",
+    //     content: "",
+    //     movie_id: this.props.movie_id,
+    //     reviews: []
+    // }
 
     handleOnSubmit = (event) => {
         const reviewURL = 'http://localhost:3001/reviews'
         event.preventDefault()
         fetch(reviewURL, {
         method: 'POST',
-        body: JSON.stringify(this.state),
+        body: JSON.stringify(this.props.reviews),
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -63,14 +64,14 @@ class MovieReviewContainer extends Component {
 
     
     render() {
-         console.log("movie review container state is", this.state)
-          const reviews = this.state.reviews.map((review) => review.content )
+        //  console.log("movie review container state is", this.state)
+          const reviews = this.props.reviews.map((review, i) => <Review key={i} title={review.title} content={review.content} />)
          
         
          
         return (
             <div>
-                <MovieReviewForm key={this.state.movie_id} title={this.state.title} content={this.state.content} movie_id={this.state.movie_id} handleChange={this.handleOnChange} handleSubmit={this.handleOnSubmit}/>
+                <MovieReviewForm key={this.props.title} title={this.props.title} content={this.props.content} handleChange={this.handleOnChange} handleSubmit={this.handleOnSubmit}/>
                 <div>
                     <h1>Reviews:</h1>
                     <ul>
@@ -82,4 +83,12 @@ class MovieReviewContainer extends Component {
     }
 }
 
-export default MovieReviewContainer
+const mapStateToProps = globalState => {
+    console.log("Movie review global state is", globalState)
+    return {
+        reviews: globalState.reviewReducer.reviews,
+        loading: globalState.reviewReducer.loading
+    }
+} 
+
+export default connect(mapStateToProps)(MovieReviewContainer)

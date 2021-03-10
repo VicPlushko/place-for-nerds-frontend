@@ -3,7 +3,10 @@ import React from 'react'
 const Review = (props) => {
     return (
         <div>
-            <li>{props.content}</li>
+            <li>
+                {props.title}
+                {props.content}
+            </li>
         </div>
     )
 }
