@@ -1,4 +1,4 @@
-export default (state = {movies: [], loading: false}, action) => {
+const movieReducer = (state = {movies: [], loading: false}, action) => {
     switch(action.type) {
         case("LOADING_MOVIES"):
             return {...state, loading: true}
@@ -8,3 +8,5 @@ export default (state = {movies: [], loading: false}, action) => {
             return state
     }
 }
+
+export default movieReducer;

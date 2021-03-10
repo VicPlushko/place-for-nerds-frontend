@@ -55,7 +55,8 @@ class SingleShowContainer extends Component {
     render() {
         return (
             <div>
-                    <SingleShow 
+                    <SingleShow
+                    key={this.state.show_id}
                     title={this.state.title} 
                     release_date={this.state.release_date} 
                     synopsis={this.state.synopsis} 

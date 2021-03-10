@@ -1,4 +1,4 @@
-export default (state = {shows: [], loading: false}, action) => {
+ const tvShowReducer = (state = {shows: [], loading: false}, action) => {
     switch(action.type) {
         case("LOADING_SHOWS"):
             return {...state, loading: true}
@@ -8,3 +8,5 @@ export default (state = {shows: [], loading: false}, action) => {
             return state
     }
 }
+
+export default tvShowReducer;
