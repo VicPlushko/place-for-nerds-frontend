@@ -1,5 +1,5 @@
-export const getReviews = () => {
-    const reviewsURL = 'http://localhost:3001/reviews'
+export const getReviews = (movie_id) => {
+    const reviewsURL = `http://localhost:3001/reviews/${movie_id}`
 
     return dispatch => {
         dispatch({type: "LOADING_REVIEWS"})

@@ -1,77 +1,67 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { getReviews } from '../../actions/review'
 import MovieReviewForm from '../../components/MovieReviewForm'
 import Review from '../../components/movie/Review'
 
 class MovieReviewContainer extends Component {
 
-    // state = {
-    //     title: "",
-    //     content: "",
-    //     movie_id: this.props.movie_id,
-    //     reviews: []
-    // }
+    state = {
+        title: "",
+        content: "",
+        movie_id: this.props.movie_id,
+        reviews: []
+    }
 
     handleOnSubmit = (event) => {
+        const reviewBody = {
+            title: this.state.title,
+            content:this.state.content,
+            movie_id: this.state.movie_id
+        }
         const reviewURL = 'http://localhost:3001/reviews'
         event.preventDefault()
+        this.props.dispatch({type: "REVIEW_POSTING"})
         fetch(reviewURL, {
         method: 'POST',
-        body: JSON.stringify(this.props.reviews),
+        body: JSON.stringify(reviewBody),
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }
-         }).then(response => response.json())
-         .then(data => {
-                 this.setState({
-                     reviews: {
-                        title: data.title, 
-                        content: data.content,
-                        movie_id: data.movie_id
-                    }
-                 })
-         })
-        this.setState({
-            content: ""
-        })
+         }).then(response => console.log(response.json()))
+         .then(review => this.props.dispatch({type: "REVIEW_CREATED", payload: review}))
+                 
+        
     }
 
-    handleOnChange = (event) => {
+    handleOnTitleChange = (event) => {
         console.log(event.target.value)
         this.setState({
-            ...this.state,
             title: event.target.value,
-            content: event.target.value
         })
     }
 
-    // componentDidMount() {
-    //     const MOVIES_KEY = process.env.REACT_APP_MOVIES_KEY
-    //     const URL = `https://api.themoviedb.org/3/movie/${this.state.movie_id}?api_key=${MOVIES_KEY}&language=en-US`
+    handleOnContentChange = (event) => {
+        console.log(event.target.value)
+        this.setState({
+            content: event.target.value,
+        })
+    }
 
-    //     fetch(URL)
-    //     .then(resp => console.log(resp.json()))
-    //     .then(data => {
-    //         if (data.reviews !== undefined) {
-    //            this.setState({
-    //               ...this.state,
-    //               reviews: data.reviews.map(review => review.content)
-    //         })
-    //         }
-    //     })
-    // }
+    componentDidMount() {
+        this.props.getReviews(this.props.movie_id)
+    }
 
     
     render() {
-        //  console.log("movie review container state is", this.state)
-          const reviews = this.props.reviews.map((review, i) => <Review key={i} title={review.title} content={review.content} />)
-         
-        
+        console.log("movie review container props is", this.props)
+            
+            const reviews = this.props.reviews.map((review, i) => <Review key={i} title={review.title} content={review.content} movie_id={review.movie_id}/>)
          
         return (
             <div>
-                <MovieReviewForm key={this.props.title} title={this.props.title} content={this.props.content} handleChange={this.handleOnChange} handleSubmit={this.handleOnSubmit}/>
+                <MovieReviewForm key={this.state.movie_id} title={this.state.title} content={this.state.content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit}/>
                 <div>
                     <h1>Reviews:</h1>
                     <ul>
@@ -91,4 +81,4 @@ const mapStateToProps = globalState => {
     }
 } 
 
-export default connect(mapStateToProps)(MovieReviewContainer)
+export default connect(mapStateToProps, { getReviews })(MovieReviewContainer)

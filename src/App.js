@@ -12,14 +12,12 @@ import Navigation from './components/Navigation'
 import { connect } from 'react-redux';
 import { getMovies } from './actions/movie'
 import { getShows } from './actions/tvShows'
-import { getReviews} from './actions/review'
 
 class App extends Component {
 
   componentDidMount() {
     this.props.getMovies()
     this.props.getShows()
-    this.props.getReviews()
 }
 
   render() {
@@ -44,4 +42,4 @@ class App extends Component {
   
 }
 
-export default connect(null, { getMovies, getShows, getReviews })(App)
+export default connect(null, { getMovies, getShows })(App)
