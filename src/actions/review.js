@@ -9,3 +9,21 @@ export const getReviews = (movie_id) => {
         .then(reviews => dispatch({type: "REVIEWS_LOADED", payload: reviews}))
     }
 }
+
+export const changeTitle = (value) => {
+    return dispatch => {
+        dispatch({type: "CHANGE_TITLE", payload: value})
+    }
+}
+
+export const changeContent = (value) => {
+    return dispatch => {
+        dispatch({type: "CHANGE_CONTENT", payload: value})
+    }
+}
+
+export const createReview = (review) => {
+    return dispatch => {
+        dispatch({type: "REVIEW_CREATED", payload: review})
+    }
+}
