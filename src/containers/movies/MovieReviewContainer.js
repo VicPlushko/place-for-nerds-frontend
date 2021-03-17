@@ -77,5 +77,4 @@ const mapStateToProps = globalState => {
 } 
 
 
-
 export default connect(mapStateToProps, { getReviews, changeTitle, changeContent, createReview, clearForm })(MovieReviewContainer)
