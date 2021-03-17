@@ -6,11 +6,6 @@ import Review from '../../components/movie/Review'
 
 class MovieReviewContainer extends Component {
 
-    // state = {
-    //     title: "",
-    //     content: ""
-    // }
-
     handleOnSubmit = (event) => {
         const reviewBody = {
             title: event.target.elements.title.value,
@@ -81,11 +76,5 @@ const mapStateToProps = globalState => {
     }
 } 
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         changeTitle: () => dispatch({type: 'CHANGE_TITLE'}),
-//         changeContent: () => dispatch({type: 'CHANGE_CONTENT'}),
-//     }
-// }
 
 export default connect(mapStateToProps, { getReviews, changeTitle, changeContent, createReview, clearForm })(MovieReviewContainer)
