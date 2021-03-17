@@ -2,10 +2,15 @@ import React from 'react'
 
 const Review = (props) => {
     return (
-        <div>
+        <div className='review-outer-div'>
             <li>
-                {props.title}
-                {props.content}
+                <div>
+                  <h3>{props.title}</h3>
+                </div>
+                <div>
+                   {props.content}
+                </div>
+                
             </li>
         </div>
     )
