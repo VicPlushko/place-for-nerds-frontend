@@ -7,7 +7,7 @@ const reviewReducer = (state = {reviews: [], loading: false, title: "", content:
         case("REVIEW_POSTING"):
             return {...state, posting: true}
         case("REVIEW_CREATED"):
-            return {...state, posting: false, reviews: [...state.reviews, {title: action.payload, content: action.payload}]}
+            return {...state, posting: false, reviews: [...state.reviews, {title: action.payload.title, content: action.payload.content}]}
         case("CHANGE_TITLE"):
             return {...state, title: action.payload}
         case("CHANGE_CONTENT"):

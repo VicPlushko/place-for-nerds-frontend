@@ -17,7 +17,7 @@ class MovieReviewContainer extends Component {
             content: event.target.elements.content.value,
             movie_id: this.props.movie_id
         }
-        
+
         const reviewURL = 'http://localhost:3001/reviews'
         event.preventDefault()
         fetch(reviewURL, {
@@ -30,7 +30,7 @@ class MovieReviewContainer extends Component {
          })
          .then(response => response.json())
          .then(review => this.props.createReview(review))
- 
+         
     }
 
 
