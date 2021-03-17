@@ -12,6 +12,8 @@ const reviewReducer = (state = {reviews: [], loading: false, title: "", content:
             return {...state, title: action.payload}
         case("CHANGE_CONTENT"):
             return {...state, content: action.payload}
+        case("CLEAR_FORM"):
+            return {...state, title: "", content: ""}
         default:
             return state
     }

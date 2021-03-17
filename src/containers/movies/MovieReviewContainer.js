@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getReviews, changeTitle, changeContent, createReview } from '../../actions/review'
+import { getReviews, changeTitle, changeContent, createReview, clearForm } from '../../actions/review'
 import MovieReviewForm from '../../components/MovieReviewForm'
 import Review from '../../components/movie/Review'
 
@@ -29,7 +29,10 @@ class MovieReviewContainer extends Component {
         }
          })
          .then(response => response.json())
-         .then(review => this.props.createReview(review))
+         .then(review => {
+             this.props.createReview(review)
+             this.props.clearForm()
+            })
          
     }
 
@@ -85,4 +88,4 @@ const mapStateToProps = globalState => {
 //     }
 // }
 
-export default connect(mapStateToProps, { getReviews, changeTitle, changeContent, createReview })(MovieReviewContainer)
+export default connect(mapStateToProps, { getReviews, changeTitle, changeContent, createReview, clearForm })(MovieReviewContainer)

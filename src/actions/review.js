@@ -27,3 +27,9 @@ export const createReview = (review) => {
         dispatch({type: "REVIEW_CREATED", payload: review})
     }
 }
+
+export const clearForm = () => {
+    return dispatch => {
+        dispatch({type: "CLEAR_FORM"})
+    }
+}
