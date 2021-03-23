@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getReviews, changeTitle, changeContent, createReview, clearForm } from '../../actions/review'
-import MovieReviewForm from '../../components/MovieReviewForm'
+import MovieReviewForm from '../../components/movie/MovieReviewForm'
 import Review from '../../components/movie/Review'
 
 class MovieReviewContainer extends Component {

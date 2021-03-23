@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { getMovies } from '../../actions/movie'
 import Movie from '../../components/movie/Movie'
 import SearchContainer from '../movies/SearchContainer'
 
