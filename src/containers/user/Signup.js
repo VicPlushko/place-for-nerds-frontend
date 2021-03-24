@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { changeUsername, changeEmail, changeEmailConfirm, changePassword, changePasswordConfirm} from '../../actions/user'
 import SignupForm from '../../components/user/SignupForm'
 
 class Signup extends Component {
+
+    handleChangeUsername = (event) => {
+        console.log(event.target.value)
+        this.props.changeUsername(event.target.value)
+    }
 
 
     render() {
@@ -24,4 +30,4 @@ const mapStateToProps = globalState => {
         passwordConfirm: globalState.userReducer.passwordConfirm
     }
 } 
-export default connect(mapStateToProps)(Signup)
+export default connect(mapStateToProps, { changeUsername, changeEmail, changeEmailConfirm, changePassword, changePasswordConfirm })(Signup)

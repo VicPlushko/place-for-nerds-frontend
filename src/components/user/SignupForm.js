@@ -8,7 +8,7 @@ const SignupForm = (props) => {
             <form className='user-form' onSubmit={props.handleCreateUser}>
                 <div className='form-field'>
                     <input className='form-input' onChange={props.changeUsername} type='text' name='username' placeholder='Username'/>
-                    <label className='form-label'>Hello, My Name Is</label>
+                    <label className='form-label'>Hello, My Username Is</label>
                 </div>
                 <div className='form-field'>
                     <input className='form-input' onChange={props.changeEmail} type='text' name='email' placeholder='Email'/>
@@ -29,7 +29,6 @@ const SignupForm = (props) => {
                 <div className='btn-submit'>
                     <input className='user-submit-btn' type='submit' value='Create Account'/>
                 </div>
-
             </form>
         </div>
     )
