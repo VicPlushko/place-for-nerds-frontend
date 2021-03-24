@@ -150,6 +150,75 @@ h1{
   font-weight: normal;
 }
 
+.user-form {
+  width: 320px;
+  margin: 20px;
+}
+
+.form-field {
+  position: relative;
+  margin: 20px auto;
+}
+
+.form-input {
+  display: inline-block;
+  line-height: 2em;
+  margin: 0;
+  padding-left: 10px;
+  position: relative;
+  width: 100%;
+  font-size: medium;
+  border: 1px solid grey;
+  background-color: white;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+.form-input:focus {
+  outline: none;
+  border: 3px solid orange;
+}
+
+.form-input:focus + .form-label {
+  background: orange;
+  width: 100%;
+  color: white;
+  font-size: 70%;
+  z-index: 2;
+  text-transform: uppercase;
+  border-radius: 5px
+}
+
+.form-label {
+  display: block;
+  position: absolute;
+  opacity: 0;
+  bottom: 1.9rem;
+  color: grey;
+  transition: 0.2s ease-in-out transform;
+  font-size: 18px
+}
+
+.form-input:placeholder-shown + .form-label {
+  visibility: hidden;
+  z-index: -1;
+  transition: 0.2s ease-in-out;
+}
+
+.form-input:not(:placeholder-shown) + .input-label,
+.form-input:focus:not(:placeholder-shown) + .form-label {
+  visibility: visible;
+  z-index: 1;
+  opacity: 1;
+  transform: translateY(0px);
+  transition: 0.2s ease-in-out transform;
+}
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
