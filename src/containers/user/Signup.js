@@ -10,11 +10,59 @@ class Signup extends Component {
         this.props.changeUsername(event.target.value)
     }
 
+    handleChangeEmail = (event) => {
+        console.log(event.target.value)
+        this.props.changeEmail(event.target.value)
+    }
+
+    handleChangeEmailConfirm = (event) => {
+        console.log(event.target.value)
+        this.props.changeEmailConfirm(event.target.value)
+    }
+
+    handleChangePassword = (event) => {
+        console.log(event.target.value)
+        this.props.changePassword(event.target.value)
+    }
+
+    handleChangePasswordConfirm = (event) => {
+        console.log(event.target.value)
+        this.props.changePasswordConfirm(event.target.value)
+    }
+
+    handleOnSubmit = (event) => {
+        const userInfo = {
+            username: event.target.elements.username.value,
+            email: event.target.elements.email.value,
+            title: event.target.elements.password.value,
+        }
+        event.preventDefault()
+        const URL = 'http://localhost:3001/users'
+        if (this.props.email === this.props.emailConfirm && this.props.password === this.props.passwordConfirm ) {
+            fetch(URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(userInfo)
+            })
+            .then(resp => console.log(resp.json()))
+            .then(data => {
+                localStorage.setItem("token", data.jwt)
+                this.props.createUser(data)
+
+            })
+        }else {
+            alert("Email or passwords do not match")
+        }
+        
+    }
 
     render() {
         return (
             <div>
-                <SignupForm  handleCreateUser={this.handleOnSubmit} changeUsername={this.handleChangeUsername} ChangeEmail={this.handleChangeEmail} changeEmailConfirm={this.handleChangeEmailConfirm} changePassword={this.handleChangePassword} changePasswordConfirm={this.handleChangePasswordConfirm} />
+                <SignupForm  handleCreateUser={this.handleOnSubmit} changeUsername={this.handleChangeUsername} changeEmail={this.handleChangeEmail} changeEmailConfirm={this.handleChangeEmailConfirm} changePassword={this.handleChangePassword} changePasswordConfirm={this.handleChangePasswordConfirm} />
             </div>
         )
     }

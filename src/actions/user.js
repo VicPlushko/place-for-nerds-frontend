@@ -1,3 +1,9 @@
+export const createUser = (userData) => {
+    return dispatch => {
+        dispatch({type: "CREATE_USER", payload: userData})
+    }
+}
+
 export const changeUsername = (value) => {
     return dispatch => {
         dispatch({type: "CHANGE_USERNAME", payload: value})
