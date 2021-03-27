@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { changeUsername, changeEmail, changeEmailConfirm, changePassword, changePasswordConfirm} from '../../actions/user'
+import { bindActionCreators } from 'redux'
+import * as userActions from '../../actions/user'
 import SignupForm from '../../components/user/SignupForm'
 
 class Signup extends Component {
@@ -77,5 +78,9 @@ const mapStateToProps = globalState => {
         password: globalState.userReducer.password,
         passwordConfirm: globalState.userReducer.passwordConfirm
     }
-} 
-export default connect(mapStateToProps, { changeUsername, changeEmail, changeEmailConfirm, changePassword, changePasswordConfirm })(Signup)
+}
+
+const mapDispatchToProps = dispatch => {
+    return {...bindActionCreators(userActions, dispatch)}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)
