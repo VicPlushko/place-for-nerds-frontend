@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as userActions from '../../actions/user'
 import SignupForm from '../../components/user/SignupForm'
+import { Redirect } from 'react-router'
 
 class Signup extends Component {
 
@@ -35,11 +36,11 @@ class Signup extends Component {
         const userInfo = {
             username: event.target.elements.username.value,
             email: event.target.elements.email.value,
-            title: event.target.elements.password.value,
+            password: event.target.elements.password.value,
         }
         event.preventDefault()
         const URL = 'http://localhost:3001/users'
-        if (this.props.email === this.props.emailConfirm && this.props.password === this.props.passwordConfirm ) {
+        if (this.props.emailConfirm === this.props.email || this.props.passwordConfirm === this.props.password ) {
             fetch(URL, {
                 method: "POST",
                 headers: {
@@ -48,11 +49,10 @@ class Signup extends Component {
                 },
                 body: JSON.stringify(userInfo)
             })
-            .then(resp => console.log(resp.json()))
+            .then(resp => resp.json())
             .then(data => {
                 localStorage.setItem("token", data.jwt)
                 this.props.createUser(data)
-
             })
         }else {
             alert("Email or passwords do not match")

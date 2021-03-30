@@ -33,3 +33,4 @@ export const changePasswordConfirm = (value) => {
         dispatch({type: "CHANGE_PASSWORD_CONFIRM", payload: value})
     }
 }
+
