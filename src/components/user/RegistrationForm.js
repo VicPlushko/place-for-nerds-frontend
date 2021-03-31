@@ -1,7 +1,7 @@
 import React from 'react'
 
-const SignupForm = (props) => {
-    console.log('sign up form props', props)
+const RegistrationForm = (props) => {
+    console.log('registration form props', props)
     return (
         <div className='user-form-div'>
             <h1>Sign Up</h1>
@@ -19,7 +19,7 @@ const SignupForm = (props) => {
                     <label className='form-label'>Confirm Email</label>
                 </div>
                 <div className='form-field'>
-                    <input className='form-input' onChange={props.changePassword} type='password' name='password' placeholder='Password'/>
+                    <input className='form-input' onChange={props.changePassword} type='password' name='passwordField' placeholder='Password'/>
                     <label className='form-label'>Password</label>
                 </div>
                 <div className='form-field'>
@@ -34,4 +34,4 @@ const SignupForm = (props) => {
     )
 }
 
-export default SignupForm
+export default RegistrationForm
