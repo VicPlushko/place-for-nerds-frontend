@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as userActions from '../../actions/user'
 import RegistrationForm from '../../components/user/RegistrationForm'
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router-dom'
 
 class Signup extends Component {
 
