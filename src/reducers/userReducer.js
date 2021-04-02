@@ -14,6 +14,8 @@ const userReducer = (state = initialState, action) => {
                 password: action.payload.password,
                 email: action.payload.email
             }
+        case("LOGIN_USER"):
+            return {...state, username: action.payload.username, password: action.payload.password}
         case("CHANGE_USERNAME"):
             return {...state, username: action.payload}
         case("CHANGE_PASSWORD"):

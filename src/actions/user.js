@@ -4,6 +4,12 @@ export const createUser = (userData) => {
     }
 }
 
+export const loginUser = (userData) => {
+    return dispatch => {
+        dispatch({type: "LOGIN_USER", payload: userData})
+    }
+}
+
 export const changeUsername = (value) => {
     return dispatch => {
         dispatch({type: "CHANGE_USERNAME", payload: value})
