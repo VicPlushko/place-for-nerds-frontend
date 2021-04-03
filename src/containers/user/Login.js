@@ -26,7 +26,7 @@ export class Login extends Component {
             username: event.target.elements.username.value,
             password: event.target.elements.passwordField.value
         }
-        
+        console.log("login details", loginBody)
         fetch(loginUrl, {
             method: "POST",
             headers: {
@@ -35,14 +35,22 @@ export class Login extends Component {
             },
             body: JSON.stringify(loginBody)
         })
+        // .then(resp => console.log("response:", resp.json()))
         .then(resp => resp.json())
         .then(data =>  {
-            if (this.props.isLoggedIn) {
-                localStorage.setItem("token", data.jwt)
-                this.props.userLogin(data)
-                this.props.history.push('/')
-            } else {
-                this.props.userLoginFail(alert)
+            console.log(data)
+            if (data.failure !== undefined) {
+                console.log("failed to login: ", data)
+            }else{
+                if (data.jwt !== undefined) {
+                    console.log("jwt exists: ", data)
+                    localStorage.setItem("token", data.jwt)
+                    this.props.userLogin(data)
+                    this.props.history.push('/')
+                } else {
+                    console.log("failed to login: ", data)
+                    this.props.userLoginFail(alert)
+                }
             }
         })
     };

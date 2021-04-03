@@ -4,7 +4,7 @@ export const createUser = (userData) => {
     }
 }
 
-export const loginUser = (userData) => {
+export const userLogin = (userData) => {
     return dispatch => {
         dispatch({type: "LOGIN_USER_SUCCESS", payload: userData})
     }
