@@ -6,6 +6,7 @@ import * as loginActions from '../../actions/user'
 import LoginForm from '../../components/user/LoginForm'
 
 export class Login extends Component {
+    
 
     handleChangeUsername = (event) => {
         console.log('login username is', event.target.value)
@@ -16,8 +17,9 @@ export class Login extends Component {
         console.log('login password is', event.target.value)
         this.props.changePassword(event.target.value)
     }
-
-    handleOnSubmit = (event) => {
+    
+    handleLoginUser = (event) => {
+        this.props.startUserLogin()
         event.preventDefault()
         const loginUrl = 'http://localhost:3001/login'
         let loginBody = {
@@ -33,7 +35,7 @@ export class Login extends Component {
             },
             body: JSON.stringify(loginBody)
         })
-        .then(resp => console.log(resp.json()))
+        .then(resp => resp.json())
         .then(data =>  {
             if (this.props.isLoggedIn) {
                 localStorage.setItem("token", data.jwt)
@@ -42,13 +44,14 @@ export class Login extends Component {
             } else {
                 this.props.userLoginFail(alert)
             }
-            })
+        })
     };
     
     render() {
+        console.log("login state is", this.props)
         return (
             <div>
-                <LoginForm handleSubmit={this.handleOnSubmit} changeUsername={this.handleChangeUsername} changePassword={this.handleChangePassword} />
+                <LoginForm handleSubmit={this.handleLoginUser} changeUsername={this.handleChangeUsername} changePassword={this.handleChangePassword} />
             </div>
         )
     }

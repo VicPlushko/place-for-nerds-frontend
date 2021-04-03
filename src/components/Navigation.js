@@ -17,7 +17,7 @@ const Navigation = () => {
            <NavLink to='/movies' exact style={links} activeStyle={{background: 'red'}}>Movies</NavLink>
            <NavLink to='/tv_shows' exact style={links} activeStyle={{background: 'red'}}>TV Shows</NavLink>
            <NavLink to='/register'>Sign up</NavLink>
-           <NavLink to='login'>Login</NavLink>
+           <NavLink to='/login'>Login</NavLink>
            
         </div>
     )

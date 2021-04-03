@@ -52,12 +52,9 @@ class Signup extends Component {
             .then(resp => resp.json())
             .then(data => {
                 console.log(data)
-                // localStorage.setItem("token", data.jwt)
                 this.props.createUser(data)
                 this.props.history.push("/login")
             })
-            // debugger
-            
         }else {
             alert("Email or passwords do not match")
         }
