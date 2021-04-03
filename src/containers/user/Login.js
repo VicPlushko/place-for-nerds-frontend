@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import * as loginActions from '../../actions/user'
 import LoginForm from '../../components/user/LoginForm'
@@ -24,6 +24,7 @@ export class Login extends Component {
             username: event.target.elements.username.value,
             password: event.target.elements.passwordField.value
         }
+        
         fetch(loginUrl, {
             method: "POST",
             headers: {
@@ -32,9 +33,16 @@ export class Login extends Component {
             },
             body: JSON.stringify(loginBody)
         })
-        .then(resp => resp.json())
-        .then(data => console.log(data));
-        // <Redirect to="/"/>
+        .then(resp => console.log(resp.json()))
+        .then(data =>  {
+            if (this.props.isLoggedIn) {
+                localStorage.setItem("token", data.jwt)
+                this.props.userLogin(data)
+                this.props.history.push('/')
+            } else {
+                this.props.userLoginFail(alert)
+            }
+            })
     };
     
     render() {
@@ -49,7 +57,8 @@ export class Login extends Component {
 const mapStateToProps = globalState => {
     return {
         username: globalState.userReducer.username,
-        password: globalState.userReducer.password
+        password: globalState.userReducer.password,
+        isLoggedIn: globalState.userReducer.isLoggedIn
     }
 }
 

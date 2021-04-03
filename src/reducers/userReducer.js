@@ -3,7 +3,8 @@ const initialState = {
     password: "",
     passwordConfirm: "",
     email: "",
-    emailConfirm: ""
+    emailConfirm: "",
+    isLoggedIn: false
 }
 
 const userReducer = (state = initialState, action) => {
@@ -14,8 +15,12 @@ const userReducer = (state = initialState, action) => {
                 password: action.payload.password,
                 email: action.payload.email
             }
-        case("LOGIN_USER"):
-            return {...state, username: action.payload.username, password: action.payload.password}
+        case("START_USER_LOGIN"):
+            return {...state, isLoggedIn: false}
+        case("LOGIN_USER_SUCCESS"):
+            return {...state, isLoggedIn: true, username: action.payload.username, password: action.payload.password}
+        case("LOGIN_USER_FAIL"):
+            return {...state, isLoggedIn: false, alert: ("Username or Password is incorrect")}
         case("CHANGE_USERNAME"):
             return {...state, username: action.payload}
         case("CHANGE_PASSWORD"):

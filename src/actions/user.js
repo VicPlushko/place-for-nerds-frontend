@@ -6,7 +6,19 @@ export const createUser = (userData) => {
 
 export const loginUser = (userData) => {
     return dispatch => {
-        dispatch({type: "LOGIN_USER", payload: userData})
+        dispatch({type: "LOGIN_USER_SUCCESS", payload: userData})
+    }
+}
+
+export const startUserLogin = () => {
+    return dispatch => {
+        dispatch({type: "START_USER_LOGIN"})
+    }
+}
+
+export const userLoginFail = (alert) => {
+    return dispatch => {
+        dispatch({type: "LOGIN_USER_FAIL", payload: alert})
     }
 }
 

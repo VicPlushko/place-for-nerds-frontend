@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as userActions from '../../actions/user'
 import RegistrationForm from '../../components/user/RegistrationForm'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 
 class Signup extends Component {
 
@@ -54,15 +54,13 @@ class Signup extends Component {
                 console.log(data)
                 // localStorage.setItem("token", data.jwt)
                 this.props.createUser(data)
-                
+                this.props.history.push("/login")
             })
             // debugger
             
         }else {
             alert("Email or passwords do not match")
         }
-        
-        <Redirect to="/login"/>
     }
 
     render() {
