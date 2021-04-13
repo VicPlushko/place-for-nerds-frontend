@@ -35,7 +35,6 @@ export class Login extends Component {
             },
             body: JSON.stringify(loginBody)
         })
-        // .then(resp => console.log("response:", resp.json()))
         .then(resp => resp.json())
         .then(data =>  {
             console.log(data)
@@ -46,7 +45,7 @@ export class Login extends Component {
                     console.log("jwt exists: ", data)
                     localStorage.setItem("token", data.jwt)
                     this.props.userLogin(data)
-                    this.props.history.push('/')
+                    this.props.history.goBack()
                 } else {
                     console.log("failed to login: ", data)
                     this.props.userLoginFail(alert)

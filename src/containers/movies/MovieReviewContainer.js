@@ -3,8 +3,13 @@ import { connect } from 'react-redux'
 import { getReviews, changeTitle, changeContent, createReview, clearForm } from '../../actions/review'
 import MovieReviewForm from '../../components/movie/MovieReviewForm'
 import Review from '../../components/movie/Review'
+import ReviewButton from '../../components/ReviewButton'
 
 class MovieReviewContainer extends Component {
+
+    state = {
+        clicked: false
+    }
 
     handleOnSubmit = (event) => {
         const reviewBody = {
@@ -42,19 +47,36 @@ class MovieReviewContainer extends Component {
         this.props.changeContent(event.target.value)
     }
 
+    displayReviewForm = (event) => {
+        console.log(event.target)
+        this.setState({
+            clicked: true
+        })
+        this.props.isAthenticated === true
+        ? <MovieReviewForm />
+        : window.alert("Must be logged in to write a review")
+    }
+
     componentDidMount() {
         this.props.getReviews(this.props.movie_id)
     }
 
+
+
     
     render() {
         console.log("movie review container props is", this.props)
+        const reviews = this.props.reviews.map((review, i) => <Review key={i} title={review.title} content={review.content} movie_id={review.movie_id}/>)
+        
+        
             
-            const reviews = this.props.reviews.map((review, i) => <Review key={i} title={review.title} content={review.content} movie_id={review.movie_id}/>)
-         
         return (
             <div>
-                <MovieReviewForm key={this.props.movie_id} title={this.props.title} content={this.props.content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit}/>
+                <ReviewButton handleReviewButton={this.displayReviewForm} />
+                {this.state.clicked === true && this.props.isAuthenticated === true 
+                    ? <MovieReviewForm key={this.props.movie_id} title={this.props.title} content={this.props.content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit} />
+                    : null  
+                }
                 <div>
                     <h1>Reviews:</h1>
                     <ul>
@@ -72,7 +94,8 @@ const mapStateToProps = globalState => {
         reviews: globalState.reviewReducer.reviews,
         loading: globalState.reviewReducer.loading,
         title: globalState.reviewReducer.title,
-        content: globalState.reviewReducer.content
+        content: globalState.reviewReducer.content,
+        isAuthenticated: globalState.userReducer.isAuthenticated
     }
 } 
 
