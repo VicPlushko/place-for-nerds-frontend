@@ -52,9 +52,13 @@ class MovieReviewContainer extends Component {
         this.setState({
             clicked: true
         })
-        this.props.isAthenticated === true
-        ? <MovieReviewForm />
-        : window.alert("Must be logged in to write a review")
+        if (this.props.isAthenticated === false) {
+            window.alert("Must be logged in to write a review")
+        }else{
+            <MovieReviewForm />
+        }
+       
+        
     }
 
     componentDidMount() {

@@ -4,7 +4,6 @@ const initialState = {
     passwordConfirm: "",
     email: "",
     emailConfirm: "",
-    isLoggedIn: false,
     isAuthenticated: localStorage.getItem('token') ? true : false
 }
 
@@ -18,11 +17,11 @@ const userReducer = (state = initialState, action) => {
                 isLoggedIn: true
             }
         case("START_USER_LOGIN"):
-            return {...state, isLoggedIn: false}
+            return {...state}
         case("LOGIN_USER_SUCCESS"):
-            return {...state, isLoggedIn: true, username: action.payload.username, password: action.payload.password}
+            return {...state, username: action.payload.username, password: action.payload.password}
         case("LOGIN_USER_FAIL"):
-            return {...state, isLoggedIn: false}
+            return {...state}
         case("CHANGE_USERNAME"):
             return {...state, username: action.payload}
         case("CHANGE_PASSWORD"):

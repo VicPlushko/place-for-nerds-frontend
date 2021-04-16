@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import * as loginActions from '../../actions/user'
 import LoginForm from '../../components/user/LoginForm'
 
-export class Login extends Component {
+class Login extends Component {
     
 
     handleChangeUsername = (event) => {
