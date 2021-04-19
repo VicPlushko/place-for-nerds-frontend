@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const links = {
     width: '100px',
@@ -10,16 +10,19 @@ const links = {
     color: 'black'
 }
 
-const Navigation = () => {
+const userLinks = {
+    padding: '5px',
+    margin: '10px 5px'
+}
+
+const Navigation = (props) => {
     return (
         <div>
            <NavLink to='/' exact style={links} activeStyle={{background: 'red'}}>Home</NavLink>
            <NavLink to='/movies' exact style={links} activeStyle={{background: 'red'}}>Movies</NavLink>
            <NavLink to='/tv_shows' exact style={links} activeStyle={{background: 'red'}}>TV Shows</NavLink>
-           <NavLink to='/register'>Sign up</NavLink>
-           <NavLink to='/login'>Login</NavLink>
-           
-           
+           <NavLink to='/register' exact style={userLinks}>Sign up</NavLink>
+           <NavLink to='/login' exact style={userLinks}>Login</NavLink>
         </div>
     )
 }

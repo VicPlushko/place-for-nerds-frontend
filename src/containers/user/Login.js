@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { Redirect } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import * as loginActions from '../../actions/user'
 import LoginForm from '../../components/user/LoginForm'

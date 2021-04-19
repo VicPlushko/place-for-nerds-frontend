@@ -11,6 +11,7 @@ import SingleShowContainer from './containers/tv_shows/SingleShowContainer'
 import Navigation from './components/Navigation'
 import Registration from './containers/user/Registration'
 import Login from './containers/user/Login'
+import LogoutButton from './components/user/LogoutButton'
 import { connect } from 'react-redux';
 import { getMovies } from './actions/movie'
 import { getShows } from './actions/tvShows'
@@ -20,7 +21,20 @@ class App extends Component {
   componentDidMount() {
     this.props.getMovies()
     this.props.getShows()
-}
+  }
+
+  handleLogoutOnButtonClick = (event) => {
+    console.log(event.target)
+    if (this.props.isAuthenticated === true) {
+      localStorage.removeItem('token')
+      window.location.reload()
+    } else {
+      window.alert("You need to be logged in to logout")
+    }
+    }
+    
+      
+  
 
   render() {
     return (
@@ -28,6 +42,7 @@ class App extends Component {
         <div className="App">
           <header className='App-header'>
             <Navigation />
+            <LogoutButton handleLogout={this.handleLogoutOnButtonClick}/>
           </header>
         <Switch>
           <Route exact path='/' component={Home}/>
@@ -46,4 +61,11 @@ class App extends Component {
   
 }
 
-export default connect(null, { getMovies, getShows })(App)
+const mapStateToProps = globalState => {
+  console.log("App props isAuthenticated:", globalState.userReducer.isAuthenticated)
+  return {
+    isAuthenticated: globalState.userReducer.isAuthenticated
+  }
+}
+
+export default connect(mapStateToProps, { getMovies, getShows })(App)

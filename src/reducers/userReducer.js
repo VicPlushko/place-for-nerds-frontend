@@ -13,13 +13,12 @@ const userReducer = (state = initialState, action) => {
             return {...state, 
                 username: action.payload.username, 
                 password: action.payload.password,
-                email: action.payload.email,
-                isLoggedIn: true
+                email: action.payload.email
             }
         case("START_USER_LOGIN"):
             return {...state}
         case("LOGIN_USER_SUCCESS"):
-            return {...state, username: action.payload.username, password: action.payload.password}
+            return {...state, isAuthenticated: true, username: action.payload.username, password: action.payload.password}
         case("LOGIN_USER_FAIL"):
             return {...state}
         case("CHANGE_USERNAME"):
