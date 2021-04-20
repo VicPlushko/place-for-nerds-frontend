@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { getMovies } from '../../actions/movie'
 import Movie from '../../components/movie/Movie'
 import SearchContainer from '../movies/SearchContainer'
 
@@ -84,4 +85,4 @@ class MoviesContainer extends Component {
         isLoggedIn: globalState.userReducer.isLoggedIn
     }
 }
-export default connect(mapStateToProps)(MoviesContainer)
+export default connect(mapStateToProps, { getMovies })(MoviesContainer)
