@@ -11,7 +11,7 @@ const links = {
 }
 
 const userLinks = {
-    padding: '5px',
+    padding: '2px',
     margin: '10px 5px'
 }
 
