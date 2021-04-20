@@ -31,7 +31,7 @@ class App extends Component {
     } else {
       window.alert("You need to be logged in to logout")
     }
-    }
+  }
     
       
   
