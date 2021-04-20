@@ -15,7 +15,7 @@ const userLinks = {
     margin: '10px 5px'
 }
 
-const Navigation = (props) => {
+const Navigation = () => {
     return (
         <div>
            <NavLink to='/' exact style={links} activeStyle={{background: 'red'}}>Home</NavLink>
