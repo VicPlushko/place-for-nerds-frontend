@@ -82,7 +82,6 @@ class MoviesContainer extends Component {
     return {
         movies: globalState.movieReducer.movies,
         loading: globalState.movieReducer.loading,
-        isLoggedIn: globalState.userReducer.isLoggedIn
     }
 }
 export default connect(mapStateToProps, { getMovies })(MoviesContainer)

@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import TvShow from '../../components/tv_show/TvShow'
+import TvSearch from '../../containers/tv_shows/TvSearch'
+import { getShows } from '../../actions/tvShows'
 
 class TvShowContainer extends Component {
+
+    handleClick = (event) => {
+        event.preventDefault()
+        this.props.getShows()
+    } 
 
     render() {
 
@@ -15,8 +22,18 @@ class TvShowContainer extends Component {
                 <div className='App-header'>
                     <h1>TV Shows</h1>   
                 </div>
+                <div className='search-div'>
+                    <TvSearch/>
+                    <div className="clear-btn">
+                    <button className='reload-movies' onClick={this.handleClick}>Clear Search</button>
+                  </div>
+                </div>
                 <div className='movies-container'>
-                {this.props.loading ? <h3>Loading...</h3> : shows}
+                {this.props.loading 
+                ? <h3>Loading...</h3> 
+                : (shows.length === 0) 
+                ? <p>No Movies Found</p>
+                : shows}
                 </div>
             </div>
         )
@@ -31,4 +48,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(TvShowContainer)
+export default connect(mapStateToProps, { getShows })(TvShowContainer)
