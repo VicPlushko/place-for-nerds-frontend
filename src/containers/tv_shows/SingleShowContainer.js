@@ -74,7 +74,7 @@ class SingleShowContainer extends Component {
                 cast= {this.state.cast} 
                 backdrop={this.state.backdrop}
                 />
-                <div className='singleView'>
+                <div className='singleView' id='show-reviews'>
                     <TvShowReviewContainer key={this.state.show_id} show_id={this.state.show_id}/>
                </div>
             </div>

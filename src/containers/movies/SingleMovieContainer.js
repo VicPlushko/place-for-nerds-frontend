@@ -69,7 +69,7 @@ class SingleMovieContainer extends Component {
                productionCompanies={this.state.productionCompanies} 
                cast={this.state.cast} 
                backdrop={this.state.backdrop}/>
-            <div className='singleView'>
+            <div className='singleView' id='movie-reviews'>
                 <MovieReviewContainer key={this.state.movie_id} movie_id={this.state.movie_id}/>
             </div>
             </div>

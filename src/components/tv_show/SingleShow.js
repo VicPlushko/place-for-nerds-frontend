@@ -14,7 +14,8 @@ const SingleShow = (props) => {
                 "{props.tagline}"
             </div>
                 <div className="singleView">
-                   <p className='show-info'><strong>Show Creator:</strong> {props.show_creator}</p>
+                    <a href='#show-reviews'>Reviews</a>
+                    <p className='show-info'><strong>Show Creator:</strong> {props.show_creator}</p>
                     <p className='show-info'><strong>Genre:</strong> {props.genres}</p>
                     <p className='show-info'><strong>Synopsis:</strong> {props.synopsis}</p>
                     <p className='show-info'><strong>Release Date:</strong> {props.release_date}</p>

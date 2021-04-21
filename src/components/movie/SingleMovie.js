@@ -12,7 +12,8 @@ const SingleMovie = (props) => {
                 <h1>{props.title}</h1>
             </div>
                 <div className="singleView">
-                   <p className='show-info'><strong>Runtime:</strong> {props.runtime} Minutes</p>
+                    <a href='#movie-reviews'>Reviews</a>
+                    <p className='show-info'><strong>Runtime:</strong> {props.runtime} Minutes</p>
                     <p className='show-info'><strong>Genre:</strong> {props.genres}</p>
                     <p className='show-info'><strong>Synopsis:</strong> {props.synopsis}</p>
                     <p className='show-info'><strong>Release Date:</strong> {props.release_date}</p>
