@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SingleShow from '../../components/tv_show/SingleShow'
 import Actor from '../../components/actor/Actor'
+import TvShowReviewContainer from '../../containers/tv_shows/TvShowReviewContainer'
 
 class SingleShowContainer extends Component {
 
@@ -55,24 +56,27 @@ class SingleShowContainer extends Component {
     render() {
         return (
             <div>
-                    <SingleShow
-                    key={this.state.show_id}
-                    title={this.state.title} 
-                    release_date={this.state.release_date} 
-                    synopsis={this.state.synopsis} 
-                    poster={this.state.poster} 
-                    show_id={this.state.show_id} 
-                    show_creator={this.state.created_by} 
-                    homepage={this.state.homepage} 
-                    tagline={this.state.tagline} 
-                    seasons={this.state.number_of_seasons} 
-                    episodes={this.state.number_of_episodes} 
-                    genres={this.state.genres} 
-                    network={this.state.networks}
-                    productionCompanies={this.state.productionCompanies} 
-                    cast= {this.state.cast} 
-                    backdrop={this.state.backdrop}
-                    />
+                <SingleShow
+                key={this.state.show_id}
+                title={this.state.title} 
+                release_date={this.state.release_date} 
+                synopsis={this.state.synopsis} 
+                poster={this.state.poster} 
+                show_id={this.state.show_id} 
+                show_creator={this.state.created_by} 
+                homepage={this.state.homepage} 
+                tagline={this.state.tagline} 
+                seasons={this.state.number_of_seasons} 
+                episodes={this.state.number_of_episodes} 
+                genres={this.state.genres} 
+                network={this.state.networks}
+                productionCompanies={this.state.productionCompanies} 
+                cast= {this.state.cast} 
+                backdrop={this.state.backdrop}
+                />
+                <div className='singleView'>
+                    <TvShowReviewContainer key={this.state.show_id} show_id={this.state.show_id}/>
+               </div>
             </div>
         )
     }

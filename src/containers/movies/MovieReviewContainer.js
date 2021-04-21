@@ -33,7 +33,6 @@ class MovieReviewContainer extends Component {
              this.props.createReview(review)
              this.props.clearForm()
             })
-         
     }
 
 
@@ -57,8 +56,6 @@ class MovieReviewContainer extends Component {
         }else{
             <MovieReviewForm />
         }
-       
-        
     }
 
     componentDidMount() {
@@ -66,17 +63,16 @@ class MovieReviewContainer extends Component {
     }
 
 
-
-    
     render() {
         console.log("movie review container props is", this.props)
         const reviews = this.props.reviews.map((review, i) => <Review key={i} title={review.title} content={review.content} movie_id={review.movie_id}/>)
-        
-        
-            
+         
         return (
             <div>
-                <ReviewButton handleReviewButton={this.displayReviewForm} />
+                {this.state.clicked === true 
+                ? null
+                :<ReviewButton handleReviewButton={this.displayReviewForm} />
+                }
                 {this.state.clicked === true && this.props.isAuthenticated === true 
                     ? <MovieReviewForm key={this.props.movie_id} title={this.props.title} content={this.props.content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit} />
                     : null  
