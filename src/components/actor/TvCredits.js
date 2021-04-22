@@ -4,6 +4,7 @@ const TvCredits = (props) => {
     const getYear = (x) => {
         return x.split('-')[0]
      }
+     console.log('tv credits props', props)
     let imageURL = ""
     if (props.poster == null) {
         imageURL = `https://picsum.photos/185/278`
@@ -15,7 +16,7 @@ const TvCredits = (props) => {
             <div className='castGrid'>
                 <Link to={`/tv_shows/${props.show_id}`}className='poster-link'><img className='movie-poster' src={imageURL} alt=""></img>
                 </Link>
-                <div className='movie-name'>{props.title} - {props.release_date === undefined ?"TBD" : getYear(props.release_date)}</div>
+                <div className='movie-name'>{props.title} - {props.release_date === "" ? "TBD" : getYear(props.release_date)}</div>
                 <div className='character-name'>{props.character}</div>
                 </div>
         </div>
