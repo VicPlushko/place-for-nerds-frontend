@@ -80,7 +80,12 @@ class MovieReviewContainer extends Component {
                 <div>
                     <h1>Reviews:</h1>
                     <ul>
-                       {reviews}
+                       {this.props.loading
+                       ? <h3>Loading...</h3>
+                       : (reviews.length === 0)
+                       ? `There are no reviews for "${this.props.movieTitle}". Be the first to write a review.`
+                       : reviews
+                       }
                     </ul>
                 </div>
             </div>
@@ -95,7 +100,8 @@ const mapStateToProps = globalState => {
         loading: globalState.reviewReducer.loading,
         title: globalState.reviewReducer.title,
         content: globalState.reviewReducer.content,
-        isAuthenticated: globalState.userReducer.isAuthenticated
+        isAuthenticated: globalState.userReducer.isAuthenticated,
+        movies: globalState.movieReducer.movies
     }
 } 
 

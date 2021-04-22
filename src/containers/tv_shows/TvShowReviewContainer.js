@@ -81,7 +81,12 @@ class TvShowReviewContainer extends Component {
                 <div>
                     <h1>Reviews:</h1>
                     <ul>
-                       {tvShowReviews}
+                       {this.props.loading
+                       ? <h3>Loading...</h3>
+                       : (tvShowReviews.length === 0)
+                       ? `There are no reviews for "${this.props.showTitle}". Be the first to write a review.`
+                       : tvShowReviews
+                       }
                     </ul>
                 </div>
             </div>
