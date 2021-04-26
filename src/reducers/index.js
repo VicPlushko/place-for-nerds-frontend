@@ -4,6 +4,7 @@ import tvShowReducer from './tvShowReducer'
 import reviewReducer from './reviewReducer'
 import userReducer from './userReducer'
 import tvShowReviewReducer from './tvShowReviewReducer'
+import gameReducer from './gameReducer'
 
 const rootReducer = combineReducers({
     movieReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     tvShowReducer,
     tvShowReviewReducer,
     userReducer,
+    gameReducer
 })
 
 export default rootReducer

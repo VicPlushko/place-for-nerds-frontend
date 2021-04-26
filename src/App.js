@@ -12,6 +12,7 @@ import Navigation from './components/Navigation'
 import Registration from './containers/user/Registration'
 import Login from './containers/user/Login'
 import LogoutButton from './components/user/LogoutButton'
+import GamesContainer from './containers/games/GamesContainer'
 import { connect } from 'react-redux';
 import { getMovies } from './actions/movie'
 import { getShows } from './actions/tvShows'
@@ -23,15 +24,15 @@ class App extends Component {
     this.props.getShows()
   }
 
-  handleLogoutOnButtonClick = (event) => {
-    console.log(event.target)
-    if (this.props.isAuthenticated === true) {
-      localStorage.removeItem('token')
-      window.location.reload()
-    } else {
-      window.alert("You need to be logged in to logout")
-    }
-  }
+  // handleLogoutOnButtonClick = (event) => {
+  //   console.log(event.target)
+  //   if (this.props.isAuthenticated === true) {
+  //     localStorage.removeItem('token')
+  //     window.location.reload()
+  //   } else {
+  //     window.alert("You need to be logged in to logout")
+  //   }
+  // }
     
       
   
@@ -42,7 +43,7 @@ class App extends Component {
         <div className="App">
           <header className='App-header'>
             <Navigation />
-            <LogoutButton handleLogout={this.handleLogoutOnButtonClick}/>
+            {/* <LogoutButton handleLogout={this.handleLogoutOnButtonClick}/> */}
           </header>
         <Switch>
           <Route exact path='/' component={Home}/>
@@ -51,6 +52,7 @@ class App extends Component {
           <Route exact path='/actors/:id' component={ActorContainer} />
           <Route exact path='/tv_shows' component={TvShowContainer} />
           <Route exact path='/tv_shows/:id' component={SingleShowContainer} />
+          <Route exact path='/video_games' component={GamesContainer} />
           <Route exact path='/register' component={Registration} />
           <Route exact path='/login' component={Login} />
         </Switch>
