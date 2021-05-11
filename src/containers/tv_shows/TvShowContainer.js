@@ -7,14 +7,17 @@ import { getShows } from '../../actions/tvShows'
 class TvShowContainer extends Component {
 
     handleClick = (event) => {
+        const {getShows} = this.props
         event.preventDefault()
-        this.props.getShows()
+        getShows()
     } 
 
     render() {
 
+        const {shows, loading} = this.props
+
         console.log("tv show container props is", this.props)
-        const shows = this.props.shows.map((show, i) => {
+        const initialShows = shows.map((show, i) => {
             return <TvShow key={i}  title={show.name} release_date={show.first_air_date} synopsis={show.overview} poster={show.poster_path} show_id={show.id}/>
             })
         return (
@@ -29,11 +32,11 @@ class TvShowContainer extends Component {
                   </div>
                 </div>
                 <div className='movies-container'>
-                {this.props.loading 
+                { loading 
                 ? <h3>Loading...</h3> 
                 : (shows.length === 0) 
-                ? <p>No Movies Found</p>
-                : shows}
+                ? <p>No Shows Found</p>
+                : initialShows}
                 </div>
             </div>
         )

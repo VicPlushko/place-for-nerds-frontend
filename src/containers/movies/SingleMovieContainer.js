@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SingleMovie from '../../components/movie/SingleMovie'
 import Actor from '../../components/actor/Actor'
 import MovieReviewContainer from './MovieReviewContainer'
+import { formatAsCurrency } from '../../utitlity/util'
 
 class SingleMovieContainer extends Component {
     
@@ -77,7 +78,4 @@ class SingleMovieContainer extends Component {
     }
 }
 
-function formatAsCurrency(x) {
-    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-}
 export default SingleMovieContainer

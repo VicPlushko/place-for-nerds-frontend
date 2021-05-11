@@ -11,8 +11,9 @@ class MoviesContainer extends Component {
     }
 
     handleClick = (event) => {
+        const {getMovies} = this.props
         event.preventDefault()
-        this.props.getMovies()
+        getMovies()
     }
 
     handleSortClick = () => {
@@ -29,11 +30,16 @@ class MoviesContainer extends Component {
     }
 
     render() {
+
+        const {
+            movies,
+            loading
+        } = this.props
         
-        let newMovies = this.props.movies
+        let sortedMovies = movies
         console.log("movie container props is", this.props)
         if (this.state.sorted) {
-            newMovies = this.props.movies.map((movie) => movie).sort(function(a, b) {
+            sortedMovies = movies.map((movie) => movie).sort(function(a, b) {
                 var titleA = a.title.toUpperCase(); // ignore upper and lowercase
                 var titleB = b.title.toUpperCase(); // ignore upper and lowercase
                 if (titleA < titleB) {
@@ -48,7 +54,7 @@ class MoviesContainer extends Component {
               });
          }
 
-       const movies = newMovies.map((movie, i) => {
+       const newMovies = sortedMovies.map((movie, i) => {
             return <Movie key={i} id={movie.id} title={movie.title} release_date={movie.release_date} synopsis={movie.overview} poster={movie.poster_path}/>
         })
         
@@ -65,11 +71,11 @@ class MoviesContainer extends Component {
                   <button onClick={this.handleSortClick}>Sort</button>
                 </div>
                 <div className='movies-container'>
-                {this.props.loading 
+                { loading 
                 ? <h3>Loading...</h3> 
                 : (movies.length === 0) 
                 ? <p>No Movies Found</p>
-                : movies}
+                : newMovies}
                 </div>
             </div>
             

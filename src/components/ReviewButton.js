@@ -1,9 +1,12 @@
 import React from 'react'
 
 const ReviewButton = (props) => {
+
+    const {handleReviewButton} = props
+
     return (
         <div>
-            <button className='review-btn' onClick={props.handleReviewButton}>Write a Review</button>
+            <button className='review-btn' onClick={handleReviewButton}>Write a Review</button>
         </div>
     )
 }

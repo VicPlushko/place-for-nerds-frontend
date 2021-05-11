@@ -12,10 +12,13 @@ class MovieReviewContainer extends Component {
     }
 
     handleOnSubmit = (event) => {
+
+        const {movie_id} = this.props
+
         const reviewBody = {
             title: event.target.elements.title.value,
             content: event.target.elements.content.value,
-            movie_id: this.props.movie_id
+            movie_id: movie_id
         }
 
         const reviewURL = 'http://localhost:3001/reviews'
@@ -37,13 +40,15 @@ class MovieReviewContainer extends Component {
 
 
     handleOnTitleChange = (event) => {
+        const {changeTitle} = this.props
         console.log(event.target.value)
-        this.props.changeTitle(event.target.value)
+        changeTitle(event.target.value)
     }
 
     handleOnContentChange = (event) => {
+        const {changeContent} = this.props
         console.log(event.target.value)
-        this.props.changeContent(event.target.value)
+        changeContent(event.target.value)
     }
 
     displayReviewForm = (event) => {
@@ -59,13 +64,25 @@ class MovieReviewContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.getReviews(this.props.movie_id)
+        const {getReviews, movie_id} = this.props
+        getReviews(movie_id)
     }
 
 
     render() {
+
+        const {
+            reviews,
+            loading,
+            title,
+            content,
+            isAuthenticated,
+            movie_id,
+            movieTitle
+        } = this.props
+
         console.log("movie review container props is", this.props)
-        const reviews = this.props.reviews.map((review, i) => <Review key={i} title={review.title} content={review.content} movie_id={review.movie_id}/>)
+        const movieReviews = this.props.reviews.map((review, i) => <Review key={i} title={review.title} content={review.content} movie_id={review.movie_id}/>)
          
         return (
             <div>
@@ -73,18 +90,18 @@ class MovieReviewContainer extends Component {
                 ? null
                 :<ReviewButton handleReviewButton={this.displayReviewForm} />
                 }
-                {this.state.clicked === true && this.props.isAuthenticated === true 
-                    ? <MovieReviewForm key={this.props.movie_id} title={this.props.title} content={this.props.content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit} />
+                {this.state.clicked === true && isAuthenticated === true 
+                    ? <MovieReviewForm key={movie_id} title={title} content={content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit} />
                     : null  
                 }
                 <div>
                     <h1>Reviews:</h1>
                     <ul>
-                       {this.props.loading
+                       {loading
                        ? <h3>Loading...</h3>
                        : (reviews.length === 0)
-                       ? `There are no reviews for "${this.props.movieTitle}". Be the first to write a review.`
-                       : reviews
+                       ? `There are no reviews for "${movieTitle}". Be the first to write a review.`
+                       : movieReviews
                        }
                     </ul>
                 </div>
