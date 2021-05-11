@@ -76,7 +76,7 @@ const mapStateToProps = globalState => {
     return {
         username: globalState.userReducer.username,
         password: globalState.userReducer.password,
-        isLoggedIn: globalState.userReducer.isLoggedIn
+        isAuthenticated: globalState.userReducer.isAuthenticated
     }
 }
 
