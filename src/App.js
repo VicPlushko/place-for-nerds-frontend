@@ -11,7 +11,6 @@ import SingleShowContainer from './containers/tv_shows/SingleShowContainer'
 import Navigation from './components/Navigation'
 import Registration from './containers/user/Registration'
 import Login from './containers/user/Login'
-import GamesContainer from './containers/games/GamesContainer'
 import { connect } from 'react-redux';
 import { getMovies } from './actions/movie'
 import { getShows } from './actions/tvShows'
@@ -38,7 +37,6 @@ class App extends Component {
           <Route exact path='/actors/:id' component={ActorContainer} />
           <Route exact path='/tv_shows' component={TvShowContainer} />
           <Route exact path='/tv_shows/:id' component={SingleShowContainer} />
-          <Route exact path='/video_games' component={GamesContainer} />
           <Route exact path='/register' component={Registration} />
           <Route exact path='/login' component={Login} />
         </Switch>

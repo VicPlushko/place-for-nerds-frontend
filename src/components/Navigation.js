@@ -35,7 +35,6 @@ const Navigation = () => {
            <NavLink to='/' exact style={links} activeStyle={{background: 'red'}}>Home</NavLink>
            <NavLink to='/movies' exact style={links} activeStyle={{background: 'red'}}>Movies</NavLink>
            <NavLink to='/tv_shows' exact style={links} activeStyle={{background: 'red'}}>TV Shows</NavLink>
-           <NavLink to='/games' exact style={links}>Video Games</NavLink>
            <NavLink to='/register' exact style={userLinks}>Sign up</NavLink>
            <NavLink to='/login' exact style={userLinks}>Login</NavLink>
            <LogoutButton handleLogout={handleLogoutOnButtonClick}/>
