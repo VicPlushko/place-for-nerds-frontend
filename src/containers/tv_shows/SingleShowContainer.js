@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SingleShow from '../../components/tv_show/SingleShow'
 import Actor from '../../components/actor/Actor'
 import TvShowReviewContainer from '../../containers/tv_shows/TvShowReviewContainer'
+import moment from 'moment'
 
 class SingleShowContainer extends Component {
 
@@ -54,28 +55,47 @@ class SingleShowContainer extends Component {
         
     }
     render() {
+        
+        const {
+            title,
+            release_date,
+            synopsis,
+            created_by,
+            poster,
+            homepage,
+            tagline,
+            show_id,
+            number_of_seasons,
+            number_of_episodes,
+            genres,
+            productionCompanies,
+            networks,
+            cast,
+            backdrop    
+        } = this.state
+
         return (
             <div>
                 <SingleShow
-                key={this.state.show_id}
-                title={this.state.title} 
-                release_date={this.state.release_date} 
-                synopsis={this.state.synopsis} 
-                poster={this.state.poster} 
-                show_id={this.state.show_id} 
-                show_creator={this.state.created_by} 
-                homepage={this.state.homepage} 
-                tagline={this.state.tagline} 
-                seasons={this.state.number_of_seasons} 
-                episodes={this.state.number_of_episodes} 
-                genres={this.state.genres} 
-                network={this.state.networks}
-                productionCompanies={this.state.productionCompanies} 
-                cast= {this.state.cast} 
-                backdrop={this.state.backdrop}
+                key={show_id}
+                title={title} 
+                release_date={moment(release_date).format('MM-DD-YYYY')} 
+                synopsis={synopsis} 
+                poster={poster} 
+                show_id={show_id} 
+                show_creator={created_by} 
+                homepage={homepage} 
+                tagline={tagline} 
+                seasons={number_of_seasons} 
+                episodes={number_of_episodes} 
+                genres={genres} 
+                network={networks}
+                productionCompanies={productionCompanies} 
+                cast= {cast} 
+                backdrop={backdrop}
                 />
                 <div className='singleView' id='show-reviews'>
-                    <TvShowReviewContainer key={this.state.show_id} show_id={this.state.show_id} showTitle={this.state.title}/>
+                    <TvShowReviewContainer key={show_id} show_id={show_id} showTitle={title}/>
                </div>
             </div>
         )

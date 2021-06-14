@@ -146,12 +146,12 @@ h1{
   margin-left: 5px;
 }
 
-.logout-btn {
+/* .logout-btn {
   position: absolute;
   align-items: right;
   margin-top: 10px;
   margin-left: 700px;
-}
+} */
 
 .cast-character {
   font-weight: normal;

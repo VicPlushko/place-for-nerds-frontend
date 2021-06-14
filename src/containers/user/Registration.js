@@ -8,31 +8,43 @@ import RegistrationForm from '../../components/user/RegistrationForm'
 class Signup extends Component {
 
     handleChangeUsername = (event) => {
+        const {changeUsername} = this.props
         console.log("username is", event.target.value)
-        this.props.changeUsername(event.target.value)
+        changeUsername(event.target.value)
     }
 
     handleChangeEmail = (event) => {
+        const {changeEmail} = this.props
         console.log("email is", event.target.value)
-        this.props.changeEmail(event.target.value)
+        changeEmail(event.target.value)
     }
 
     handleChangeEmailConfirm = (event) => {
+        const {changeEmailConfirm} = this.props
         console.log("email confirm is", event.target.value)
-        this.props.changeEmailConfirm(event.target.value)
+        changeEmailConfirm(event.target.value)
     }
 
     handleChangePassword = (event) => {
+        const {changePassword} = this.props
         console.log("password is", event.target.value)
-        this.props.changePassword(event.target.value)
+        changePassword(event.target.value)
     }
 
     handleChangePasswordConfirm = (event) => {
+        const {changePasswordConfirm} = this.props
         console.log("password confirm is", event.target.value)
-        this.props.changePasswordConfirm(event.target.value)
+        changePasswordConfirm(event.target.value)
     }
 
     handleOnSubmit = (event) => {
+
+        const {
+            passwordConfirm,
+            password,
+            createUser
+        } = this.props
+
         const userInfo = {
             username: event.target.elements.username.value,
             email: event.target.elements.email.value,
@@ -40,7 +52,7 @@ class Signup extends Component {
         }
         event.preventDefault()
         const URL = 'http://localhost:3001/register'
-        if (this.props.passwordConfirm === this.props.password ) {
+        if (passwordConfirm === password ) {
             fetch(URL, {
                 method: "POST",
                 headers: {
@@ -52,7 +64,7 @@ class Signup extends Component {
             .then(resp => resp.json())
             .then(data => {
                 console.log(data)
-                this.props.createUser(data)
+                createUser(data)
                 this.props.history.push("/login")
             })
         }else {

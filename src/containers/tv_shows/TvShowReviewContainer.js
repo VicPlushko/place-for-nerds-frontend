@@ -13,10 +13,17 @@ class TvShowReviewContainer extends Component {
     }
 
     handleOnSubmit = (event) => {
+
+        const {
+            show_id,
+            createTvShowReview,
+            clearForm
+        } = this.props
+
         const tvShowReviewBody = {
             title: event.target.elements.title.value,
             content: event.target.elements.content.value,
-            show_id: this.props.show_id
+            show_id: show_id
         }
 
         const showReviewURL = 'http://localhost:3001/tv_show_reviews'
@@ -31,28 +38,31 @@ class TvShowReviewContainer extends Component {
         })
          .then(response => response.json())
          .then(showReview => {
-             this.props.createTvShowReview(showReview)
-             this.props.clearForm()
+             createTvShowReview(showReview)
+             clearForm()
          })
     }
 
 
     handleOnTitleChange = (event) => {
+        const {changeReviewTitle} = this.props
         console.log(event.target.value)
-        this.props.changeReviewTitle(event.target.value)
+        changeReviewTitle(event.target.value)
     }
 
     handleOnContentChange = (event) => {
+        const {changeReviewContent} = this.props
         console.log(event.target.value)
-        this.props.changeReviewContent(event.target.value)
+        changeReviewContent(event.target.value)
     }
 
     displayReviewForm = (event) => {
+        const {isAuthenticated} = this.props
         console.log(event.target)
         this.setState({
             clicked: true
         })
-        if (this.props.isAuthenticated === false) {
+        if (isAuthenticated === false) {
             window.alert("Must be logged in to write a review")
         }else{
             <TvShowReviewForm />
@@ -60,12 +70,24 @@ class TvShowReviewContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.getTvShowReviews(this.props.show_id)
+        const {getTvShowReviews, show_id} = this.props
+        getTvShowReviews(show_id)
     }
 
     render() {
+
+        const {
+            tvShowReviews,
+            isAuthenticated,
+            show_id,
+            title,
+            content,
+            loading,
+            showTitle
+        } = this.props
+
         console.log("tv show review container props is", this.props)
-        const tvShowReviews = this.props.tvShowReviews.map((showReview, i) => <TvShowReview key={i} title={showReview.title} content={showReview.content} show_id={showReview.show_id}/>)
+        const ShowReviews = tvShowReviews.map((showReview, i) => <TvShowReview key={i} title={showReview.title} content={showReview.content} show_id={showReview.show_id}/>)
         
         return (
             <div>
@@ -74,18 +96,18 @@ class TvShowReviewContainer extends Component {
                 :<ReviewButton handleReviewButton={this.displayReviewForm} />
                 }
                 
-                {this.state.clicked === true && this.props.isAuthenticated === true 
-                    ? <TvShowReviewForm key={this.props.show_id} title={this.props.title} content={this.props.content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit} />
+                {this.state.clicked === true && isAuthenticated === true 
+                    ? <TvShowReviewForm key={show_id} title={title} content={content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit} />
                     : null  
                 }
                 <div>
                     <h1>Reviews:</h1>
                     <ul>
-                       {this.props.loading
+                       { loading
                        ? <h3>Loading...</h3>
                        : (tvShowReviews.length === 0)
-                       ? `There are no reviews for "${this.props.showTitle}". Be the first to write a review.`
-                       : tvShowReviews
+                       ? `There are no reviews for "${showTitle}". Be the first to write a review.`
+                       : ShowReviews
                        }
                     </ul>
                 </div>

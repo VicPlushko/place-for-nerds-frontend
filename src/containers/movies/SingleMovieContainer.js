@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import SingleMovie from '../../components/movie/SingleMovie'
 import Actor from '../../components/actor/Actor'
 import MovieReviewContainer from './MovieReviewContainer'
+import { formatAsCurrency } from '../../utitlity/util'
+import moment from 'moment'
 
 class SingleMovieContainer extends Component {
     
@@ -52,32 +54,46 @@ class SingleMovieContainer extends Component {
     
     render() {
 
+        const {
+            title,
+            release_date,
+            synopsis,
+            poster,
+            movie_id,
+            budget,
+            revenue,
+            runtime,
+            genres,
+            productionCompanies,
+            cast,
+            backdrop
+        } = this.state
          
         return (
             <div>
                <SingleMovie 
-               key={this.state.movie_id}
-               title={this.state.title} 
-               release_date={this.state.release_date} 
-               synopsis={this.state.synopsis} 
-               poster={this.state.poster} 
-               movie_id={this.state.movie_id} 
-               budget={this.state.budget} 
-               revenue={this.state.revenue} 
-               runtime={this.state.runtime} 
-               genres={this.state.genres} 
-               productionCompanies={this.state.productionCompanies} 
-               cast={this.state.cast} 
-               backdrop={this.state.backdrop}/>
+               key={movie_id}
+               title={title} 
+               release_date={moment(release_date).format('MM-DD-YYYY')} 
+               synopsis={synopsis} 
+               poster={poster} 
+               movie_id={movie_id} 
+               budget={budget} 
+               revenue={revenue} 
+               runtime={runtime} 
+               genres={genres} 
+               productionCompanies={productionCompanies} 
+               cast={cast} 
+               backdrop={backdrop}/>
             <div className='singleView' id='movie-reviews'>
-                <MovieReviewContainer key={this.state.movie_id} movie_id={this.state.movie_id} movieTitle={this.state.title}/>
+                <MovieReviewContainer 
+                key={movie_id} 
+                movie_id={movie_id} 
+                movieTitle={title}/>
             </div>
             </div>
         )
     }
 }
 
-function formatAsCurrency(x) {
-    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-}
 export default SingleMovieContainer

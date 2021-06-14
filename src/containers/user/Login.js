@@ -8,17 +8,26 @@ class Login extends Component {
     
 
     handleChangeUsername = (event) => {
+        const {changeUsername} = this.props
         console.log('login username is', event.target.value)
-        this.props.changeUsername(event.target.value)
+        changeUsername(event.target.value)
     }
 
     handleChangePassword = (event) => {
+        const {changePassword} = this.props
         console.log('login password is', event.target.value)
-        this.props.changePassword(event.target.value)
+        changePassword(event.target.value)
     }
     
     handleLoginUser = (event) => {
-        this.props.startUserLogin()
+
+        const {
+            startUserLogin,
+            userLogin,
+            userLoginFail
+        } = this.props
+
+        startUserLogin()
         event.preventDefault()
         const loginUrl = 'http://localhost:3001/login'
         let loginBody = {
@@ -43,11 +52,11 @@ class Login extends Component {
                 if (data.jwt !== undefined) {
                     console.log("jwt exists: ", data)
                     localStorage.setItem("token", data.jwt)
-                    this.props.userLogin(data)
+                    userLogin(data)
                     this.props.history.goBack()
                 } else {
                     console.log("failed to login: ", data)
-                    this.props.userLoginFail(alert)
+                    userLoginFail(alert)
                 }
             }
         })
@@ -67,7 +76,7 @@ const mapStateToProps = globalState => {
     return {
         username: globalState.userReducer.username,
         password: globalState.userReducer.password,
-        isLoggedIn: globalState.userReducer.isLoggedIn
+        isAuthenticated: globalState.userReducer.isAuthenticated
     }
 }
 
