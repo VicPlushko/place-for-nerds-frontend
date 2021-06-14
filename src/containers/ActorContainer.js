@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SingleActor from '../components/actor/SingleActor'
 import MovieCredits from '../components/actor/MovieCredits'
 import TvCredits from '../components/actor/TvCredits'
+import moment from 'moment'
 
 
 class ActorContainer extends Component {
@@ -47,19 +48,45 @@ class ActorContainer extends Component {
         
     }
 
+    
     render() {
+
+        const {
+            id,
+            name,
+            birthday,
+            placeOfBirth,
+            biography,
+            picture,
+            homepage,
+            movieCredits,
+            tvCredits
+        } = this.state
+    
+        let sortedMovies = movieCredits.map((movieCredit) => movieCredit).sort((a,b) => {
+            let movieCredA = a.props.release_date;
+            let movieCredB = b.props.release_date;
+            return movieCredA < movieCredB ? 1 : movieCredA > movieCredB ? -1 : 0
+        })
+
+        let sortedShows = tvCredits.map((tvCredit) => tvCredit).sort((a,b) => {
+            let tvCredA = a.props.release_date;
+            let tvCredB = b.props.release_date;
+            return tvCredA < tvCredB ? 1 : tvCredA > tvCredB ? -1 : 0
+        })
+
         return (
             <div>
                <SingleActor 
-               id={this.state.id} 
-               name={this.state.name} 
-               birthday={this.state.birthday} 
-               placeOfBirth={this.state.placeOfBirth} 
-               biography={this.state.biography} 
-               poster={this.state.picture} 
-               homepage={this.state.homepage}
-               movieCredits={this.state.movieCredits} 
-               tvCredits={this.state.tvCredits} />
+               id={id} 
+               name={name} 
+               birthday={moment(birthday).format('MM-DD-YYYY')} 
+               placeOfBirth={placeOfBirth} 
+               biography={biography} 
+               poster={picture} 
+               homepage={homepage}
+               movieCredits={sortedMovies} 
+               tvCredits={sortedShows} />
             </div>
         )
     }
