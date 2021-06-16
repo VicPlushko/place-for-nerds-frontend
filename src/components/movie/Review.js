@@ -4,20 +4,19 @@ const Review = (props) => {
 
 const {
     title,
-    content
+    content,
 } = props
 
     return (
-        <div className='review-outer-div'>
-            <li>
+        <div>
+            <div className='review-content-div'>
                 <div>
-                  <h3>{title}</h3>
+                    <h3>{title}</h3>
                 </div>
                 <div>
-                   {content}
+                    <p>{content}</p>
                 </div>
-                
-            </li>
+            </div>
         </div>
     )
 }

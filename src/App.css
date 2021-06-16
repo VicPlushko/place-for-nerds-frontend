@@ -224,7 +224,39 @@ h1{
   transition: 0.2s ease-in-out transform;
 }
 
+.review-btn-div{
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: auto;
+  max-width: 90%;
+  text-align: center;
+  padding-top: 10px;
+}
 
+.review-div{
+  background-position: center top;
+}
+
+.review-inner-div{ 
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: auto;
+  max-width: 90%;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.review-content-div{
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(190px, 1fr) );
+  padding: 10px;
+}
+
+form{
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: auto;
+  max-width: 90%;
+  text-align: center;
+  padding-top: 10px;
+}
 
 
 

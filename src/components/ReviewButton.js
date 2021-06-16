@@ -5,7 +5,7 @@ const ReviewButton = (props) => {
     const {handleReviewButton} = props
 
     return (
-        <div>
+        <div className='review-btn-div'>
             <button className='review-btn' onClick={handleReviewButton}>Write a Review</button>
         </div>
     )

@@ -68,7 +68,9 @@ class SingleMovieContainer extends Component {
             cast,
             backdrop
         } = this.state
-         
+        
+        const backdropUrl = `http://image.tmdb.org/t/p/original${backdrop}`
+
         return (
             <div>
                <SingleMovie 
@@ -85,11 +87,12 @@ class SingleMovieContainer extends Component {
                productionCompanies={productionCompanies} 
                cast={cast} 
                backdrop={backdrop}/>
-            <div className='singleView' id='movie-reviews'>
+            <div className='review-div' style={{backgroundImage: "url(" + backdropUrl + ")"}} id='movie-reviews'>
                 <MovieReviewContainer 
                 key={movie_id} 
                 movie_id={movie_id} 
-                movieTitle={title}/>
+                movieTitle={title}
+                backdrop={backdrop}/>
             </div>
             </div>
         )

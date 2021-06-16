@@ -13,7 +13,7 @@ const MovieReviewForm = (props) => {
     console.log('movie review form props is', props)
 
     return (
-        <div>
+        <div className='review-form'>
             <form onSubmit={handleSubmit}>
                 <label>Review Title: </label><br />
                 <input id='review-title-input' type='text' name='title' value={title} onChange={handleTitleChange} placeholder='Title...' /><br />
