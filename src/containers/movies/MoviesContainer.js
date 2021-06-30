@@ -59,16 +59,16 @@ class MoviesContainer extends Component {
         })
         
         return (
-            <div>
-                <div className='App-header'>
+            <div className='movie-outer-div'>
+                <div className='movies-header'>
                     <h1>Movies</h1>
-                </div>
-                <div className="search-div">
+                    <div className="search-div">
                     <SearchContainer/>
                   <div className="clear-btn">
                     <button className='reload-movies' onClick={this.handleClick}>Clear Search</button>
                   </div>
-                  <button onClick={this.handleSortClick}>Sort</button>
+                  <button className='sort-btn' onClick={this.handleSortClick}>Sort</button>
+                </div>
                 </div>
                 <div className='movies-container'>
                 { loading 

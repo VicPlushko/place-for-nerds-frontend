@@ -88,37 +88,16 @@ h1{
 }
 
 .search-form {
+  background-color: black;
   text-align: center;
-  padding: 20px 5px 20px 20px
-}
-
-.movies-container {
-  text-align: center;
-  margin: auto;
-  min-width: 600px;
-  max-width: 90%;
-  display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(190px, 1fr) );
-  padding: 10px;
-}
-
-.movie-title {
-  padding-bottom: 10px;
-  font-weight: bold;
-}
-
-.title-link {
-  text-decoration: none;
-  font-size: large;
-  font-weight: bold;
-}
-
-.clear-btn {
-  float: center;
+  padding: 20px 15px;
 }
 
 .search {
-  float: center;
+  background-color: black;
+  display: absolute;
+  justify-content: right;
+  align-items: right;
 }
 
 #search-input {
@@ -131,6 +110,67 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
+  margin: auto;
+  max-width: 91.5%;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.submit-btn-div{
+  background-color: black;
+}
+
+.sort-btn{
+  margin-bottom: 5px
+}
+
+
+.movies-header{
+  min-height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.movies-container {
+  text-align: center;
+  margin: auto;
+  min-width: 600px;
+  max-width: 90%;
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(190px, 1fr) );
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-top: 10px;
+}
+
+.movie-title {
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
+.movie-outer-div{
+  background-color: black;
+}
+
+.title-link {
+  text-decoration: none;
+  font-size: large;
+  font-weight: bold;
+}
+
+.clear-btn {
+  float: right;
+}
+
+.reload-movies{
+  margin-left: 10px;
+  margin-right: 5px;
+  margin-bottom: 17px;
 }
 
 .greeting {
@@ -140,10 +180,6 @@ h1{
 
 .greeting span {
   font-weight: bold;
-}
-
-#submit-btn {
-  margin-left: 5px;
 }
 
 /* .logout-btn {
@@ -248,10 +284,11 @@ h1{
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(190px, 1fr) );
   padding: 10px;
+  border-style: solid;
 }
 
 form{
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: black;
   margin: auto;
   max-width: 90%;
   text-align: center;
