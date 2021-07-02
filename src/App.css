@@ -33,6 +33,10 @@ h1{
   margin: 0px 10px 0px;
 }
 
+html {
+  background-color: black;
+}
+
 .castContainer {
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(190px, 1fr) );
@@ -193,6 +197,11 @@ h1{
   font-weight: normal;
 }
 
+.user-form-div {
+  background-color: black;
+  color: white;
+}
+
 .user-form {
   width: 320px;
   margin: 0 auto;
@@ -258,6 +267,14 @@ h1{
   opacity: 1;
   transform: translateY(0px);
   transition: 0.2s ease-in-out transform;
+}
+
+.form-input#review-title-input {
+  width: 50%;
+}
+
+.form-input#review-content-input {
+  width: 50%;
 }
 
 .review-btn-div{
