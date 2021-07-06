@@ -17,8 +17,8 @@ const Navigation = () => {
       }
     
     const links = {
-        width: '100px',
-        padding: '15px',
+        width: '50px',
+        padding: '10px',
         margin:  '25px 10px',
         background: 'white',
         textDecoration: 'none',
@@ -31,7 +31,7 @@ const Navigation = () => {
     }
 
     return (
-        <div>
+        <div className='Navbar'>
            <NavLink to='/' exact style={links} activeStyle={{background: 'red'}}>Home</NavLink>
            <NavLink to='/movies' exact style={links} activeStyle={{background: 'red'}}>Movies</NavLink>
            <NavLink to='/tv_shows' exact style={links} activeStyle={{background: 'red'}}>TV Shows</NavLink>

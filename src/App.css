@@ -104,11 +104,12 @@ html {
   align-items: right;
 }
 
-#search-input {
+.form-input#search-input {
   width: 20rem;
   background: #F2F1F9; 
   border: none; 
-  padding: 0.5rem;
+  padding: 0.2rem;
+
 }
 .search-div {
   display: flex;
