@@ -129,6 +129,17 @@ html {
   padding-top: 10px;
 }
 
+#submit-btn{
+  padding: 5px 24px;
+  color:black;
+  background-color: white;
+  transition-duration: 0.4s;
+}
+
+#submit-btn:hover{
+  background-color: #4CAF50;
+}
+
 .sort-btn{
   margin-bottom: 5px
 }
@@ -176,13 +187,22 @@ html {
 }
 
 .reload-movies{
+  padding: 5px 24px;
+  color:black;
+  background-color: white;
+  transition-duration: 0.4s;
   margin-left: 10px;
   margin-right: 5px;
-  margin-bottom: 17px;
+  margin-bottom: 22px;
+}
+
+.reload-movies:hover{
+  background-color: #008CBA;
+  
 }
 
 #tvshow-reload.reload-movies{
-  position: fixed;
+  position: flex;
   margin-top: 13px;
 }
 
