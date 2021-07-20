@@ -26,7 +26,7 @@ const SingleShow = (props) => {
     return (
         <div className='single-movie' style={{backgroundImage: "url(" + backdropUrl + ")"}}>
             <div className='single-movie-fade'>
-            <div className='App-header'>
+            <div className='movies-header'>
                 <h1>{title}</h1>
                 "{tagline}"
             </div>

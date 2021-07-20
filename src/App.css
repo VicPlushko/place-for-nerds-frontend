@@ -123,6 +123,7 @@ html {
 }
 
 .submit-btn-div{
+  padding-top: 10px;
   background-color: black;
 }
 
@@ -321,6 +322,51 @@ form{
   color: #069;
   text-decoration: none;
   cursor: default;
+}
+
+.homepage-movies{
+  text-align: center;
+  margin: auto;
+  min-width: 600px;
+  max-width: 90%;
+  display: inline-flex;
+  grid-template-columns: repeat( auto-fit, minmax(190px, 1fr) );
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-top: 10px;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.recent-movies-h1{
+  color: white;
+}
+
+.home-movies{
+  padding-right: 10px;
+}
+
+.homepage-shows{
+  text-align: center;
+  margin: auto;
+  min-width: 600px;
+  max-width: 90%;
+  display: inline-flex;
+  grid-template-columns: repeat( auto-fit, minmax(190px, 1fr) );
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-top: 10px;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.home-shows{
+  padding-right: 10px;
+}
+
+.recent-shows-h1{
+  padding-top: 45px;
+  color: white;
 }
 
 @keyframes App-logo-spin {

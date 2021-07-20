@@ -24,7 +24,7 @@ const SingleActor = (props) => {
 
     return (
         <div className='single-actor'>
-            <div className='App-header'>
+            <div className='movies-header'>
                 <h1>{name}</h1>
             </div>
                 <div className="singleView">

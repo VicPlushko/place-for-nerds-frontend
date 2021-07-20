@@ -12,15 +12,17 @@ import Navigation from './components/Navigation'
 import Registration from './containers/user/Registration'
 import Login from './containers/user/Login'
 import { connect } from 'react-redux';
-import { getMovies } from './actions/movie'
-import { getShows } from './actions/tvShows'
+import { getMovies, theaterMovies } from './actions/movie'
+import { getShows, getHomeTV } from './actions/tvShows'
 
 class App extends Component {
 
   componentDidMount() {
-    const {getMovies, getShows} = this.props
+    const {getMovies, theaterMovies, getShows, getHomeTV} = this.props
     getMovies()
+    theaterMovies()
     getShows()
+    getHomeTV()
   }
 
   render() {
@@ -54,4 +56,4 @@ const mapStateToProps = globalState => {
   }
 }
 
-export default connect(mapStateToProps, { getMovies, getShows })(App)
+export default connect(mapStateToProps, { getMovies, theaterMovies, getShows, getHomeTV })(App)
