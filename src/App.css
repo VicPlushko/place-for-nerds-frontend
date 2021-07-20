@@ -119,12 +119,14 @@ html {
   margin: auto;
   max-width: 91.5%;
   text-align: center;
-  padding-top: 10px;
 }
 
 .submit-btn-div{
-  padding-top: 10px;
   background-color: black;
+}
+
+.show-submit-btn-div{
+  padding-top: 10px;
 }
 
 .sort-btn{
@@ -177,6 +179,11 @@ html {
   margin-left: 10px;
   margin-right: 5px;
   margin-bottom: 17px;
+}
+
+#tvshow-reload.reload-movies{
+  position: fixed;
+  margin-top: 13px;
 }
 
 .greeting {

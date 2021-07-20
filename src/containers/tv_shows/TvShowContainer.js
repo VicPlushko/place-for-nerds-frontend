@@ -28,7 +28,7 @@ class TvShowContainer extends Component {
                 <div className='search-div'>
                     <TvSearch/>
                     <div className="clear-btn">
-                    <button className='reload-movies' onClick={this.handleClick}>Clear Search</button>
+                    <button className='reload-movies' id='tvshow-reload' onClick={this.handleClick}>Clear Search</button>
                   </div>
                 </div>
                 <div className='movies-container'>
