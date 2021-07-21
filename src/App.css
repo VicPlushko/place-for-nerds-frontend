@@ -17,9 +17,9 @@
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  /* align-items: center;
+  justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -215,13 +215,6 @@ html {
   font-weight: bold;
 }
 
-/* .logout-btn {
-  position: absolute;
-  align-items: right;
-  margin-top: 10px;
-  margin-left: 700px;
-} */
-
 .cast-character {
   font-weight: normal;
 }
@@ -348,7 +341,7 @@ form{
   font-family: arial, sans-serif;
   color: #069;
   text-decoration: none;
-  cursor: default;
+  cursor: pointer;
 }
 
 .homepage-movies{
@@ -396,6 +389,36 @@ form{
   color: white;
 }
 
+.nav-links{
+  float: left;
+  position: relative;
+  bottom: 15px;
+  left: 10px;
+}
+
+.user-links{
+  position: relative;
+  display: inline;
+  float: right;
+  right: 15px
+  
+}
+
+.NavBar{
+  width: 100%;
+}
+
+.title{
+  position: relative;
+  text-align: center;
+  top: 20px;
+  font-family: 'Quantico'
+}
+
+.title h1{
+  font-size: 75px;
+  color: #ED2939;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
