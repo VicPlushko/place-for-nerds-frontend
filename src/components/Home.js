@@ -50,8 +50,7 @@ const mapStateToProps = globalState => {
     return {
         movies: globalState.movieReducer.movies,
         loading: globalState.movieReducer.loading,
-        shows: globalState.tvShowReducer.shows,
-        loading: globalState.tvShowReducer.loading
+        shows: globalState.tvShowReducer.shows
     }
 } 
 
