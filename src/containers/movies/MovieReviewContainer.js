@@ -92,7 +92,7 @@ class MovieReviewContainer extends Component {
                 :<ReviewButton handleReviewButton={this.displayReviewForm} />
                 }
                 {this.state.clicked === true && isAuthenticated === true 
-                    ? <MovieReviewForm key={movie_id} title={title} content={content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit} />
+                    ? <MovieReviewForm key={movie_id} title={title} content={content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit} backdrop={backdrop}/>
                     : null  
                 }
                 <div className='review-inner-div'>

@@ -129,6 +129,17 @@ html {
   padding-top: 10px;
 }
 
+#show-submit-btn{
+  padding: 5px 24px;
+  color:black;
+  background-color: white;
+  transition-duration: 0.4s;
+}
+
+#show-submit-btn:hover{
+  background-color: #4CAF50;
+}
+
 #submit-btn{
   padding: 5px 24px;
   color:black;
@@ -202,8 +213,8 @@ html {
 }
 
 #tvshow-reload.reload-movies{
-  position: flex;
-  margin-top: 13px;
+  position: relative;
+  
 }
 
 .greeting {
@@ -307,6 +318,17 @@ html {
   padding-top: 10px;
 }
 
+.review-btn{
+  padding: 5px 24px;
+  color:black;
+  background-color: white;
+  transition-duration: 0.4s;
+}
+
+.review-btn:hover{
+  background-color: #008CBA;
+}
+
 .review-div{
   background-position: center top;
 }
@@ -323,7 +345,27 @@ html {
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(190px, 1fr) );
   padding: 10px;
-  border-style: solid;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.review-title{
+  word-wrap: break-word;
+}
+
+.review-content{
+  word-wrap: break-word;
+}
+
+.review-submit-btn{
+  padding: 5px 24px;
+  color:black;
+  background-color: white;
+  transition-duration: 0.4s;
+}
+
+.review-submit-btn:hover{
+  background-color: #4CAF50;
 }
 
 form{
@@ -332,6 +374,7 @@ form{
   max-width: 90%;
   text-align: center;
   padding-top: 10px;
+  background-position: center top;
 }
 
 .logout-btn{
@@ -342,6 +385,7 @@ form{
   color: #069;
   text-decoration: none;
   cursor: pointer;
+  font-size: 28.86px;
 }
 
 .homepage-movies{

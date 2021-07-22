@@ -74,6 +74,8 @@ class SingleShowContainer extends Component {
             backdrop    
         } = this.state
 
+        const backdropUrl = `http://image.tmdb.org/t/p/original${backdrop}`
+
         return (
             <div>
                 <SingleShow
@@ -94,8 +96,13 @@ class SingleShowContainer extends Component {
                 cast= {cast} 
                 backdrop={backdrop}
                 />
-                <div className='singleView' id='show-reviews'>
-                    <TvShowReviewContainer key={show_id} show_id={show_id} showTitle={title}/>
+                 <div className='review-div' style={{backgroundImage: "url(" + backdropUrl + ")"}} id='movie-reviews'>
+                    <TvShowReviewContainer 
+                    key={show_id} 
+                    show_id={show_id} 
+                    showTitle={title}
+                    backdrop={backdrop}
+                    />
                </div>
             </div>
         )

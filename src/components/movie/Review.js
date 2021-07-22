@@ -10,10 +10,10 @@ const {
     return (
         <div>
             <div className='review-content-div'>
-                <div>
+                <div className='review-title'>
                     <h3>{title}</h3>
                 </div>
-                <div>
+                <div className='review-content'>
                     <p>{content}</p>
                 </div>
             </div>

@@ -83,24 +83,25 @@ class TvShowReviewContainer extends Component {
             title,
             content,
             loading,
-            showTitle
+            showTitle,
+            backdrop
         } = this.props
 
         console.log("tv show review container props is", this.props)
         const ShowReviews = tvShowReviews.map((showReview, i) => <TvShowReview key={i} title={showReview.title} content={showReview.content} show_id={showReview.show_id}/>)
         
         return (
-            <div>
+            <div className="review-form-div">
                 {this.state.clicked === true 
                 ? null
                 :<ReviewButton handleReviewButton={this.displayReviewForm} />
                 }
                 
                 {this.state.clicked === true && isAuthenticated === true 
-                    ? <TvShowReviewForm key={show_id} title={title} content={content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit} />
+                    ? <TvShowReviewForm key={show_id} title={title} content={content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit} backdrop={backdrop}/>
                     : null  
                 }
-                <div>
+                <div className='review-inner-div'>
                     <h1>Reviews:</h1>
                     <ul>
                        { loading
