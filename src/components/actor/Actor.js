@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 
 const Movie = (props) => {
   
-  // console.log('actor component', props)
-  
   const {
     id,
     poster,
@@ -20,8 +18,8 @@ const Movie = (props) => {
   }
 
       return (
-          <div className="movie-list-container">
-            <div className='poster-link'><Link to={`/actors/${id}`}><img src={imageURL} alt="" id={id}></img></Link>
+          <div className='movie-list-container'>
+            <div className='poster-link'><Link to={`/actors/${id}`}><img src={imageURL} alt='' id={id}></img></Link>
               <div className='movie-title'>
                 {name}
                <div className='cast-character'>{character}</div>

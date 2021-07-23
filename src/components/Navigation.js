@@ -11,13 +11,12 @@ class Navigation extends Component {
         isAuthenticated
       } = this.props
 
-      const handleLogoutOnButtonClick = (event) => {
-        console.log(event.target)
+      const handleLogoutOnButtonClick = () => {
         if (isAuthenticated === true) {
           localStorage.removeItem('token')
           window.location.reload()
         } else {
-          window.alert("You need to be logged in to logout")
+          window.alert('You need to be logged in to logout')
         }
       }
     
@@ -52,17 +51,16 @@ class Navigation extends Component {
                 <NavLink to='/register' exact style={userLinks}>Sign up</NavLink>
                 <NavLink to='/login' exact style={userLinks}>Login</NavLink>
               </>  
-                : ""
+                : ''
               }
             
-              {isAuthenticated ? <LogoutButton handleLogout={handleLogoutOnButtonClick}/> : ""}
+              {isAuthenticated ? <LogoutButton handleLogout={handleLogoutOnButtonClick}/> : ''}
             </div>
           </div>
     )}
 }
 
 const mapStateToProps = globalState => {
-  console.log("Nav Props is", globalState.userReducer.isAuthenticated)
   return {
     isAuthenticated: globalState.userReducer.isAuthenticated
   }

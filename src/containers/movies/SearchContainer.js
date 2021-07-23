@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 class SearchContainer extends Component {
 
     state = {
-        searchTerm: ""
+        searchTerm: ''
     }
 
     handleOnChange = (event) => {
@@ -24,7 +24,6 @@ class SearchContainer extends Component {
         event.target.reset()
     }
     render() {
-        console.log('search state is', this.state)
         return (
             <div className='search'>
                 <SearchBar handleChange={this.handleOnChange} handleSubmit={this.handleOnSubmit}/>

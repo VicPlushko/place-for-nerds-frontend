@@ -10,8 +10,6 @@ const RegistrationForm = (props) => {
         changePassword,
         changePasswordConfirm
     } = props
-
-    console.log('registration form props', props)
     
     return (
         <div className='user-form-div'>

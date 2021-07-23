@@ -1,19 +1,27 @@
-const reviewReducer = (state = {reviews: [], loading: false, title: "", content: "", posting: false}, action) => {
+const initialState = {
+    reviews: [], 
+    loading: false, 
+    posting: false,
+    title: '', 
+    content: ''
+}
+
+const reviewReducer = (state = initialState, action) => {
     switch(action.type) {
-        case("LOADING_REVIEWS"):
+        case('LOADING_REVIEWS'):
             return {...state, loading: true}
-        case("REVIEWS_LOADED"):
+        case('REVIEWS_LOADED'):
             return {...state, loading: false, reviews: action.payload}
-        case("REVIEW_POSTING"):
+        case('REVIEW_POSTING'):
             return {...state, posting: true}
-        case("REVIEW_CREATED"):
+        case('REVIEW_CREATED'):
             return {...state, posting: false, reviews: [...state.reviews, {title: action.payload.title, content: action.payload.content}]}
-        case("CHANGE_TITLE"):
+        case('CHANGE_TITLE'):
             return {...state, title: action.payload}
-        case("CHANGE_CONTENT"):
+        case('CHANGE_CONTENT'):
             return {...state, content: action.payload}
-        case("CLEAR_FORM"):
-            return {...state, title: "", content: ""}
+        case('CLEAR_FORM'):
+            return {...state, title: '', content: ''}
         default:
             return state
     }

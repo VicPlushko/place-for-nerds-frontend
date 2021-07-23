@@ -9,8 +9,6 @@ const HomepageMovie = (props) => {
     title,
   } = props
 
-  // console.log('movie component', props)
-
   let imageURL;
   if (poster == null) {
     imageURL = `https://picsum.photos/185/278`
@@ -19,8 +17,8 @@ const HomepageMovie = (props) => {
   }
 
       return (
-          <div className="home-movies">
-            <div className='poster-link'><Link to={`/movies/${id}`}><img src={imageURL} alt="" id={id}></img></Link>
+          <div className='home-movies'>
+            <div className='poster-link'><Link to={`/movies/${id}`}><img src={imageURL} alt='' id={id}></img></Link>
               <div className='movie-title'>
                 <div className='title-link'>{title}</div>
               </div>

@@ -12,8 +12,6 @@ const MovieCredits = (props) => {
         character
     } = props
 
-    console.log('movie credits props', props)
-
     let imageURL;
     if (poster == null) {
         imageURL = `https://picsum.photos/185/278`

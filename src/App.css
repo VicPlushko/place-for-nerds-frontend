@@ -240,6 +240,17 @@ html {
   margin: 0 auto;
 }
 
+.user-submit-btn{
+  padding: 5px 24px;
+  color:black;
+  background-color: white;
+  transition-duration: 0.4s;
+}
+
+.user-submit-btn:hover{
+  background-color: #4CAF50;
+}
+
 .form-field {
   position: relative;
   margin: 20px auto;
@@ -462,6 +473,11 @@ form{
 .title h1{
   font-size: 75px;
   color: #ED2939;
+}
+
+.jump-to-reviews{
+  text-decoration: none;
+  font-size: 20px;
 }
 @keyframes App-logo-spin {
   from {

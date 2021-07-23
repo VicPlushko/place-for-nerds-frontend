@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom' 
@@ -28,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className='App'>
           <header className='App-header'>
             <Navigation />
           </header>
@@ -50,7 +49,6 @@ class App extends Component {
 }
 
 const mapStateToProps = globalState => {
-  console.log("App props isAuthenticated:", globalState.userReducer.isAuthenticated)
   return {
     isAuthenticated: globalState.userReducer.isAuthenticated
   }

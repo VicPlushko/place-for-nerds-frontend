@@ -15,18 +15,16 @@ const SingleMovie = (props) => {
         cast
     } = props
 
-    console.log('single movie props is', props)
-
     const backdropUrl = `http://image.tmdb.org/t/p/original${backdrop}`
     
     return (
-        <div className='single-movie' style={{backgroundImage: "url(" + backdropUrl + ")"}}>
+        <div className='single-movie' style={{backgroundImage: 'url(' + backdropUrl + ')'}}>
             <div className='single-movie-fade'>
             <div className='movies-header'>
                 <h1>{title}</h1>
             </div>
-                <div className="singleView">
-                    <a href='#movie-reviews'>Reviews</a>
+                <div className='singleView'>
+                    <a className='jump-to-reviews' href='#movie-reviews'>Jump to Reviews</a>
                     <p className='show-info'><strong>Runtime:</strong> {runtime} Minutes</p>
                     <p className='show-info'><strong>Genre:</strong> {genres}</p>
                     <p className='show-info'><strong>Synopsis:</strong> {synopsis}</p>

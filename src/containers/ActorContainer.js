@@ -8,21 +8,20 @@ import moment from 'moment'
 class ActorContainer extends Component {
 
     state = {
-        id: "",
-        name: "",
-        birthday: "",
-        placeOfBirth: "",
-        biography: "",
-        picture: "",
-        homepage: "",
-        movie_id: "",
+        id: '',
+        name: '',
+        birthday: '',
+        placeOfBirth: '',
+        biography: '',
+        picture: '',
+        homepage: '',
+        movie_id: '',
         movieCredits: [],
         tvCredits: []
     }
 
     componentDidMount() {
         const MOVIES_KEY = process.env.REACT_APP_MOVIES_KEY
-        // console.log('actor container props is', this.props)
         const actorUrl = `https://api.themoviedb.org/3/person/${this.props.match.params.id}?api_key=${MOVIES_KEY}&language=en-US&append_to_response=movie_credits,tv_credits`
         fetch(actorUrl)
         .then(resp => resp.json())

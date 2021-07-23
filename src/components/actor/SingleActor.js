@@ -13,8 +13,6 @@ const SingleActor = (props) => {
         tvCredits
     } = props
 
-    // console.log('single actor props is', props)
-
     let imageURL;
     if (poster == null) {
         imageURL = `https://picsum.photos/185/278`
@@ -27,7 +25,7 @@ const SingleActor = (props) => {
             <div className='movies-header'>
                 <h1>{name}</h1>
             </div>
-                <div className="singleView">
+                <div className='singleView'>
                     <img className='show-poster' src={imageURL} alt=''></img>
                     <p className='show-info'><strong>Birthday:</strong> {birthday}</p>
                     <p className='show-info'><strong>Place of Birth:</strong> {placeOfBirth}</p>

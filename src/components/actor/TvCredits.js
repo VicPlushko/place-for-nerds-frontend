@@ -12,10 +12,7 @@ const TvCredits = (props) => {
         character
     } = props
 
-    
-     console.log('tv credits props', props)
-
-    let imageURL = ""
+    let imageURL;
     if (poster == null) {
         imageURL = `https://picsum.photos/185/278`
     } else {
@@ -27,7 +24,7 @@ const TvCredits = (props) => {
             <div className='castGrid'>
                 <Link to={`/tv_shows/${show_id}`}className='poster-link'><img className='movie-poster' src={imageURL} alt=""></img>
                 </Link>
-                <div className='movie-name'>{title} - {release_date === "" ? "TBD" : getYear(release_date)}</div>
+                <div className='movie-name'>{title} - {release_date === '' ? 'TBD' : getYear(release_date)}</div>
                 <div className='character-name'>{character}</div>
                 </div>
         </div>

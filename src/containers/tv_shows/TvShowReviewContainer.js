@@ -46,24 +46,21 @@ class TvShowReviewContainer extends Component {
 
     handleOnTitleChange = (event) => {
         const {changeReviewTitle} = this.props
-        console.log(event.target.value)
         changeReviewTitle(event.target.value)
     }
 
     handleOnContentChange = (event) => {
         const {changeReviewContent} = this.props
-        console.log(event.target.value)
         changeReviewContent(event.target.value)
     }
 
     displayReviewForm = (event) => {
         const {isAuthenticated} = this.props
-        console.log(event.target)
         this.setState({
             clicked: true
         })
         if (isAuthenticated === false) {
-            window.alert("Must be logged in to write a review")
+            window.alert('Must be logged in to write a review')
         }else{
             <TvShowReviewForm />
         } 
@@ -87,11 +84,10 @@ class TvShowReviewContainer extends Component {
             backdrop
         } = this.props
 
-        console.log("tv show review container props is", this.props)
         const ShowReviews = tvShowReviews.map((showReview, i) => <TvShowReview key={i} title={showReview.title} content={showReview.content} show_id={showReview.show_id}/>)
         
         return (
-            <div className="review-form-div">
+            <div className='review-form-div'>
                 {this.state.clicked === true 
                 ? null
                 :<ReviewButton handleReviewButton={this.displayReviewForm} />
@@ -118,7 +114,7 @@ class TvShowReviewContainer extends Component {
 }
 
 const mapStateToProps = globalState => {
-    console.log("tv show review global state is", globalState)
+
     return {
         tvShowReviews: globalState.tvShowReviewReducer.tvShowReviews,
         loading: globalState.tvShowReviewReducer.loading,

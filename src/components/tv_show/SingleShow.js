@@ -19,19 +19,17 @@ const SingleShow = (props) => {
         cast
     } = props
 
-    console.log('single show props is', props)
-
     const backdropUrl = `http://image.tmdb.org/t/p/original${backdrop}`
     
     return (
-        <div className='single-movie' style={{backgroundImage: "url(" + backdropUrl + ")"}}>
+        <div className='single-movie' style={{backgroundImage: 'url(' + backdropUrl + ')'}}>
             <div className='single-movie-fade'>
             <div className='movies-header'>
                 <h1>{title}</h1>
                 "{tagline}"
             </div>
-                <div className="singleView">
-                    <a href='#show-reviews'>Reviews</a>
+                <div className='singleView'>
+                    <a className='jump-to-reviews' href='#show-reviews'>Jump to Reviews</a>
                     <p className='show-info'><strong>Show Creator:</strong> {show_creator}</p>
                     <p className='show-info'><strong>Genre:</strong> {genres}</p>
                     <p className='show-info'><strong>Synopsis:</strong> {synopsis}</p>
@@ -45,7 +43,6 @@ const SingleShow = (props) => {
                     <div className='castContainer'>
                         {cast}
                     </div>
-                    
                 </div>
             </div>
         </div>

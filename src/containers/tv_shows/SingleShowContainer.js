@@ -7,26 +7,25 @@ import moment from 'moment'
 class SingleShowContainer extends Component {
 
     state = {
-        title: "",
-        release_date: "",
-        synopsis: "",
-        created_by: "",
-        poster: "",
-        homepage: "",
-        tagline: "",
-        show_id: "",
-        number_of_seasons: "",
-        number_of_episodes: "",
+        title: '',
+        release_date: '',
+        synopsis: '',
+        created_by: '',
+        poster: '',
+        homepage: '',
+        tagline: '',
+        show_id: '',
+        number_of_seasons: '',
+        number_of_episodes: '',
         genres: [],
         productionCompanies: [],
         networks: [],
         cast: [],
-        backdrop: ""
+        backdrop: ''
     }
 
     componentDidMount() {
         const MOVIES_KEY = process.env.REACT_APP_MOVIES_KEY
-        // console.log('single tv show container props is', this.props)
         const movieUrl = `https://api.themoviedb.org/3/tv/${this.props.match.params.id}?api_key=${MOVIES_KEY}&language=en-US&append_to_response=credits`
         fetch(movieUrl)
         .then(resp => resp.json())
@@ -96,14 +95,14 @@ class SingleShowContainer extends Component {
                 cast= {cast} 
                 backdrop={backdrop}
                 />
-                 <div className='review-div' style={{backgroundImage: "url(" + backdropUrl + ")"}} id='movie-reviews'>
+                <div className='review-div' style={{backgroundImage: 'url(' + backdropUrl + ')'}} id='movie-reviews'>
                     <TvShowReviewContainer 
                     key={show_id} 
                     show_id={show_id} 
                     showTitle={title}
                     backdrop={backdrop}
                     />
-               </div>
+                </div>
             </div>
         )
     }

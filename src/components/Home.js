@@ -46,7 +46,6 @@ class Home extends Component {
 }
 
 const mapStateToProps = globalState => {
-    console.log("Home movie props is", globalState.movieReducer.movies && globalState.tvShowReducer.shows)
     return {
         movies: globalState.movieReducer.movies,
         loading: globalState.movieReducer.loading,

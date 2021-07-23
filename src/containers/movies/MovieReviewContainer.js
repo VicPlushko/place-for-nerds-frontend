@@ -12,7 +12,6 @@ class MovieReviewContainer extends Component {
     }
 
     handleOnSubmit = (event) => {
-
         const {movie_id} = this.props
 
         const reviewBody = {
@@ -38,21 +37,17 @@ class MovieReviewContainer extends Component {
             })
     }
 
-
     handleOnTitleChange = (event) => {
         const {changeTitle} = this.props
-        console.log(event.target.value)
         changeTitle(event.target.value)
     }
 
     handleOnContentChange = (event) => {
         const {changeContent} = this.props
-        console.log(event.target.value)
         changeContent(event.target.value)
     }
 
-    displayReviewForm = (event) => {
-        console.log(event.target)
+    displayReviewForm = () => {
         this.setState({
             clicked: true
         })
@@ -68,7 +63,6 @@ class MovieReviewContainer extends Component {
         getReviews(movie_id)
     }
 
-
     render() {
 
         const {
@@ -82,7 +76,6 @@ class MovieReviewContainer extends Component {
             backdrop
         } = this.props
 
-        console.log("movie review container props is", this.props)
         const movieReviews = this.props.reviews.map((review, i) => <Review key={i} title={review.title} content={review.content} movie_id={review.movie_id} backdrop={backdrop}/>)
          
         return (
@@ -110,7 +103,6 @@ class MovieReviewContainer extends Component {
 }
 
 const mapStateToProps = globalState => {
-    console.log("Movie review global state is", globalState)
     return {
         reviews: globalState.reviewReducer.reviews,
         loading: globalState.reviewReducer.loading,
