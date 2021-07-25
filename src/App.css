@@ -130,10 +130,11 @@ html {
 }
 
 #show-submit-btn{
-  padding: 5px 24px;
+  padding: 5px 30px;
   color:black;
   background-color: white;
   transition-duration: 0.4s;
+  border-radius: 8px;
 }
 
 #show-submit-btn:hover{
@@ -141,10 +142,11 @@ html {
 }
 
 #submit-btn{
-  padding: 5px 24px;
+  padding: 5px 30px;
   color:black;
   background-color: white;
   transition-duration: 0.4s;
+  border-radius: 8px;
 }
 
 #submit-btn:hover{
@@ -198,10 +200,11 @@ html {
 }
 
 .reload-movies{
-  padding: 5px 24px;
+  padding: 5px 30px;
   color:black;
   background-color: white;
   transition-duration: 0.4s;
+  border-radius: 8px;
   margin-left: 10px;
   margin-right: 5px;
   margin-bottom: 22px;
@@ -214,6 +217,7 @@ html {
 
 #tvshow-reload.reload-movies{
   position: relative;
+  top: 4px;
   
 }
 
@@ -241,10 +245,11 @@ html {
 }
 
 .user-submit-btn{
-  padding: 5px 24px;
+  padding: 5px 30px;
   color:black;
   background-color: white;
   transition-duration: 0.4s;
+  border-radius: 8px;
 }
 
 .user-submit-btn:hover{
@@ -330,10 +335,12 @@ html {
 }
 
 .review-btn{
-  padding: 5px 24px;
+  padding: 5px 30px;
   color:black;
   background-color: white;
   transition-duration: 0.4s;
+  border-radius: 8px;
+  margin: 5px 0px;
 }
 
 .review-btn:hover{
@@ -369,10 +376,12 @@ html {
 }
 
 .review-submit-btn{
-  padding: 5px 24px;
+  padding: 5px 30px;
   color:black;
   background-color: white;
   transition-duration: 0.4s;
+  border-radius: 8px;
+  margin: 5px 0px;
 }
 
 .review-submit-btn:hover{
