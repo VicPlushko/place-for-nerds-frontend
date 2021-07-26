@@ -473,13 +473,13 @@ form{
 }
 
 .title{
-  position: relative;
   text-align: center;
   top: 20px;
   font-family: 'Quantico'
 }
 
 .title h1{
+  position: relative;
   font-size: 75px;
   color: #ED2939;
 }

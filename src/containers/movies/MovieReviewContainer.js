@@ -12,9 +12,20 @@ class MovieReviewContainer extends Component {
     }
 
     handleOnSubmit = (event) => {
-        const {movie_id} = this.props
+        const {
+            movie_id, 
+            title,
+            content
+        } = this.props
 
-        const reviewBody = {
+        if (title.length === 0) {
+            window.alert('Review title can not be empty.')
+            event.preventDefault()
+        } else if (content.length === 0) {
+            window.alert('Review body can not be empty.')
+            event.preventDefault()
+        } else {
+            const reviewBody = {
             title: event.target.elements.title.value,
             content: event.target.elements.content.value,
             movie_id: movie_id,
@@ -35,6 +46,9 @@ class MovieReviewContainer extends Component {
              this.props.createReview(review)
              this.props.clearForm()
             })
+        }
+
+        
     }
 
     handleOnTitleChange = (event) => {

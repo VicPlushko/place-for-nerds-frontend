@@ -17,30 +17,40 @@ class TvShowReviewContainer extends Component {
         const {
             show_id,
             createTvShowReview,
-            clearForm
+            clearForm,
+            title,
+            content
         } = this.props
 
-        const tvShowReviewBody = {
-            title: event.target.elements.title.value,
-            content: event.target.elements.content.value,
-            show_id: show_id
-        }
+        if (title.length === 0) {
+            window.alert('Review title can not be empty.')
+            event.preventDefault()
+        } else if (content.length === 0) {
+            window.alert('Review body can not be empty.')
+            event.preventDefault()
+        } else {
+            const tvShowReviewBody = {
+                title: event.target.elements.title.value,
+                content: event.target.elements.content.value,
+                show_id: show_id
+            }
 
-        const showReviewURL = 'http://localhost:3001/tv_show_reviews'
-        event.preventDefault()
-        fetch(showReviewURL, {
-        method: 'POST',
-        body: JSON.stringify(tvShowReviewBody),
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            const showReviewURL = 'http://localhost:3001/tv_show_reviews'
+            event.preventDefault()
+            fetch(showReviewURL, {
+            method: 'POST',
+            body: JSON.stringify(tvShowReviewBody),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+            })
+             .then(response => response.json())
+             .then(showReview => {
+                 createTvShowReview(showReview)
+                 clearForm()
+             })
         }
-        })
-         .then(response => response.json())
-         .then(showReview => {
-             createTvShowReview(showReview)
-             clearForm()
-         })
     }
 
 
