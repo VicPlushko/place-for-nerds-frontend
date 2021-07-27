@@ -28,7 +28,7 @@ class MovieReviewContainer extends Component {
             const reviewBody = {
             title: event.target.elements.title.value,
             content: event.target.elements.content.value,
-            movie_id: movie_id,
+            movie_id: movie_id
         }
 
         const reviewURL = 'http://localhost:3001/reviews'

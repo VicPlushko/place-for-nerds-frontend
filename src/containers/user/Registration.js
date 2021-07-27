@@ -78,7 +78,7 @@ class Signup extends Component {
                 .then(data => {
                     console.log(data)
                     createUser(data)
-                    this.props.history.push("/")
+                    this.props.history.push("/login")
                 })
             }else {
                 alert("Email or passwords do not match")

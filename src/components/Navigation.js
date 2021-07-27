@@ -37,14 +37,14 @@ class Navigation extends Component {
     }
       return (
           <div className='NavBar'>
-            <div className='title'>
-              <h1>Place For Nerds</h1>
-            </div>
-              <div className='nav-links'>
-                <NavLink to='/' exact style={links} activeStyle={{background: 'red'}}>Home</NavLink>
-                <NavLink to='/movies' exact style={links} activeStyle={{background: 'red'}}>Movies</  NavLink>
-                <NavLink to='/tv_shows' exact style={links} activeStyle={{background: 'red'}}>TV Shows</NavLink>
+              <div className='title'>
+                <h1>Place For Nerds</h1>
               </div>
+                <div className='nav-links'>
+                  <NavLink to='/' exact style={links} activeStyle={{background: 'red'}}>Home</NavLink>
+                  <NavLink to='/movies' exact style={links} activeStyle={{background: 'red'}}>Movies</  NavLink>
+                  <NavLink to='/tv_shows' exact style={links} activeStyle={{background: 'red'}}>TV Shows</NavLink>
+                </div>
             <div className='user-links'>
               {!isAuthenticated ?
               <>          
@@ -54,13 +54,17 @@ class Navigation extends Component {
                 : ''
               }
             
-              {isAuthenticated ? <LogoutButton handleLogout={handleLogoutOnButtonClick}/> : ''}
+              {isAuthenticated ? 
+                <LogoutButton handleLogout={handleLogoutOnButtonClick}/> 
+                : ''
+              }
             </div>
           </div>
     )}
 }
 
 const mapStateToProps = globalState => {
+  console.log('username is', globalState)
   return {
     isAuthenticated: globalState.userReducer.isAuthenticated
   }

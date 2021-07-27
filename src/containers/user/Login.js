@@ -51,12 +51,14 @@ class Login extends Component {
             })
             .then(resp => resp.json())
             .then(data =>  {
+                console.log(data)
                 if (data.failure !== undefined) {
                     window.alert('failed to login please try again')
                 }else{
                     if (data.jwt !== undefined) {
                         localStorage.setItem("token", data.jwt)
                         userLogin(data)
+                        console.log(data.user.username)
                         this.props.history.goBack()
                     } else {
                         userLoginFail(alert)
