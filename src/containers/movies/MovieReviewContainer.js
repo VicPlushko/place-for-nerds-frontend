@@ -1,16 +1,34 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getReviews, changeTitle, changeContent, createReview, clearForm } from '../../actions/review'
-import MovieReviewForm from '../../components/MovieReviewForm'
+import MovieReviewForm from '../../components/movie/MovieReviewForm'
 import Review from '../../components/movie/Review'
+import ReviewButton from '../../components/ReviewButton'
 
 class MovieReviewContainer extends Component {
 
+    state = {
+        clicked: false
+    }
+
     handleOnSubmit = (event) => {
-        const reviewBody = {
+        const {
+            movie_id, 
+            title,
+            content
+        } = this.props
+
+        if (title.length === 0) {
+            window.alert('Review title can not be empty.')
+            event.preventDefault()
+        } else if (content.length === 0) {
+            window.alert('Review body can not be empty.')
+            event.preventDefault()
+        } else {
+            const reviewBody = {
             title: event.target.elements.title.value,
             content: event.target.elements.content.value,
-            movie_id: this.props.movie_id
+            movie_id: movie_id
         }
 
         const reviewURL = 'http://localhost:3001/reviews'
@@ -28,38 +46,70 @@ class MovieReviewContainer extends Component {
              this.props.createReview(review)
              this.props.clearForm()
             })
-         
+        }
+
+        
     }
 
-
     handleOnTitleChange = (event) => {
-        console.log(event.target.value)
-        this.props.changeTitle(event.target.value)
+        const {changeTitle} = this.props
+        changeTitle(event.target.value)
     }
 
     handleOnContentChange = (event) => {
-        console.log(event.target.value)
-        this.props.changeContent(event.target.value)
+        const {changeContent} = this.props
+        changeContent(event.target.value)
+    }
+
+    displayReviewForm = () => {
+        this.setState({
+            clicked: true
+        })
+        if (this.props.isAuthenticated === false) {
+            window.alert("Must be logged in to write a review")
+        }else{
+            <MovieReviewForm />
+        }
     }
 
     componentDidMount() {
-        this.props.getReviews(this.props.movie_id)
+        const {getReviews, movie_id} = this.props
+        getReviews(movie_id)
     }
 
-    
     render() {
-        console.log("movie review container props is", this.props)
-            
-            const reviews = this.props.reviews.map((review, i) => <Review key={i} title={review.title} content={review.content} movie_id={review.movie_id}/>)
+
+        const {
+            reviews,
+            loading,
+            title,
+            content,
+            isAuthenticated,
+            movie_id,
+            movieTitle,
+            backdrop
+        } = this.props
+
+        const movieReviews = this.props.reviews.map((review, i) => <Review key={i} title={review.title} content={review.content} movie_id={review.movie_id} backdrop={backdrop}/>)
          
         return (
-            <div>
-                <MovieReviewForm key={this.props.movie_id} title={this.props.title} content={this.props.content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit}/>
-                <div>
+            <div className="review-form-div">
+                {this.state.clicked === true 
+                ? null
+                :<ReviewButton handleReviewButton={this.displayReviewForm} />
+                }
+                {this.state.clicked === true && isAuthenticated === true 
+                    ? <MovieReviewForm key={movie_id} title={title} content={content} handleTitleChange={this.handleOnTitleChange} handleContentChange={this.handleOnContentChange} handleSubmit={this.handleOnSubmit} backdrop={backdrop}/>
+                    : null  
+                }
+                <div className='review-inner-div'>
                     <h1>Reviews:</h1>
-                    <ul>
-                       {reviews}
-                    </ul>
+                       {loading
+                       ? <h3>Loading...</h3>
+                       : (reviews.length === 0)
+                       ? `There are no reviews for "${movieTitle}". Be the first to write a review.`
+                       : movieReviews
+                       }
                 </div>
             </div>
         )
@@ -67,12 +117,13 @@ class MovieReviewContainer extends Component {
 }
 
 const mapStateToProps = globalState => {
-    console.log("Movie review global state is", globalState)
     return {
         reviews: globalState.reviewReducer.reviews,
         loading: globalState.reviewReducer.loading,
         title: globalState.reviewReducer.title,
-        content: globalState.reviewReducer.content
+        content: globalState.reviewReducer.content,
+        isAuthenticated: globalState.userReducer.isAuthenticated,
+        movies: globalState.movieReducer.movies
     }
 } 
 

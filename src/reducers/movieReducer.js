@@ -1,6 +1,11 @@
-const movieReducer = (state = {movies: [], loading: false}, action) => {
+const initialState = {
+    movies: [],
+    loading: false
+}
+
+const movieReducer = (state = initialState, action) => {
     switch(action.type) {
-        case("LOADING_MOVIES"):
+        case('LOADING_MOVIES'):
             return {...state, loading: true}
         case('MOVIES_LOADED'):
             return {...state, loading: false, movies: action.payload}

@@ -1,15 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Movie = (props) => {
+const HomepageMovie = (props) => {
 
   const {
     poster,
     id,
     title,
   } = props
-
-  // console.log('movie component', props)
 
   let imageURL;
   if (poster == null) {
@@ -19,12 +17,10 @@ const Movie = (props) => {
   }
 
       return (
-          <div className='movie-list-container'>
+          <div className='home-movies'>
             <div className='poster-link'><Link to={`/movies/${id}`}><img src={imageURL} alt='' id={id}></img></Link>
               <div className='movie-title'>
-                <div className='title-link'>
-                  {title}
-                </div>
+                <div className='title-link'>{title}</div>
               </div>
             </div>
           </div>
@@ -32,4 +28,4 @@ const Movie = (props) => {
 
 }
 
-export default Movie
+export default HomepageMovie
