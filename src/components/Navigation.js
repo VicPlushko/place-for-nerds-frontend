@@ -37,28 +37,28 @@ class Navigation extends Component {
     }
       return (
           <div className='NavBar'>
-              <div className='title'>
-                <h1>Place For Nerds</h1>
-              </div>
-                <div className='nav-links'>
-                  <NavLink to='/' exact style={links} activeStyle={{background: 'red'}}>Home</NavLink>
-                  <NavLink to='/movies' exact style={links} activeStyle={{background: 'red'}}>Movies</  NavLink>
-                  <NavLink to='/tv_shows' exact style={links} activeStyle={{background: 'red'}}>TV Shows</NavLink>
-                </div>
-            <div className='user-links'>
-              {!isAuthenticated ?
-              <>          
-                <NavLink to='/register' exact style={userLinks}>Sign up</NavLink>
-                <NavLink to='/login' exact style={userLinks}>Login</NavLink>
-              </>  
-                : ''
-              }
-            
-              {isAuthenticated ? 
-                <LogoutButton handleLogout={handleLogoutOnButtonClick}/> 
-                : ''
-              }
+            <div className='title'>
+              <h1>Place For Nerds</h1>
             </div>
+              <div className='nav-links'>
+                <NavLink to='/' exact style={links} activeStyle={{background: 'red'}}>Home</NavLink>
+                <NavLink to='/movies' exact style={links} activeStyle={{background: 'red'}}>Movies</  NavLink>
+                <NavLink to='/tv_shows' exact style={links} activeStyle={{background: 'red'}}>TV Shows</NavLink>
+              </div>
+                <div className='user-links'>
+                  {!isAuthenticated ?
+                  <>          
+                    <NavLink to='/register' exact style={userLinks}>Sign up</NavLink>
+                    <NavLink to='/login' exact style={userLinks}>Login</NavLink>
+                  </>  
+                  : ''
+                  }
+            
+                  {isAuthenticated ? 
+                    <LogoutButton handleLogout={handleLogoutOnButtonClick}/> 
+                    : ''
+                  }
+                </div>
           </div>
     )}
 }

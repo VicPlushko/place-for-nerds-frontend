@@ -46,9 +46,7 @@ class MovieReviewContainer extends Component {
              this.props.createReview(review)
              this.props.clearForm()
             })
-        }
-
-        
+        } 
     }
 
     handleOnTitleChange = (event) => {
@@ -126,6 +124,5 @@ const mapStateToProps = globalState => {
         movies: globalState.movieReducer.movies
     }
 } 
-
 
 export default connect(mapStateToProps, { getReviews, changeTitle, changeContent, createReview, clearForm })(MovieReviewContainer)

@@ -22,11 +22,16 @@ const MovieCredits = (props) => {
     return (
         <div>
             <div className='castGrid'>
-                <Link className='poster-link' to={`/movies/${movie_id}`}><img className='movie-poster' src={imageURL} alt=""></img>
+                <Link className='poster-link' to={`/movies/${movie_id}`}>
+                    <img className='movie-poster' src={imageURL} alt=""></img>
                 </Link>
-                <div className='movie-name'>{title} - {release_date === "" ? "TBD" : getYear(release_date)}</div>
-                <div className='character-name'>{character}</div>
+                <div className='movie-name'>
+                    {title} - {release_date === "" ? "TBD" : getYear(release_date)}
                 </div>
+                <div className='character-name'>
+                    {character}
+                </div>
+            </div>
         </div>
     )
 }

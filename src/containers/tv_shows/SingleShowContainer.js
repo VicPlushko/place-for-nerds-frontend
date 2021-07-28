@@ -3,6 +3,7 @@ import SingleShow from '../../components/tv_show/SingleShow'
 import Actor from '../../components/actor/Actor'
 import TvShowReviewContainer from '../../containers/tv_shows/TvShowReviewContainer'
 import moment from 'moment'
+import Footer from '../../components/Footer'
 
 class SingleShowContainer extends Component {
 
@@ -50,9 +51,9 @@ class SingleShowContainer extends Component {
                     return <Actor key={i} id={actor.id} name={actor.name} character={actor.character} poster={actor.profile_path}/>
                 })
             })
-        })
-        
+        }) 
     }
+
     render() {
         
         const {
@@ -95,14 +96,15 @@ class SingleShowContainer extends Component {
                 cast= {cast} 
                 backdrop={backdrop}
                 />
-                <div className='review-div' style={{backgroundImage: 'url(' + backdropUrl + ')'}} id='movie-reviews'>
-                    <TvShowReviewContainer 
-                    key={show_id} 
-                    show_id={show_id} 
-                    showTitle={title}
-                    backdrop={backdrop}
-                    />
-                </div>
+                    <div className='review-div' style={{backgroundImage: 'url(' + backdropUrl + ')'}} id='movie-reviews'>
+                        <TvShowReviewContainer 
+                        key={show_id} 
+                        show_id={show_id} 
+                        showTitle={title}
+                        backdrop={backdrop}
+                        />
+                    </div>
+                <Footer />
             </div>
         )
     }

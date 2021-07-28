@@ -10,11 +10,9 @@ import SingleShowContainer from './containers/tv_shows/SingleShowContainer'
 import Navigation from './components/Navigation'
 import Registration from './containers/user/Registration'
 import Login from './containers/user/Login'
-import Footer from './components/Footer'
 import { connect } from 'react-redux';
 import { getMovies, theaterMovies } from './actions/movie'
 import { getShows, getHomeTV } from './actions/tvShows'
-import { userLogin } from './actions/user'
 
 class App extends Component {
 
@@ -43,19 +41,16 @@ class App extends Component {
             <Route exact path='/register' component={Registration} />
             <Route exact path='/login' component={Login} />
           </Switch>
-          <Footer />
         </div>
       </Router>
     );
   }
-  
 }
 
 const mapStateToProps = globalState => {
-  console.log(globalState.userReducer)
   return {
     isAuthenticated: globalState.userReducer.isAuthenticated,
   }
 }
 
-export default connect(mapStateToProps, { getMovies, theaterMovies, getShows, getHomeTV, userLogin })(App)
+export default connect(mapStateToProps, { getMovies, theaterMovies, getShows, getHomeTV })(App)

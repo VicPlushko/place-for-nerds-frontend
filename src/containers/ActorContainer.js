@@ -3,7 +3,7 @@ import SingleActor from '../components/actor/SingleActor'
 import MovieCredits from '../components/actor/MovieCredits'
 import TvCredits from '../components/actor/TvCredits'
 import moment from 'moment'
-
+import Footer from '../components/Footer'
 
 class ActorContainer extends Component {
 
@@ -47,7 +47,6 @@ class ActorContainer extends Component {
         
     }
 
-    
     render() {
 
         const {
@@ -85,7 +84,9 @@ class ActorContainer extends Component {
                poster={picture} 
                homepage={homepage}
                movieCredits={sortedMovies} 
-               tvCredits={sortedShows} />
+               tvCredits={sortedShows} 
+               />
+               <Footer />
             </div>
         )
     }

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import HomepageMovie from './movie/HomepageMovie'
 import HomepageShow from './tv_show/HomepageShow'
+import Footer from './Footer'
 
 class Home extends Component {
 
@@ -26,21 +27,22 @@ class Home extends Component {
                 <div className='recent-movies-h1'>
                     <h1>Recently Released Movies</h1>
                 </div>
-                <div className='homepage-movies'>
-                    { loading 
-                    ? <h3>Loading...</h3> 
-                    : theaterMovies
-                    }
-                </div>
-                <div className='recent-shows-h1'>
-                    <h1>Top Rated Shows</h1>
-                </div>
-                <div className='homepage-shows'>
-                    { loading
-                    ? <h3>Loading...</h3>
-                    : homeShows
-                    }
-                </div>        
+                    <div className='homepage-movies'>
+                        { loading 
+                        ? <h3>Loading...</h3> 
+                        : theaterMovies
+                        }
+                    </div>
+                        <div className='recent-shows-h1'>
+                            <h1>Top Rated Shows</h1>
+                        </div>
+                    <div className='homepage-shows'>
+                        { loading
+                        ? <h3>Loading...</h3>
+                        : homeShows
+                        }
+                    </div>
+                <Footer />        
             </div>
     )}
 }

@@ -17,16 +17,21 @@ const Movie = (props) => {
     imageURL = `http://image.tmdb.org/t/p/w185${poster}`
   }
 
-      return (
-          <div className='movie-list-container'>
-            <div className='poster-link'><Link to={`/actors/${id}`}><img src={imageURL} alt='' id={id}></img></Link>
-              <div className='movie-title'>
-                {name}
-               <div className='cast-character'>{character}</div>
+    return (
+        <div className='movie-list-container'>
+          <div className='poster-link'>
+            <Link to={`/actors/${id}`}>
+              <img src={imageURL} alt='' id={id}></img>
+            </Link>
+            <div className='movie-title'>
+              {name}
+              <div className='cast-character'>
+                {character}
               </div>
             </div>
           </div>
-      )
+        </div>
+    )
 }
 
 export default Movie

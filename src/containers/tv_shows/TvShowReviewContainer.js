@@ -53,7 +53,6 @@ class TvShowReviewContainer extends Component {
         }
     }
 
-
     handleOnTitleChange = (event) => {
         const {changeReviewTitle} = this.props
         changeReviewTitle(event.target.value)
@@ -109,14 +108,12 @@ class TvShowReviewContainer extends Component {
                 }
                 <div className='review-inner-div'>
                     <h1>Reviews:</h1>
-                    <ul>
                        { loading
                        ? <h3>Loading...</h3>
                        : (tvShowReviews.length === 0)
                        ? `There are no reviews for "${showTitle}". Be the first to write a review.`
                        : ShowReviews
                        }
-                    </ul>
                 </div>
             </div>
         )

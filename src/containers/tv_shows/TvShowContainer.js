@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import TvShow from '../../components/tv_show/TvShow'
 import TvSearch from '../../containers/tv_shows/TvSearch'
 import { getShows } from '../../actions/tvShows'
+import Footer from '../../components/Footer'
 
 class TvShowContainer extends Component {
 
@@ -19,6 +20,7 @@ class TvShowContainer extends Component {
         const initialShows = shows.map((show, i) => {
             return <TvShow key={i}  title={show.name} release_date={show.first_air_date} synopsis={show.overview} poster={show.poster_path} show_id={show.id}/>
             })
+
         return (
             <div className='movie-outer-div'>
                 <div className='movies-header'>
@@ -27,16 +29,18 @@ class TvShowContainer extends Component {
                 <div className='search-div'>
                     <TvSearch/>
                     <div className='clear-btn'>
-                    <button className='reload-movies' id='tvshow-reload' onClick={this.handleClick}>Clear Search</button>
-                  </div>
+                        <button className='reload-movies' id='tvshow-reload' onClick={this.handleClick}>Clear Search</button>
+                    </div>
                 </div>
-                <div className='movies-container'>
-                { loading 
-                ? <h3>Loading...</h3> 
-                : (shows.length === 0) 
-                ? <p>No Shows Found</p>
-                : initialShows}
-                </div>
+                    <div className='movies-container'>
+                    { loading 
+                    ? <h3>Loading...</h3> 
+                    : (shows.length === 0) 
+                    ? <p>No Shows Found</p>
+                    : initialShows
+                    }
+                    </div>
+                <Footer />
             </div>
         )
     }

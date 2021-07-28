@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getMovies } from '../../actions/movie'
 import Movie from '../../components/movie/Movie'
 import SearchContainer from '../movies/SearchContainer'
+import Footer from '../../components/Footer'
 
 class MoviesContainer extends Component {
 
@@ -28,19 +29,21 @@ class MoviesContainer extends Component {
                 <div className='movies-header'>
                     <h1>Movies</h1>
                     <div className="search-div">
-                    <SearchContainer/>
-                  <div className="clear-btn">
-                    <button className='reload-movies' onClick={this.handleClick}>Clear Search</button>
-                  </div>
+                        <SearchContainer/>
+                        <div className="clear-btn">
+                            <button className='reload-movies' onClick={this.handleClick}>Clear Search</button>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                <div className='movies-container'>
-                { loading 
-                ? <h3>Loading...</h3> 
-                : (movies.length === 0) 
-                ? <p>No Movies Found</p>
-                : movieList}
-                </div>
+                    <div className='movies-container'>
+                        { loading 
+                        ? <h3>Loading...</h3> 
+                        : (movies.length === 0) 
+                        ? <p>No Movies Found</p>
+                        : movieList
+                        }
+                    </div>
+                <Footer />
             </div>
             
         )

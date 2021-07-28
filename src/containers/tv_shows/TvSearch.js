@@ -24,6 +24,7 @@ class TvSearch extends Component {
         .then(data => this.props.dispatch({type: 'SHOWS_LOADED', payload: data.results}))
         event.target.reset()
     }
+    
     render() {
         return (
             <div className='search'>

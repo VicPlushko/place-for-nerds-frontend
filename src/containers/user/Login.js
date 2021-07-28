@@ -6,7 +6,6 @@ import LoginForm from '../../components/user/LoginForm'
 
 class Login extends Component {
     
-
     handleChangeUsername = (event) => {
         const {changeUsername} = this.props
         changeUsername(event.target.value)

@@ -10,7 +10,6 @@ export const startUserLogin = () => {
     }
 }
 
-
 export const userLogin = (userData) => {
     return dispatch => {
         dispatch({type: 'LOGIN_USER_SUCCESS', payload: userData.user})

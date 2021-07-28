@@ -4,6 +4,7 @@ import Actor from '../../components/actor/Actor'
 import MovieReviewContainer from './MovieReviewContainer'
 import { formatAsCurrency } from '../../utitlity/util'
 import moment from 'moment'
+import Footer from '../../components/Footer'
 
 class SingleMovieContainer extends Component {
     
@@ -71,27 +72,29 @@ class SingleMovieContainer extends Component {
 
         return (
             <div>
-               <SingleMovie 
-               key={movie_id}
-               title={title} 
-               release_date={moment(release_date).format('MM-DD-YYYY')} 
-               synopsis={synopsis} 
-               poster={poster} 
-               movie_id={movie_id} 
-               budget={budget} 
-               revenue={revenue} 
-               runtime={runtime} 
-               genres={genres} 
-               productionCompanies={productionCompanies} 
-               cast={cast} 
-               backdrop={backdrop}/>
-            <div className='review-div' style={{backgroundImage: 'url(' + backdropUrl + ')'}} id='movie-reviews'>
-                <MovieReviewContainer 
-                key={movie_id} 
+                <SingleMovie 
+                key={movie_id}
+                title={title} 
+                release_date={moment(release_date).format('MM-DD-YYYY')} 
+                synopsis={synopsis} 
+                poster={poster} 
                 movie_id={movie_id} 
-                movieTitle={title}
-                backdrop={backdrop}/>
-            </div>
+                budget={budget} 
+                revenue={revenue} 
+                runtime={runtime} 
+                genres={genres} 
+                productionCompanies={productionCompanies} 
+                cast={cast} 
+                backdrop={backdrop}
+                />
+                    <div className='review-div' style={{backgroundImage: 'url(' + backdropUrl + ')'}} id='movie-reviews'>
+                        <MovieReviewContainer 
+                        key={movie_id} 
+                        movie_id={movie_id} 
+                        movieTitle={title}
+                        backdrop={backdrop}/>
+                    </div>
+                <Footer />
             </div>
         )
     }

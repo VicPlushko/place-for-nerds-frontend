@@ -23,6 +23,7 @@ class SearchContainer extends Component {
         .then(data => this.props.dispatch({type: "MOVIES_LOADED", payload: data.results}))
         event.target.reset()
     }
+    
     render() {
         return (
             <div className='search'>
