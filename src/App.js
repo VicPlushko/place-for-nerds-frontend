@@ -28,11 +28,7 @@ class App extends Component {
 
   render() {
 
-    // const token = localStorage.getItem('token')
-
-    // if (token) {
-    //   console.log(this.props.username)
-    // }
+    
 
     
     return (
@@ -60,10 +56,10 @@ class App extends Component {
 }
 
 const mapStateToProps = globalState => {
+  console.log(globalState.userReducer)
   return {
     isAuthenticated: globalState.userReducer.isAuthenticated,
-    username: globalState.userReducer.username
   }
 }
 
-export default connect(mapStateToProps, { getMovies, theaterMovies, getShows, getHomeTV })(App)
+export default connect(mapStateToProps, { getMovies, theaterMovies, getShows, getHomeTV, userLogin })(App)

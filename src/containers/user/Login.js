@@ -58,7 +58,6 @@ class Login extends Component {
                     if (data.jwt !== undefined) {
                         localStorage.setItem("token", data.jwt)
                         userLogin(data)
-                        console.log(data.user.username)
                         this.props.history.goBack()
                     } else {
                         userLoginFail(alert)

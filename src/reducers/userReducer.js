@@ -18,7 +18,7 @@ const userReducer = (state = initialState, action) => {
         case('START_USER_LOGIN'):
             return {...state}
         case('LOGIN_USER_SUCCESS'):
-            return {...state, isAuthenticated: true, username: action.payload.username, password: action.payload.password}
+            return {...state, isAuthenticated: true, username: action.payload.username, password: action.payload.password_digest}
         case('LOGIN_USER_FAIL'):
             return {...state}
         case('CHANGE_USERNAME'):
@@ -34,7 +34,6 @@ const userReducer = (state = initialState, action) => {
         default:
             return state
     }
-
 }
 
 export default userReducer;

@@ -76,7 +76,6 @@ class Signup extends Component {
                 })
                 .then(resp => resp.json())
                 .then(data => {
-                    console.log(data)
                     createUser(data)
                     this.props.history.push("/login")
                 })

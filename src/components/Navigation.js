@@ -64,7 +64,6 @@ class Navigation extends Component {
 }
 
 const mapStateToProps = globalState => {
-  console.log('username is', globalState)
   return {
     isAuthenticated: globalState.userReducer.isAuthenticated
   }
