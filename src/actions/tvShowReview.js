@@ -1,5 +1,5 @@
 export const getTvShowReviews = (show_id) => {
-    const showReviewsURL = `http://localhost:3001/tv_show_reviews/${show_id}`
+    const showReviewsURL = `https://place-for-nerds-api.herokuapp.com/tv_show_reviews/${show_id}`
 
     return dispatch => {
         dispatch({type: 'LOADING_TV_SHOW_REVIEWS'})

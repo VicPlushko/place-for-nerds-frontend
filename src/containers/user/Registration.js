@@ -64,7 +64,7 @@ class Signup extends Component {
                 password: event.target.elements.passwordField.value,
             }
             event.preventDefault()
-            const URL = 'http://localhost:3001/register'
+            const URL = 'https://place-for-nerds-api.herokuapp.com/register'
             if (passwordConfirm === password ) {
                 fetch(URL, {
                     method: "POST",

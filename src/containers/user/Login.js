@@ -35,7 +35,7 @@ class Login extends Component {
         } else {
             startUserLogin()
             event.preventDefault()
-            const loginUrl = 'http://localhost:3001/login'
+            const loginUrl = 'https://place-for-nerds-api.herokuapp.com/login'
             let loginBody = {
                 username: event.target.elements.username.value,
                 password: event.target.elements.passwordField.value

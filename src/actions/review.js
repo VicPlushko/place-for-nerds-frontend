@@ -1,5 +1,5 @@
 export const getReviews = (movie_id) => {
-    const reviewsURL = `http://localhost:3001/reviews/${movie_id}`
+    const reviewsURL = `https://place-for-nerds-api.herokuapp.com/reviews/${movie_id}`
 
     return dispatch => {
         dispatch({type: 'LOADING_REVIEWS'})

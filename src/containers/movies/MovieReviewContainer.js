@@ -31,7 +31,7 @@ class MovieReviewContainer extends Component {
             movie_id: movie_id
         }
 
-        const reviewURL = 'http://localhost:3001/reviews'
+        const reviewURL = 'https://place-for-nerds-api.herokuapp.com/reviews'
         event.preventDefault()
         fetch(reviewURL, {
         method: 'POST',

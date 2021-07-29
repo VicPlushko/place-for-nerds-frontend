@@ -35,7 +35,7 @@ class TvShowReviewContainer extends Component {
                 show_id: show_id
             }
 
-            const showReviewURL = 'http://localhost:3001/tv_show_reviews'
+            const showReviewURL = 'https://place-for-nerds-api.herokuapp.com/tv_show_reviews'
             event.preventDefault()
             fetch(showReviewURL, {
             method: 'POST',
